@@ -21,13 +21,11 @@ public class ParseApplication extends Application {
 
         // Register your parse models
         ParseObject.registerSubclass(College.class);
-        ParseObject.registerSubclass(College_Review.class);
+        ParseObject.registerSubclass(Review.class);
         ParseObject.registerSubclass(Course.class);
-        ParseObject.registerSubclass(Course_Review.class);
         ParseObject.registerSubclass(Club_Soc.class);
-        ParseObject.registerSubclass(Club_Soc_Review.class);
         ParseObject.registerSubclass(Module.class);
-        ParseObject.registerSubclass(Module_Review.class);
+
 
 
         /*
