@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Login Successfully!"
                                         , Toast.LENGTH_LONG).show();
 
-                                startActivity(new Intent(Login.this, Home.class));
+                                startActivity(new Intent(Login.this, CollegeListActivity.class));
 
                             } else {
 

@@ -156,7 +156,7 @@ public class CreateAccount extends AppCompatActivity implements ProgressGenerato
     @Override
     public void onComplete() {
 
-        startActivity(new Intent(CreateAccount.this, Home.class));
+        startActivity(new Intent(CreateAccount.this, CollegeListActivity.class));
 
     }
 }

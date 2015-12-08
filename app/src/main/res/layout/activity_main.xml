@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo_new" />
 
 
     <com.dd.processbutton.FlatButton

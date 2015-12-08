@@ -1,6 +1,5 @@
 package ie.ncirl.jordandaly.classdoor;
 
-
 import java.util.Arrays;
 
 import android.content.Context;
@@ -15,22 +14,17 @@ import com.parse.ParseImageView;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
-/*
- * The FavoriteMealAdapter is an extension of ParseQueryAdapter
- * that has a custom layout for favorite meals, including a
- * bigger preview image, the meal's rating, and a "favorite"
- * star.
+/**
+ * Created by jdaly on 08/12/2015.
  */
+public class CollegeAdapter extends ParseQueryAdapter<College> {
 
-public class CustomAdapter extends ParseQueryAdapter<College> {
-
-    public CustomAdapter(Context context) {
+    public CollegeAdapter(Context context) {
         super(context, new ParseQueryAdapter.QueryFactory<College>() {
             public ParseQuery<College> create() {
                 // Here we can configure a ParseQuery to display
                 // only universities.
                 ParseQuery query = new ParseQuery("College");
-                query.whereEqualTo("College_Type", "University");
                 query.orderByAscending("Name");
                 return query;
             }
@@ -41,7 +35,7 @@ public class CustomAdapter extends ParseQueryAdapter<College> {
     public View getItemView(College college, View v, ViewGroup parent) {
 
         if (v == null) {
-            v = View.inflate(getContext(), R.layout.item_list_uni, null);
+            v = View.inflate(getContext(), R.layout.item_list_college, null);
         }
 
         super.getItemView(college, v, parent);
@@ -58,12 +52,11 @@ public class CustomAdapter extends ParseQueryAdapter<College> {
             });
         }
 
-        TextView nameTextView = (TextView) v.findViewById(R.id.text1);
+        TextView nameTextView = (TextView) v.findViewById(R.id.college_name);
         nameTextView.setText(college.getName());
-        TextView initialsTextView = (TextView) v
-                .findViewById(R.id.initials);
-        initialsTextView.setText(college.getInitials());
+        TextView collegeTypeTextView = (TextView) v.findViewById(R.id.college_type);
+        collegeTypeTextView.setText(college.getCollege_Type());
+
         return v;
     }
-
 }
