@@ -3,6 +3,7 @@ package ie.ncirl.jordandaly.classdoor;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -10,8 +11,12 @@ import android.widget.TextView;
  */
 public class CollegeSingleItem extends Activity {
     // Declare Variables
-    TextView txtname;
+    TextView textname;
     String name;
+
+    private ParseProxyObject collegeObject = null;
+    private String collegeID;
+    private String collegeName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,17 +24,30 @@ public class CollegeSingleItem extends Activity {
         // Get the view from xml
         setContentView(R.layout.college_single_item);
 
-        // Retrieve data from cocllege list activity on item click event
-        Intent i = getIntent();
+
+        // Retrieve data from college list activity on item click event
+        Intent intent = getIntent();
+
+
+        collegeObject = (ParseProxyObject) intent
+                .getSerializableExtra("college");
+        collegeID = intent.getStringExtra("collegeID");
+        collegeName = intent.getStringExtra("collegeName");
+
+
+        Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
+
 
         // Get the name
-        name = i.getStringExtra("name");
+        name = intent.getStringExtra("collegeName");
 
         // Locate the TextView in singleitemview.xml
-        txtname = (TextView) findViewById(R.id.name);
+        textname = (TextView) findViewById(R.id.name);
 
         // Load the text into the TextView
-        txtname.setText(name);
+        textname.setText(name);
+
+
 
     }
 }

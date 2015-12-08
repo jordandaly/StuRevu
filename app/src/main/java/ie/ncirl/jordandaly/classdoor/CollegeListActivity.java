@@ -5,34 +5,36 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.content.Intent;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
+
 public class CollegeListActivity extends ListActivity {
 
-    private ParseQueryAdapter<College> mainAdapter;
+
+    ListView listView;
+    private ParseQueryAdapter<ParseObject> mainAdapter;
     private CollegeAdapter collegeAdapter;
     private CustomAdapter customAdapter;
-    //ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_college_list);
-        getListView().setClickable(true);
+        setContentView(R.layout.activity_college_list);
+        //getListView().setClickable(false);
 
-        mainAdapter = new ParseQueryAdapter<College>(this, College.class);
+
+        mainAdapter = new ParseQueryAdapter<ParseObject>(this, College.class);
 
         mainAdapter.setTextKey("Name");
         mainAdapter.setImageKey("ImageFile");
@@ -44,11 +46,19 @@ public class CollegeListActivity extends ListActivity {
         // Subclass of ParseQueryAdapter
         collegeAdapter = new CollegeAdapter(this);
 
-        //ListView listView = (ListView) findViewById(R.id.collegeList);
-        //listView.setAdapter(mainAdapter);
+        listView = (ListView) findViewById(android.R.id.list);
+        listView.setAdapter(collegeAdapter);
 
         // Default view is collegeAdapter (all college sorted asc)
         setListAdapter(collegeAdapter);
+
+        //getListView().setOnItemClickListener();
+
+        setUpCollegeItems();
+
+
+
+
 
 
     }
@@ -100,6 +110,27 @@ public class CollegeListActivity extends ListActivity {
             // the list of posts
             updateCollegeList();
         }
+    }
+
+    private void setUpCollegeItems() {
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            public static final String TAG = "buttonClick log";
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onItemClick");
+
+                ParseObject college = collegeAdapter.getItem(position);
+                ParseProxyObject ppo = new ParseProxyObject(college);
+
+                Intent intent = new Intent(CollegeListActivity.this, CollegeSingleItem.class);
+                intent.putExtra("college", ppo);
+                intent.putExtra("collegeID", college.getObjectId());
+                intent.putExtra("collegeName", college.getString("Name"));
+                startActivity(intent);
+
+            }
+        });
     }
 
 

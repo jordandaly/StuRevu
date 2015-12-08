@@ -26,5 +26,6 @@
         <activity android:name=".Login" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".CollegeListActivity" />
+        <activity android:name=".CollegeSingleItem" />
     </application>
 </manifest>
