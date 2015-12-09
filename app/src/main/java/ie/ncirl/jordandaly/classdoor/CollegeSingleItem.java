@@ -1,22 +1,54 @@
 package ie.ncirl.jordandaly.classdoor;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+
+import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * Created by jdaly on 08/12/2015.
  */
-public class CollegeSingleItem extends Activity {
+public class CollegeSingleItem extends AppCompatActivity implements View.OnClickListener {
     // Declare Variables
-    TextView textname;
-    String name;
+
+    TextView tv_collegeName;
+    TextView tv_initials;
+    TextView tv_averageRating;
+    TextView tv_reviewCount;
+    TextView tv_courseCount;
+    TextView tv_clubSocCount;
+
+    private Button coursesButton;
+    private Button reviewsButton;
+    private Button clubsocsButton;
+
 
     private ParseProxyObject collegeObject = null;
     private String collegeID;
     private String collegeName;
+    private String initials;
+    //private String averageRating;
+    private int averageRating = 0;
+    private int reviewCount = 0;
+    ;
+    private int courseCount = 0;
+    ;
+    private int clubSocCount = 0;
+    ;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,21 +65,77 @@ public class CollegeSingleItem extends Activity {
                 .getSerializableExtra("college");
         collegeID = intent.getStringExtra("collegeID");
         collegeName = intent.getStringExtra("collegeName");
+        initials = intent.getStringExtra("initials");
+        averageRating = (int) intent.getSerializableExtra("averageRating");
+        reviewCount = (int) intent.getSerializableExtra("reviewCount");
+        courseCount = (int) intent.getSerializableExtra("courseCount");
+        clubSocCount = (int) intent.getSerializableExtra("clubSocCount");
 
 
-        Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
+        //Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
 
-
-        // Get the name
-        name = intent.getStringExtra("collegeName");
 
         // Locate the TextView in singleitemview.xml
-        textname = (TextView) findViewById(R.id.name);
-
+        tv_initials = (TextView) findViewById(R.id.init);
         // Load the text into the TextView
-        textname.setText(name);
+        tv_initials.setText(initials);
 
+        // Locate the TextView in singleitemview.xml
+        tv_collegeName = (TextView) findViewById(R.id.name);
+        // Load the text into the TextView
+        tv_collegeName.setText(collegeName);
+
+        // Locate the TextView in singleitemview.xml
+        tv_averageRating = (TextView) findViewById(R.id.avg_rating);
+        // Load the text into the TextView
+        tv_averageRating.setText(Integer.toString(averageRating));
+
+        // Locate the TextView in singleitemview.xml
+        tv_reviewCount = (TextView) findViewById(R.id.rev_count);
+        // Load the text into the TextView
+        tv_reviewCount.setText(Integer.toString(reviewCount));
+
+        // Locate the TextView in singleitemview.xml
+        tv_courseCount = (TextView) findViewById(R.id.course_count);
+        // Load the text into the TextView
+        tv_courseCount.setText(Integer.toString(courseCount));
+
+        // Locate the TextView in singleitemview.xml
+        tv_clubSocCount = (TextView) findViewById(R.id.club_soc_count);
+        // Load the text into the TextView
+        tv_clubSocCount.setText(Integer.toString(clubSocCount));
+
+        coursesButton = (Button) findViewById(R.id.coursesButtonId);
+        reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
+        clubsocsButton = (Button) findViewById(R.id.clubsocsButtonId);
+
+        coursesButton.setOnClickListener(this);
+        reviewsButton.setOnClickListener(this);
+        clubsocsButton.setOnClickListener(this);
 
 
     }
-}
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.coursesButtonId:
+                Intent intent = new Intent(this, CourseListActivity.class);
+                Log.d("DEBUG", "collegeID1 is " + collegeID);
+                intent.putExtra("collegeId", collegeID);
+                startActivity(intent);
+                //startActivity(new Intent(CollegeSingleItem.this, CourseListActivity.class));
+
+                break;
+            case R.id.reviewsButtonId:
+                startActivity(new Intent(CollegeSingleItem.this, ReviewListActivity.class));
+                break;
+            case R.id.clubsocsButtonId:
+                startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));
+        }
+    }
+
+
+    }
+

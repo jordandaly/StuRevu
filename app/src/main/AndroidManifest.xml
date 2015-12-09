@@ -27,5 +27,9 @@
         <activity android:name=".CreateAccount" />
         <activity android:name=".CollegeListActivity" />
         <activity android:name=".CollegeSingleItem" />
+        <activity android:name=".CourseListActivity" />
+        <activity android:name=".CourseSingleItem" />
+        <!--<activity android:name=".ReviewListActivity" />-->
+        <!--<activity android:name=".ClubSocListActivity" />-->
     </application>
 </manifest>

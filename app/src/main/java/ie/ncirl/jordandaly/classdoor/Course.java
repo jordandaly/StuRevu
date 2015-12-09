@@ -16,28 +16,31 @@ public class Course extends ParseObject {
         super();
     }
 
-    // Add a constructor that contains core properties
-    public Course(String body) {
-        super();
-        setBody(body);
+
+    public String getDescription() {
+        return getString("Description");
     }
 
+//    public void setDescription(String description){
+//        put("Description", description);
+//    }
 
-    public String getBody(){
-        return getString("body");
+    public String getModeOfStudy() {
+        return getString("Mode_Of_Study");
     }
 
-    public void setBody(String body){
-        put("body", body);
-    }
+//    public void setModeOfStudy(String modeOfStudy){
+//        put("Mode_Of_Study", modeOfStudy);
+//    }
+
 
     // Get the college for this course
-    public College getCollege() {
-        return (College) getParseObject("college");
+    public ParseObject getCollegeId() {
+        return getParseObject("College_Id");
     }
 
-    // Associate each course with a college
-    public void setCollege(College college) {
-        put("college", college);
-    }
+//    // Associate each course with a college
+//    public void setCollegeId(College collegeId) {
+//        put("College_Id", collegeId);
+//    }
 }

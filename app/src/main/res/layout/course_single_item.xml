@@ -1,20 +1,11 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/collegeID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="50sp"
-        android:textStyle="italic" />
-
 
     <TextView
-        android:id="@+id/init"
+        android:id="@+id/mode_of_study"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -23,7 +14,7 @@
 
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/course_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/init"
@@ -63,42 +54,27 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/coursecountlabel"
+        android:id="@+id/modulecountlabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/revcountlabel"
-        android:text="@string/coursecountlabel"
+        android:text="@string/modulecountlabel"
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/course_count"
+        android:id="@+id/module_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/revcountlabel"
-        android:layout_toRightOf="@+id/coursecountlabel"
+        android:layout_toRightOf="@+id/modulecountlabel"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/clubsoccountlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/coursecountlabel"
-        android:text="@string/clubsoccountlabel"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/club_soc_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/coursecountlabel"
-        android:layout_toRightOf="@+id/clubsoccountlabel"
-        android:textSize="25sp" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/reviewsButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/club_soc_count"
+        android:layout_below="@+id/module_count"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
@@ -108,27 +84,16 @@
         custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
     <com.dd.processbutton.FlatButton
-        android:id="@+id/coursesButtonId"
+        android:id="@+id/modulesButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/reviewsButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Courses"
+        android:text="Modules"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_blue_light"
         custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/clubsocsButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/coursesButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Clubs + Socs"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
 </RelativeLayout>

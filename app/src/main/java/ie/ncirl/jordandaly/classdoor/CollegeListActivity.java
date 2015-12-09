@@ -22,8 +22,8 @@ import com.parse.ParseQueryAdapter;
 public class CollegeListActivity extends ListActivity {
 
 
-    ListView listView;
-    private ParseQueryAdapter<ParseObject> mainAdapter;
+    ListView collegeListView;
+    private ParseQueryAdapter<College> mainCollegeAdapter;
     private CollegeAdapter collegeAdapter;
     private CustomAdapter customAdapter;
 
@@ -34,11 +34,11 @@ public class CollegeListActivity extends ListActivity {
         //getListView().setClickable(false);
 
 
-        mainAdapter = new ParseQueryAdapter<ParseObject>(this, College.class);
+        mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);
 
-        mainAdapter.setTextKey("Name");
-        mainAdapter.setImageKey("ImageFile");
-        mainAdapter.loadObjects();
+        mainCollegeAdapter.setTextKey("Name");
+        mainCollegeAdapter.setImageKey("ImageFile");
+        mainCollegeAdapter.loadObjects();
 
         // Subclass of ParseQueryAdapter
         customAdapter = new CustomAdapter(this);
@@ -46,8 +46,8 @@ public class CollegeListActivity extends ListActivity {
         // Subclass of ParseQueryAdapter
         collegeAdapter = new CollegeAdapter(this);
 
-        listView = (ListView) findViewById(android.R.id.list);
-        listView.setAdapter(collegeAdapter);
+        collegeListView = (ListView) findViewById(android.R.id.list);
+        collegeListView.setAdapter(collegeAdapter);
 
         // Default view is collegeAdapter (all college sorted asc)
         setListAdapter(collegeAdapter);
@@ -113,20 +113,25 @@ public class CollegeListActivity extends ListActivity {
     }
 
     private void setUpCollegeItems() {
-        listView.setOnItemClickListener(new OnItemClickListener() {
-            public static final String TAG = "buttonClick log";
+        collegeListView.setOnItemClickListener(new OnItemClickListener() {
+            public static final String TAG = "buttonClick collegelist";
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick");
 
                 ParseObject college = collegeAdapter.getItem(position);
-                ParseProxyObject ppo = new ParseProxyObject(college);
+                ParseProxyObject college_ppo = new ParseProxyObject(college);
 
                 Intent intent = new Intent(CollegeListActivity.this, CollegeSingleItem.class);
-                intent.putExtra("college", ppo);
+                intent.putExtra("college", college_ppo);
                 intent.putExtra("collegeID", college.getObjectId());
                 intent.putExtra("collegeName", college.getString("Name"));
+                intent.putExtra("initials", college.getString("Initials"));
+                intent.putExtra("averageRating", college.getInt("Average_Rating"));
+                intent.putExtra("reviewCount", college.getInt("Review_Count"));
+                intent.putExtra("courseCount", college.getInt("Course_Count"));
+                intent.putExtra("clubSocCount", college.getInt("Club_Soc_Count"));
                 startActivity(intent);
 
             }
