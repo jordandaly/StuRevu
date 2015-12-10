@@ -26,7 +26,7 @@ public class Course extends ParseObject {
 //    }
 
     public String getModeOfStudy() {
-        return getString("Mode_Of_Study");
+        return getString("Mode_0f_Study");
     }
 
 //    public void setModeOfStudy(String modeOfStudy){

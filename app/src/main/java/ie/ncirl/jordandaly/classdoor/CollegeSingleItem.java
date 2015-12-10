@@ -1,21 +1,12 @@
 package ie.ncirl.jordandaly.classdoor;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
-
-import java.io.Serializable;
-import java.util.Locale;
 
 /**
  * Created by jdaly on 08/12/2015.
@@ -121,15 +112,19 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 
         switch (v.getId()) {
             case R.id.coursesButtonId:
-                Intent intent = new Intent(this, CourseListActivity.class);
-                Log.d("DEBUG", "collegeID1 is " + collegeID);
-                intent.putExtra("collegeId", collegeID);
-                startActivity(intent);
+                Intent courseListIntent = new Intent(this, CourseListActivity.class);
+                Log.d("DEBUG", "collegeID1c is " + collegeID);
+                courseListIntent.putExtra("collegeId", collegeID);
+                startActivity(courseListIntent);
                 //startActivity(new Intent(CollegeSingleItem.this, CourseListActivity.class));
 
                 break;
             case R.id.reviewsButtonId:
-                startActivity(new Intent(CollegeSingleItem.this, ReviewListActivity.class));
+                Intent reviewListIntent = new Intent(this, CollegeReviewListActivity.class);
+                Log.d("DEBUG", "collegeID1r is " + collegeID);
+                reviewListIntent.putExtra("collegeId", collegeID);
+                startActivity(reviewListIntent);
+                //startActivity(new Intent(CollegeSingleItem.this, CollegeReviewListActivity.class));
                 break;
             case R.id.clubsocsButtonId:
                 startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));

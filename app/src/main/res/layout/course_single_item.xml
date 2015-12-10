@@ -3,29 +3,156 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <TextView
+        android:id="@+id/course_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/mode_of_study"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/course_description"
         android:layout_centerHorizontal="true"
-        android:textSize="50sp"
-        android:textStyle="bold" />
-
+        android:textSize="35sp"
+        android:textStyle="italic" />
 
     <TextView
-        android:id="@+id/course_description"
+        android:id="@+id/caocodeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/init"
+        android:layout_below="@id/mode_of_study"
+        android:text="CAO Code:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cao_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mode_of_study"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp" />
+        android:layout_toRightOf="@id/caocodeLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/qualificationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/caocodeLabel"
+        android:text="Qualification:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/qualification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/caocodeLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/qualificationLabel"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nfqLevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qualificationLabel"
+        android:text="NFQ Level:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/nfq_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qualificationLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/nfqLevelLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/durationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nfqLevelLabel"
+        android:text="Duration:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nfqLevelLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/durationLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/courseLevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/durationLabel"
+        android:text="Course Level:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/course_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/durationLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/courseLevelLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/feesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courseLevelLabel"
+        android:text="Fees:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/fees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courseLevelLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/feesLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/departmentFacultyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feesLabel"
+        android:text="Department/Faculty:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/department_faculty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fees"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/departmentFacultyLabel"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/avgratinglabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
+        android:layout_below="@id/departmentFacultyLabel"
         android:text="@string/avgratinglabel"
         android:textSize="25sp" />
 
@@ -33,7 +160,7 @@
         android:id="@+id/avg_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
+        android:layout_below="@id/department_faculty"
         android:layout_toRightOf="@+id/avgratinglabel"
         android:textSize="25sp" />
 
@@ -49,7 +176,7 @@
         android:id="@+id/rev_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/avgratinglabel"
+        android:layout_below="@id/avg_rating"
         android:layout_toRightOf="@+id/revcountlabel"
         android:textSize="25sp" />
 
@@ -65,7 +192,7 @@
         android:id="@+id/module_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/revcountlabel"
+        android:layout_below="@id/rev_count"
         android:layout_toRightOf="@+id/modulecountlabel"
         android:textSize="25sp" />
 

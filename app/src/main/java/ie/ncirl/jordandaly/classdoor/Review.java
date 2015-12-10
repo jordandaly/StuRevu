@@ -27,28 +27,30 @@ public class Review extends ParseObject {
         super();
     }
 
-    // Add a constructor that contains core properties
-    public Review(String description) {
-        super();
-        setDescription(description);
+
+    public String getTitle() {
+        return getString("Title");
     }
 
-
-    public String getDescription() {
-        return getString("description");
+    public void setTitle(String title) {
+        put("Title", title);
     }
 
-    public void setDescription(String description) {
-        put("description", description);
+    public Integer getRating() {
+        return getInt("Rating");
+    }
+
+    public void setRating(Integer rating) {
+        put("Rating", rating);
     }
 
     // Get the college for this college review
     public College getCollege() {
-        return (College) getParseObject("college");
+        return (College) getParseObject("College_Id");
     }
 
     // Associate each college review with a college
     public void setCollege(College college) {
-        put("college", college);
+        put("College_Id", college);
     }
 }

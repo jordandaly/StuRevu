@@ -29,7 +29,13 @@
         <activity android:name=".CollegeSingleItem" />
         <activity android:name=".CourseListActivity" />
         <activity android:name=".CourseSingleItem" />
-        <!--<activity android:name=".ReviewListActivity" />-->
+        <activity android:name=".CollegeReviewListActivity" />
+        <activity android:name=".CourseReviewListActivity" />
         <!--<activity android:name=".ClubSocListActivity" />-->
+        <!--<activity android:name=".ClubSocSingleItem" />-->
+        <!--<activity android:name=".ClubSocReviewListActivity" />-->
+        <!--<activity android:name=".ModuleListActivity" />-->
+        <!--<activity android:name=".ModuleSingleItem" />-->
+        <!--<activity android:name=".ModuleReviewListActivity" />-->
     </application>
 </manifest>

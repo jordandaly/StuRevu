@@ -1,20 +1,11 @@
 package ie.ncirl.jordandaly.classdoor;
 
-import java.util.Arrays;
-import java.util.List;
-
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.parse.FindCallback;
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseImageView;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
@@ -23,7 +14,7 @@ import com.parse.ParseQueryAdapter;
  */
 public class CourseAdapter extends ParseQueryAdapter<Course> {
 
-    
+
     public CourseAdapter(Context context) {
 
 

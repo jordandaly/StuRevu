@@ -9,11 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
-import android.content.Intent;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
-
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
@@ -129,6 +127,14 @@ public class CourseListActivity extends ListActivity {
                 intent.putExtra("course", course_ppo);
                 intent.putExtra("courseID", course.getObjectId());
                 intent.putExtra("courseDescription", course.getString("Description"));
+                intent.putExtra("caoCode", course.getString("CAO_Code"));
+                intent.putExtra("modeOfStudy", course.getString("Mode_0f_Study"));
+                intent.putExtra("qualification", course.getString("Qualification_Type"));
+                intent.putExtra("nfqLevel", course.getInt("Level"));
+                intent.putExtra("duration", course.getString("Duration"));
+                intent.putExtra("courseLevel", course.getString("Course_Level"));
+                intent.putExtra("fees", course.getInt("Fees"));
+                intent.putExtra("departmentFaculty", course.getString("Department_Faculty"));
                 intent.putExtra("averageRating", course.getInt("Average_Rating"));
                 intent.putExtra("reviewCount", course.getInt("Review_Count"));
                 intent.putExtra("moduleCount", course.getInt("Module_Count"));
