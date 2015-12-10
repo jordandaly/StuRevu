@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
 
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/course_description"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <TextView
@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/mode_of_study"
-        android:text="CAO Code:"
-        android:textSize="20sp" />
+        android:text="CAO Code: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/cao_code"
@@ -36,7 +36,7 @@
         android:layout_below="@id/mode_of_study"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/caocodeLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -44,8 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/caocodeLabel"
-        android:text="Qualification:"
-        android:textSize="20sp" />
+        android:text="Qualification: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/qualification"
@@ -61,18 +61,18 @@
         android:id="@+id/nfqLevelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/qualificationLabel"
-        android:text="NFQ Level:"
-        android:textSize="20sp" />
+        android:layout_below="@id/qualification"
+        android:text="NFQ Level: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/nfq_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/qualificationLabel"
+        android:layout_below="@id/qualification"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/nfqLevelLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -80,8 +80,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nfqLevelLabel"
-        android:text="Duration:"
-        android:textSize="20sp" />
+        android:text="Duration: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/duration"
@@ -90,7 +90,7 @@
         android:layout_below="@id/nfqLevelLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/durationLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -98,8 +98,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/durationLabel"
-        android:text="Course Level:"
-        android:textSize="20sp" />
+        android:text="Course Level: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/course_level"
@@ -108,7 +108,7 @@
         android:layout_below="@id/durationLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/courseLevelLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -116,8 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/courseLevelLabel"
-        android:text="Fees:"
-        android:textSize="20sp" />
+        android:text="Fees: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/fees"
@@ -126,7 +126,7 @@
         android:layout_below="@id/courseLevelLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/feesLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -134,8 +134,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/feesLabel"
-        android:text="Department/Faculty:"
-        android:textSize="20sp" />
+        android:text="Department/Faculty: "
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/department_faculty"
@@ -152,9 +152,9 @@
         android:id="@+id/avgratinglabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/departmentFacultyLabel"
+        android:layout_below="@id/department_faculty"
         android:text="@string/avgratinglabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/avg_rating"
@@ -162,7 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/department_faculty"
         android:layout_toRightOf="@+id/avgratinglabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/revcountlabel"
@@ -170,7 +170,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/avgratinglabel"
         android:text="@string/revcountlabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/rev_count"
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/avg_rating"
         android:layout_toRightOf="@+id/revcountlabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/modulecountlabel"
@@ -186,7 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/revcountlabel"
         android:text="@string/modulecountlabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/module_count"
@@ -194,7 +194,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rev_count"
         android:layout_toRightOf="@+id/modulecountlabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
 
     <com.dd.processbutton.FlatButton
