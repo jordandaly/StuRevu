@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/review_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/studentTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review_title"
+        android:text="Student Type:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/student_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review_title"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/studentTypeLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/ratingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/student_type"
+        android:text="Rating: "
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/student_type"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/ratingLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/contentProsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rating"
+        android:text="Pros: "
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/content_pros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/contentProsLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/contentConsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_pros"
+        android:text="Cons:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/content_cons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contentProsLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/contentConsLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/contentAdviceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_cons"
+        android:text="Advice: "
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/content_advice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_cons"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/contentAdviceLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/helpfulVoteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_advice"
+        android:text="Helpful Votes :"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/helpful_vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_advice"
+        android:layout_toRightOf="@+id/helpfulVoteLabel"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/flaggedSpamLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/helpfulVoteLabel"
+        android:text="Spam Flags :"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/flagged_spam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/helpfulVoteLabel"
+        android:layout_toRightOf="@+id/flaggedSpamLabel"
+        android:textSize="25sp" />
+
+
+    <com.dd.processbutton.FlatButton
+        android:id="@+id/helpfulVoteButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flaggedSpamLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="9dp"
+        android:text="Vote Helpful"
+        android:textColor="@android:color/white"
+        custom:pb_colorNormal="@android:color/holo_blue_light"
+        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+
+    <com.dd.processbutton.FlatButton
+        android:id="@+id/flaggedSpamButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/helpfulVoteButtonId"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Flag Spam"
+        android:textColor="@android:color/white"
+        custom:pb_colorNormal="@android:color/holo_blue_light"
+        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+
+
+</RelativeLayout>

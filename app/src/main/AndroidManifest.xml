@@ -31,6 +31,7 @@
         <activity android:name=".CourseSingleItem" />
         <activity android:name=".CollegeReviewListActivity" />
         <activity android:name=".CourseReviewListActivity" />
+        <activity android:name=".ReviewSingleItem" />
         <!--<activity android:name=".ClubSocListActivity" />-->
         <!--<activity android:name=".ClubSocSingleItem" />-->
         <!--<activity android:name=".ClubSocReviewListActivity" />-->
