@@ -5,12 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.dd.processbutton.iml.ActionProcessButton;
 import com.parse.LogInCallback;
@@ -119,6 +119,8 @@ public class CreateAccount extends AppCompatActivity implements ProgressGenerato
                 public void done(ParseUser parseUser, ParseException e) {
                     if (e == null) {
                         Log.v("USER LOGGED IN IS:", parseUser.getUsername());
+                        Toast.makeText(getApplicationContext(), "Account Creation Successful!"
+                                , Toast.LENGTH_LONG).show();
 
                     } else {
 

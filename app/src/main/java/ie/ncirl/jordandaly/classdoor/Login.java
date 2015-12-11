@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
                         public void done(ParseUser parseUser, ParseException e) {
                             if (e == null) {
 
-                                Toast.makeText(getApplicationContext(), "Login Successfully!"
+                                Toast.makeText(getApplicationContext(), "Login Successful!"
                                         , Toast.LENGTH_LONG).show();
 
                                 startActivity(new Intent(Login.this, CollegeListActivity.class));

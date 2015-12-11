@@ -30,6 +30,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 
     private Button modulesButton;
     private Button reviewsButton;
+    private Button addNewReviewButton;
 
 
     private ParseProxyObject courseObject = null;
@@ -142,10 +143,12 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 
         modulesButton = (Button) findViewById(R.id.modulesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
+        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
 
         modulesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
+        addNewReviewButton.setOnClickListener(this);
 
 
     }
@@ -163,6 +166,12 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                 reviewListIntent.putExtra("courseId", courseID);
                 startActivity(reviewListIntent);
                 //startActivity(new Intent(CourseSingleItem.this, CollegeReviewListActivity.class));
+                break;
+            case R.id.addNewReviewButtonId:
+                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+                Log.d("DEBUG", "courseID1ncr is " + courseID);
+                addNewReviewIntent.putExtra("courseId", courseID);
+                startActivity(addNewReviewIntent);
 
         }
     }

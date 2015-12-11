@@ -30,13 +30,14 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     private ParseProxyObject reviewObject = null;
     private String reviewID;
     private String reviewTitle;
+    private String rating;
     private String studentType;
     private String contentPros;
     private String contentCons;
     private String contentAdvice;
 
 
-    private int rating = 0;
+
     private int helpfulVoteCount = 0;
     private int flaggedSpamCount = 0;
 
@@ -56,7 +57,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                 .getSerializableExtra("review");
         reviewID = intent.getStringExtra("reviewID");
         reviewTitle = intent.getStringExtra("reviewTitle");
-        rating = (int) intent.getSerializableExtra("rating");
+        rating = intent.getStringExtra("rating");
         studentType = intent.getStringExtra("studentType");
         contentPros = intent.getStringExtra("contentPros");
         contentCons = intent.getStringExtra("contentCons");
@@ -81,7 +82,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         // Locate the TextView in singleitemview.xml
         tv_rating = (TextView) findViewById(R.id.rating);
         // Load the text into the TextView
-        tv_rating.setText(Integer.toString(rating));
+        tv_rating.setText(rating);
 
         // Locate the TextView in singleitemview.xml
         tv_contentPros = (TextView) findViewById(R.id.content_pros);
@@ -129,10 +130,12 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.helpfulVoteButtonId:
+                //TODO: 11/12/2015
 
 
                 break;
             case R.id.flaggedSpamButtonId:
+                //// TODO: 11/12/2015
 
 
         }

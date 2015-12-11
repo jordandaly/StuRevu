@@ -9,12 +9,33 @@
     <string name="action_show_uni_list">Only Show Universities</string>
     <string name="action_new">Add a Review</string>
     <string name="menu_title">Menu</string>
-    <string name="review_label">Add a Review</string>
-    <string name="save_button_text">Save</string>
-    <string name="cancel_button_text">Cancel</string>
+    <string name="review_label">New Review Title</string>
     <string name="avgratinglabel">"Average Rating : "</string>
     <string name="revcountlabel">"Reviews : "</string>
     <string name="coursecountlabel">"Courses : "</string>
     <string name="clubsoccountlabel">"Clubs + Socs : "</string>
     <string name="modulecountlabel">"Modules : "</string>
+    <string name="save_button_text">Save</string>
+    <string name="cancel_button_text">Cancel</string>
+
+    <string-array name="ratings_array">
+        <item></item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="student_type_array">
+        <item></item>
+        <item>Full Time Undergraduate EU</item>
+        <item>Full Time Undergraduate International</item>
+        <item>Full Time Postgraduate EU</item>
+        <item>Full Time Postgraduate International</item>
+        <item>Part Time Undergraduate EU</item>
+        <item>Part Time Undergraduate International</item>
+        <item>Part Time Postgraduate EU</item>
+        <item>Part Time Postgraduate International</item>
+    </string-array>
 </resources>

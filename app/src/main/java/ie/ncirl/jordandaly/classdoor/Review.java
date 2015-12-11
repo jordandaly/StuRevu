@@ -2,6 +2,7 @@ package ie.ncirl.jordandaly.classdoor;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 //import com.parse.ParseUser;
 
 /**
@@ -36,21 +37,77 @@ public class Review extends ParseObject {
         put("Title", title);
     }
 
-    public Integer getRating() {
-        return getInt("Rating");
+
+    public String getRating() {
+        return getString("Rating");
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(String rating) {
         put("Rating", rating);
     }
 
+
+    public String getStudentType() {
+        return getString("Student_Type");
+    }
+
+    public void setStudentType(String studentType) {
+        put("Student_Type", studentType);
+    }
+
+    public String getPros() {
+        return getString("Content_Pros");
+    }
+
+    public void setPros(String contentPros) {
+        put("Content_Pros", contentPros);
+    }
+
+
+    public String getCons() {
+        return getString("Content_Cons");
+    }
+
+    public void setCons(String contentCons) {
+        put("Content_Cons", contentCons);
+    }
+
+
+    public String getAdvice() {
+        return getString("Content_Advice");
+    }
+
+    public void setAdvice(String contentAdvice) {
+        put("Content_Advice", contentAdvice);
+    }
+
+
+    public ParseUser getAuthor() {
+        return getParseUser("author");
+    }
+
+    public void setAuthor(ParseUser user) {
+        put("author", user);
+    }
+
     // Get the college for this college review
-    public College getCollege() {
-        return (College) getParseObject("College_Id");
+    public String getCollege() {
+        return getString("College_Id");
     }
 
     // Associate each college review with a college
-    public void setCollege(College college) {
+    public void setCollege(String college) {
         put("College_Id", college);
+    }
+
+
+    // Get the college for this course review
+    public String getCourse() {
+        return getString("Course_Id");
+    }
+
+    // Associate each course review with a course
+    public void setCourse(String course) {
+        put("Course_Id", course);
     }
 }

@@ -24,6 +24,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     private Button coursesButton;
     private Button reviewsButton;
     private Button clubsocsButton;
+    private Button addNewReviewButton;
 
 
     private ParseProxyObject collegeObject = null;
@@ -99,10 +100,12 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         coursesButton = (Button) findViewById(R.id.coursesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         clubsocsButton = (Button) findViewById(R.id.clubsocsButtonId);
+        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
         coursesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         clubsocsButton.setOnClickListener(this);
+        addNewReviewButton.setOnClickListener(this);
 
 
     }
@@ -128,6 +131,12 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.clubsocsButtonId:
                 startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));
+                break;
+            case R.id.addNewReviewButtonId:
+                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+                Log.d("DEBUG", "collegeID1ncr is " + collegeID);
+                addNewReviewIntent.putExtra("collegeId", collegeID);
+                startActivity(addNewReviewIntent);
         }
     }
 
