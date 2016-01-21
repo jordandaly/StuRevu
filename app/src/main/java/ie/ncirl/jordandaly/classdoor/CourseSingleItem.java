@@ -111,6 +111,32 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
             }
         });
 
+
+        ParseCloud.callFunctionInBackground("countCourseReviews", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result_count:" + count);
+                    if (count != null) {
+
+
+                        reviewCount = count;
+                        System.out.println("count:" + reviewCount);
+
+                    } else {
+                        reviewCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_reviewCount = (TextView) findViewById(R.id.rev_count);
+                    // Load the text into the TextView
+                    tv_reviewCount.setText(Integer.toString(reviewCount));
+
+
+                }
+            }
+        });
+
         // Locate the TextView in singleitemview.xml
         tv_courseDescription = (TextView) findViewById(R.id.course_description);
         // Load the text into the TextView
@@ -161,10 +187,10 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 //        // Load the text into the TextView
 //        tv_averageRating.setText(Double.toString(averageRating));
 
-        // Locate the TextView in singleitemview.xml
-        tv_reviewCount = (TextView) findViewById(R.id.rev_count);
-        // Load the text into the TextView
-        tv_reviewCount.setText(Integer.toString(reviewCount));
+//        // Locate the TextView in singleitemview.xml
+//        tv_reviewCount = (TextView) findViewById(R.id.rev_count);
+//        // Load the text into the TextView
+//        tv_reviewCount.setText(Integer.toString(reviewCount));
 
         // Locate the TextView in singleitemview.xml
         tv_moduleCount = (TextView) findViewById(R.id.module_count);

@@ -98,6 +98,58 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
             }
         });
 
+        ParseCloud.callFunctionInBackground("countCollegeReviews", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("college_review_count:" + count);
+                    if (count != null) {
+
+
+                        reviewCount = count;
+                        System.out.println("count:" + reviewCount);
+
+                    } else {
+                        reviewCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_reviewCount = (TextView) findViewById(R.id.rev_count);
+                    // Load the text into the TextView
+                    tv_reviewCount.setText(Integer.toString(reviewCount));
+
+
+                }
+            }
+        });
+
+        ParseCloud.callFunctionInBackground("countCollegeCourses", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("course_count:" + count);
+                    if (count != null) {
+
+
+                        courseCount = count;
+                        System.out.println("count:" + courseCount);
+
+                    } else {
+                        courseCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_courseCount = (TextView) findViewById(R.id.course_count);
+                    // Load the text into the TextView
+                    tv_courseCount.setText(Integer.toString(courseCount));
+
+
+                }
+            }
+        });
+
+
+
 
 
 
@@ -117,15 +169,15 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 //        // Load the text into the TextView
 //        tv_averageRating.setText(Double.toString(averageRating));
 
-        // Locate the TextView in singleitemview.xml
-        tv_reviewCount = (TextView) findViewById(R.id.rev_count);
-        // Load the text into the TextView
-        tv_reviewCount.setText(Integer.toString(reviewCount));
+//        // Locate the TextView in singleitemview.xml
+//        tv_reviewCount = (TextView) findViewById(R.id.rev_count);
+//        // Load the text into the TextView
+//        tv_reviewCount.setText(Integer.toString(reviewCount));
 
-        // Locate the TextView in singleitemview.xml
-        tv_courseCount = (TextView) findViewById(R.id.course_count);
-        // Load the text into the TextView
-        tv_courseCount.setText(Integer.toString(courseCount));
+//        // Locate the TextView in singleitemview.xml
+//        tv_courseCount = (TextView) findViewById(R.id.course_count);
+//        // Load the text into the TextView
+//        tv_courseCount.setText(Integer.toString(courseCount));
 
         // Locate the TextView in singleitemview.xml
         tv_clubSocCount = (TextView) findViewById(R.id.club_soc_count);
