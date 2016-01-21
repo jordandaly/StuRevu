@@ -124,7 +124,7 @@ public class CourseReviewListActivity extends ListActivity {
                 intent.putExtra("review", review_ppo);
                 intent.putExtra("reviewID", review.getObjectId());
                 intent.putExtra("reviewTitle", review.getString("Title"));
-                intent.putExtra("rating", review.getInt("Rating"));
+                intent.putExtra("rating", review.getDouble("Rating"));
                 intent.putExtra("studentType", review.getString("Student_Type"));
                 intent.putExtra("contentPros", review.getString("Content_Pros"));
                 intent.putExtra("contentCons", review.getString("Content_Cons"));

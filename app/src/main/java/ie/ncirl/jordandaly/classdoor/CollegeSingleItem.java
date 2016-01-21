@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+import com.parse.ParseException;
+
+import java.util.HashMap;
+
 /**
  * Created by jdaly on 08/12/2015.
  */
@@ -32,14 +38,13 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     private String collegeName;
     private String initials;
     //private String averageRating;
-    private int averageRating = 0;
-    private int reviewCount = 0;
-    ;
-    private int courseCount = 0;
-    ;
-    private int clubSocCount = 0;
-    ;
+    private Object averageRating;
 
+    private int reviewCount = 0;
+
+    private int courseCount = 0;
+
+    private int clubSocCount = 0;
 
 
     @Override
@@ -58,13 +63,43 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         collegeID = intent.getStringExtra("collegeID");
         collegeName = intent.getStringExtra("collegeName");
         initials = intent.getStringExtra("initials");
-        averageRating = (int) intent.getSerializableExtra("averageRating");
-        reviewCount = (int) intent.getSerializableExtra("reviewCount");
-        courseCount = (int) intent.getSerializableExtra("courseCount");
-        clubSocCount = (int) intent.getSerializableExtra("clubSocCount");
+        //averageRating = (int) intent.getSerializableExtra("averageRating");
+        //reviewCount = (int) intent.getSerializableExtra("reviewCount");
+        //courseCount = (int) intent.getSerializableExtra("courseCount");
+        //clubSocCount = (int) intent.getSerializableExtra("clubSocCount");
 
 
         //Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
+
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("College_Id", collegeID);
+        ParseCloud.callFunctionInBackground("averageCollegeRating", params, new FunctionCallback<Object>() {
+            public void done(Object rating, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result:" + rating);
+                    if (rating != null) {
+
+
+                        averageRating = rating;
+                        System.out.println("avg:" + averageRating);
+
+                    } else {
+                        averageRating = 0.0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_averageRating = (TextView) findViewById(R.id.avg_rating);
+                    // Load the text into the TextView
+                    tv_averageRating.setText(averageRating.toString());
+
+
+                }
+            }
+        });
+
+
+
 
 
         // Locate the TextView in singleitemview.xml
@@ -77,10 +112,10 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         // Load the text into the TextView
         tv_collegeName.setText(collegeName);
 
-        // Locate the TextView in singleitemview.xml
-        tv_averageRating = (TextView) findViewById(R.id.avg_rating);
-        // Load the text into the TextView
-        tv_averageRating.setText(Integer.toString(averageRating));
+//        // Locate the TextView in singleitemview.xml
+//        tv_averageRating = (TextView) findViewById(R.id.avg_rating);
+//        // Load the text into the TextView
+//        tv_averageRating.setText(Double.toString(averageRating));
 
         // Locate the TextView in singleitemview.xml
         tv_reviewCount = (TextView) findViewById(R.id.rev_count);
@@ -141,5 +176,5 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     }
 
 
-    }
+}
 

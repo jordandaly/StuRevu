@@ -53,7 +53,7 @@ public class CollegeReviewAdapter extends ParseQueryAdapter<Review> {
         TextView titleTextView = (TextView) v.findViewById(R.id.title);
         titleTextView.setText(review.getTitle());
         TextView ratingTextView = (TextView) v.findViewById(R.id.rating);
-        ratingTextView.setText(review.getRating());
+        ratingTextView.setText(review.getRating().toString());
         TextView createdAtTextView = (TextView) v.findViewById(R.id.created_at);
         createdAtTextView.setText((review.getCreatedAt().toString()));
 

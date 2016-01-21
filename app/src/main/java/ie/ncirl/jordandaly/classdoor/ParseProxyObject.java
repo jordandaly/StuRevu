@@ -29,7 +29,7 @@ public class ParseProxyObject implements Serializable {
             @SuppressWarnings("rawtypes")
             Class classType = object.get(key).getClass();
             if (classType == byte[].class || classType == String.class ||
-                    classType == Integer.class || classType == Boolean.class) {
+                    classType == Integer.class || classType == Double.class || classType == Boolean.class) {
                 values.put(key, object.get(key));
             } else if (classType == ParseUser.class) {
                 ParseProxyObject parseUserObject = new ParseProxyObject((ParseObject) object.get(key));
@@ -61,6 +61,14 @@ public class ParseProxyObject implements Serializable {
             return (Integer) values.get(key);
         } else {
             return 0;
+        }
+    }
+
+    public double getDouble(String key) {
+        if (has(key)) {
+            return (Double) values.get(key);
+        } else {
+            return 0.0;
         }
     }
 

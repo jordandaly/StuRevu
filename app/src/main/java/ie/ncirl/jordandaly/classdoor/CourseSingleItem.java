@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+import com.parse.ParseException;
+
+import java.util.HashMap;
+
 
 /**
  * Created by jdaly on 08/12/2015.
@@ -44,7 +50,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
     private String courseLevel;
     private int fees = 0;
     private String departmentFaculty;
-    private int averageRating = 0;
+    private Object averageRating;
     private int reviewCount = 0;
     private int moduleCount = 0;
 
@@ -73,12 +79,37 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
         courseLevel = intent.getStringExtra("courseLevel");
         fees = (int) intent.getSerializableExtra("fees");
         departmentFaculty = intent.getStringExtra("departmentFaculty");
-        averageRating = (int) intent.getSerializableExtra("averageRating");
-        reviewCount = (int) intent.getSerializableExtra("reviewCount");
-        moduleCount = (int) intent.getSerializableExtra("moduleCount");
+        //averageRating = (int) intent.getSerializableExtra("averageRating");
+        //reviewCount = (int) intent.getSerializableExtra("reviewCount");
+        //moduleCount = (int) intent.getSerializableExtra("moduleCount");
 
 
         //Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
+
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("Course_Id", courseID);
+        ParseCloud.callFunctionInBackground("averageCourseRating", params, new FunctionCallback<Object>() {
+            public void done(Object rating, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result:" + rating);
+                    if (rating != null) {
+
+
+                        averageRating = rating;
+                        System.out.println("avg:" + averageRating);
+
+                    } else {
+                        averageRating = 0.0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_averageRating = (TextView) findViewById(R.id.avg_rating);
+                    // Load the text into the TextView
+                    tv_averageRating.setText(averageRating.toString());
+                }
+            }
+        });
 
         // Locate the TextView in singleitemview.xml
         tv_courseDescription = (TextView) findViewById(R.id.course_description);
@@ -125,10 +156,10 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
         // Load the text into the TextView
         tv_departmentFaculty.setText(departmentFaculty);
 
-        // Locate the TextView in singleitemview.xml
-        tv_averageRating = (TextView) findViewById(R.id.avg_rating);
-        // Load the text into the TextView
-        tv_averageRating.setText(Integer.toString(averageRating));
+//        // Locate the TextView in singleitemview.xml
+//        tv_averageRating = (TextView) findViewById(R.id.avg_rating);
+//        // Load the text into the TextView
+//        tv_averageRating.setText(Double.toString(averageRating));
 
         // Locate the TextView in singleitemview.xml
         tv_reviewCount = (TextView) findViewById(R.id.rev_count);

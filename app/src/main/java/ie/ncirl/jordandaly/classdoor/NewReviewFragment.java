@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ public class NewReviewFragment extends Fragment {
 
     String collegeId = NewReviewActivity.collegeId;
     String courseId = NewReviewActivity.courseId;
+    RatingBar ratingBar;
+    TextView rateDisplay;
     private Button saveButton;
     private Button cancelButton;
     private TextView reviewTitle;
@@ -48,11 +51,15 @@ public class NewReviewFragment extends Fragment {
 
         // The spinner lets people assign ratings
 
-        reviewRating = ((Spinner) v.findViewById(R.id.rating_spinner));
-        ArrayAdapter<CharSequence> ratingSpinnerAdapter = ArrayAdapter
-                .createFromResource(getActivity(), R.array.ratings_array,
-                        android.R.layout.simple_spinner_dropdown_item);
-        reviewRating.setAdapter(ratingSpinnerAdapter);
+//        reviewRating = ((Spinner) v.findViewById(R.id.rating_spinner));
+//        ArrayAdapter<CharSequence> ratingSpinnerAdapter = ArrayAdapter
+//                .createFromResource(getActivity(), R.array.ratings_array,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//        reviewRating.setAdapter(ratingSpinnerAdapter);
+
+        ratingBar = (RatingBar) v.findViewById(R.id.ratingBar);
+        rateDisplay = (TextView) v.findViewById(R.id.ratingDisplay);
+        rateDisplay.setText("Rate:");
 
         studentType = ((Spinner) v.findViewById(R.id.student_type_spinner));
         ArrayAdapter<CharSequence> studentTypeSpinnerAdapter = ArrayAdapter
@@ -80,20 +87,25 @@ public class NewReviewFragment extends Fragment {
                 review.setAuthor(ParseUser.getCurrentUser());
 
 
-                // Associate the meal with the current college
+                // Associate the review with the current college
                 if (collegeId != null) {
                     review.put("College_Id", ParseObject.createWithoutData("College", collegeId));
                 }
 
-                // Associate the meal with the current course
+                // Associate the review with the current course
                 if (courseId != null) {
                     review.put("Course_Id", ParseObject.createWithoutData("Course", courseId));
                 }
 
                 // Add the rating
-                review.setRating(reviewRating.getSelectedItem().toString());
+                //review.setRating(reviewRating.getSelectedItem().toString());
+                review.setRating(ratingBar.getRating());
 
-                // Add the rating
+                String ratingValue = String.valueOf(ratingBar.getRating());
+                rateDisplay.setText("Rate: " + ratingValue);
+
+
+                // Add the student type
                 review.setStudentType(studentType.getSelectedItem().toString());
 
                 //add content pros,cons,advice

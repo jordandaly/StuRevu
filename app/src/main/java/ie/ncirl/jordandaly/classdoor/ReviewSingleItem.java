@@ -30,7 +30,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     private ParseProxyObject reviewObject = null;
     private String reviewID;
     private String reviewTitle;
-    private String rating;
+    private double rating;
     private String studentType;
     private String contentPros;
     private String contentCons;
@@ -57,7 +57,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                 .getSerializableExtra("review");
         reviewID = intent.getStringExtra("reviewID");
         reviewTitle = intent.getStringExtra("reviewTitle");
-        rating = intent.getStringExtra("rating");
+        rating = (double) intent.getSerializableExtra("rating");
         studentType = intent.getStringExtra("studentType");
         contentPros = intent.getStringExtra("contentPros");
         contentCons = intent.getStringExtra("contentCons");
@@ -82,7 +82,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         // Locate the TextView in singleitemview.xml
         tv_rating = (TextView) findViewById(R.id.rating);
         // Load the text into the TextView
-        tv_rating.setText(rating);
+        tv_rating.setText(Double.toString(rating));
+
 
         // Locate the TextView in singleitemview.xml
         tv_contentPros = (TextView) findViewById(R.id.content_pros);

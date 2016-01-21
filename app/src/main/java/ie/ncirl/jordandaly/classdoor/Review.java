@@ -38,11 +38,11 @@ public class Review extends ParseObject {
     }
 
 
-    public String getRating() {
-        return getString("Rating");
+    public Number getRating() {
+        return getNumber("Rating");
     }
 
-    public void setRating(String rating) {
+    public void setRating(Number rating) {
         put("Rating", rating);
     }
 
