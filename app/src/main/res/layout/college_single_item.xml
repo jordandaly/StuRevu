@@ -104,8 +104,8 @@
         android:layout_marginTop="9dp"
         android:text="College Reviews List"
         android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+        custom:pb_colorNormal="@android:color/holo_orange_dark"
+        custom:pb_colorPressed="@android:color/holo_orange_light" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/coursesButtonId"

@@ -147,8 +147,8 @@
         android:layout_marginTop="9dp"
         android:text="Vote Helpful"
         android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+        custom:pb_colorNormal="@android:color/holo_green_light"
+        custom:pb_colorPressed="@android:color/holo_green_dark" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/flaggedSpamButtonId"
@@ -159,8 +159,8 @@
         android:layout_centerVertical="true"
         android:text="Flag Spam"
         android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+        custom:pb_colorNormal="@android:color/holo_red_light"
+        custom:pb_colorPressed="@android:color/holo_red_dark" />
 
 
 </RelativeLayout>
