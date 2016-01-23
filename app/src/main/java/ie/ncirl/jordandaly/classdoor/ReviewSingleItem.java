@@ -3,9 +3,16 @@ package ie.ncirl.jordandaly.classdoor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 /**
  * Created by jdaly on 10/12/2015.
@@ -22,11 +29,9 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     TextView tv_contentAdvice;
     TextView tv_helpfulVoteCount;
     TextView tv_flaggedSpamCount;
-
+    int disableBtn = 1;
     private Button helpfulVoteButton;
     private Button flaggedSpamButton;
-
-
     private ParseProxyObject reviewObject = null;
     private String reviewID;
     private String reviewTitle;
@@ -35,12 +40,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     private String contentPros;
     private String contentCons;
     private String contentAdvice;
-
-
-
     private int helpfulVoteCount = 0;
     private int flaggedSpamCount = 0;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,16 +129,54 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
+
+        if (disableBtn == 1) {
+            helpfulVoteButton.setEnabled(false);
+            flaggedSpamButton.setEnabled(false);
+            Log.d("disableBtn", "called");
+        }
+        disableBtn = 0;
 
         switch (v.getId()) {
             case R.id.helpfulVoteButtonId:
                 //TODO: 11/12/2015
 
 
+// Retrieve the object by id
+                query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+                    public void done(ParseObject review, ParseException e) {
+                        if (e == null) {
+
+                            review.increment("Helpful_Vote_Count");
+                            review.saveInBackground();
+
+                            helpfulVoteCount++;
+                            tv_helpfulVoteCount.setText(Integer.toString(helpfulVoteCount));
+                            Toast.makeText(getApplicationContext(), "Review marked as helpful!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+
                 break;
             case R.id.flaggedSpamButtonId:
                 //// TODO: 11/12/2015
+                query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+                    public void done(ParseObject review, ParseException e) {
+                        if (e == null) {
 
+                            review.increment("Flagged_Spam_Count");
+                            review.saveInBackground();
+
+                            flaggedSpamCount++;
+                            tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
+                            Toast.makeText(getApplicationContext(), "Review flagged as Spam!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
         }
     }
