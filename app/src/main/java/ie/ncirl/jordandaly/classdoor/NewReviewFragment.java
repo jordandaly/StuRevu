@@ -59,7 +59,7 @@ public class NewReviewFragment extends Fragment {
 
         ratingBar = (RatingBar) v.findViewById(R.id.ratingBar);
         rateDisplay = (TextView) v.findViewById(R.id.ratingDisplay);
-        rateDisplay.setText("Rate:");
+        //rateDisplay.setText("Rate:");
 
         studentType = ((Spinner) v.findViewById(R.id.student_type_spinner));
         ArrayAdapter<CharSequence> studentTypeSpinnerAdapter = ArrayAdapter

@@ -66,6 +66,8 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
         // Retrieve data from college list activity on item click event
         Intent intent = getIntent();
 
+        getIntent().setAction("Course created");
+
 
         courseObject = (ParseProxyObject) intent
                 .getSerializableExtra("course");
@@ -231,6 +233,25 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                 startActivity(addNewReviewIntent);
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        Log.v("Example", "onResume");
+
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if (action == null || !action.equals("Course created")) {
+            Log.v("Example", "Force restart");
+            Intent intent = getIntent();
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
     }
 
 

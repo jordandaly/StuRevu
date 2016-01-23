@@ -43,6 +43,7 @@ public class NewReviewActivity extends Activity {
             manager.beginTransaction().add(R.id.fragmentContainer, fragment)
                     .commit();
         }
+
     }
 
     public Review getCurrentReview() {
