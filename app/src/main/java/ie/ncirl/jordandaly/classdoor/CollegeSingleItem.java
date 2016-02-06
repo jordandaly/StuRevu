@@ -83,7 +83,12 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 
 
                         averageRating = rating;
-                        averageRating = String.format("%3.2f", averageRating);
+
+                        if (averageRating instanceof Double) {
+
+                            averageRating = String.format("%3.1f", averageRating);
+                        }
+
                         System.out.println("avg:" + averageRating);
 
                     } else {
