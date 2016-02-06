@@ -98,6 +98,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 
 
                         averageRating = rating;
+                        averageRating = String.format("%3.2f", averageRating);
                         System.out.println("avg:" + averageRating);
 
                     } else {
