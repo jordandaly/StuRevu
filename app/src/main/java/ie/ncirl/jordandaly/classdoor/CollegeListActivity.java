@@ -9,11 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
-import android.content.Intent;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
-
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
@@ -66,6 +64,7 @@ public class CollegeListActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.activity_action_college_list, menu);
         return true;
     }
@@ -85,6 +84,12 @@ public class CollegeListActivity extends ListActivity {
 
             case R.id.action_show_uni: {
                 showUnis();
+                break;
+            }
+
+            case R.id.action_show_map: {
+                Intent intent = new Intent(CollegeListActivity.this, MapActivity.class);
+                startActivity(intent);
                 break;
             }
 

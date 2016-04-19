@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ie.ncirl.jordandaly.classdoor">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <permission
+        android:name="ie.ncirl.jordandaly.classdoor.MAPS_RECEIVE"
+        android:protectionLevel="signature"></permission>
+
+    <uses-permission android:name="ie.ncirl.jordandaly.classdoor.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+     The following permission is not required to use
+     Google Maps Android API v2, but is recommended.
+    -->
+
 
     <application
         android:name="ie.ncirl.jordandaly.classdoor.ParseApplication"
@@ -23,6 +40,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAxg6adtiRoEX_UYknoU6eDYGzzMy-XUTo" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <activity android:name=".Login" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".CollegeListActivity" />
@@ -33,6 +68,7 @@
         <activity android:name=".CourseReviewListActivity" />
         <activity android:name=".ReviewSingleItem" />
         <activity android:name=".NewReviewActivity" />
+        <activity android:name=".MapActivity" />
 
 
         <!--<activity android:name=".ClubSocListActivity" />-->

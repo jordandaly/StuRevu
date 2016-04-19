@@ -17,6 +17,10 @@
     <string name="modulecountlabel">"Modules : "</string>
     <string name="save_button_text">Save</string>
     <string name="cancel_button_text">Cancel</string>
+    <string name="college">College</string>
+    <string name="action_collegeMap">Map of Third Level Institutions</string>
+    <string name="college_out_of_range">Can\'t view college! Get closer.</string>
+    <string name="facebook_app_id">214166528974642</string>
 
     <string-array name="ratings_array">
         <item></item>

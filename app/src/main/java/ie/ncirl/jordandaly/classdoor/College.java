@@ -3,10 +3,12 @@ package ie.ncirl.jordandaly.classdoor;
 /**
  * Created by jdaly on 09/10/2015.
  */
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
+import com.parse.ParseQuery;
 
 
 @ParseClassName("College")
@@ -16,6 +18,9 @@ public class College extends ParseObject {
         super();
     }
 
+    public static ParseQuery<College> getQuery() {
+        return ParseQuery.getQuery(College.class);
+    }
 
     // Use getString and others to access fields
     public String getName() {
@@ -27,11 +32,9 @@ public class College extends ParseObject {
         put("Name", value);
     }
 
-
     public String getCollege_Type() {
         return getString("College_Type");
     }
-
 
     public void setCollege_Type(String value) {
         put("College_Type", value);
@@ -40,7 +43,6 @@ public class College extends ParseObject {
     public String getInitials() {
         return getString("Initials");
     }
-
 
     public void setInitials(String value) {
         put("Initials", value);
@@ -52,6 +54,14 @@ public class College extends ParseObject {
 
     public void setImageFile(ParseFile file) {
         put("ImageFile", file);
+    }
+
+    public ParseGeoPoint getLocation() {
+        return getParseGeoPoint("Geolocation");
+    }
+
+    public void setLocation(ParseGeoPoint value) {
+        put("Geolocation", value);
     }
 
 
