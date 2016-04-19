@@ -9,10 +9,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ie.ncirl.jordandaly.classdoor.MainActivity">
 
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
     <ImageView
         android:id="@+id/logoId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_main"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_gold" />
 

@@ -5,6 +5,11 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,8 +33,37 @@ public class CollegeListActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_college_list);
+//        setContentView(R.layout.activity_college_list);
         //getListView().setClickable(false);
+
+        AppCompatCallback callback = new AppCompatCallback() {
+
+            @Nullable
+            @Override
+            public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+                return null;
+            }
+
+            @Override
+            public void onSupportActionModeStarted(ActionMode actionMode) {
+            }
+
+            @Override
+            public void onSupportActionModeFinished(ActionMode actionMode) {
+            }
+        };
+
+        AppCompatDelegate delegate = AppCompatDelegate.create(this, callback);
+
+        delegate.onCreate(savedInstanceState);
+        delegate.setContentView(R.layout.activity_college_list);
+
+
+// Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        delegate.setSupportActionBar(toolbar);
 
 
         mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);
@@ -67,7 +101,18 @@ public class CollegeListActivity extends ListActivity {
 
         getMenuInflater().inflate(R.menu.activity_action_college_list, menu);
         return true;
+
     }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_show_uni).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        return true;
+    }
+
 
     /*
      * "Show Unis" and refreshing the "show all" list will be controlled from the Action
