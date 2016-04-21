@@ -59,6 +59,7 @@ public class ParseApplication extends Application {
         ParseObject.registerSubclass(Course.class);
         ParseObject.registerSubclass(Club_Soc.class);
         ParseObject.registerSubclass(Module.class);
+        ParseObject.registerSubclass(Favourite.class);
 
         preferences = getSharedPreferences("ie.ncirl.jordandaly.classdoor", Context.MODE_PRIVATE);
 

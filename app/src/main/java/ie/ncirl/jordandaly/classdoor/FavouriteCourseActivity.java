@@ -1,7 +1,5 @@
 package ie.ncirl.jordandaly.classdoor;
 
-
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -25,14 +23,14 @@ import android.widget.ListView;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
+/**
+ * Created by jdaly on 21/04/2016.
+ */
+public class FavouriteCourseActivity extends ListActivity {
 
-public class CollegeListActivity extends ListActivity {
-
-
-    ListView collegeListView;
-    private ParseQueryAdapter<College> mainCollegeAdapter;
-    private CollegeAdapter collegeAdapter;
-    private CustomAdapter customAdapter;
+    ListView courseListView;
+    private ParseQueryAdapter<Favourite> mainFavouriteCourseAdapter;
+    private FavouriteCourseAdapter favouriteCourseAdapter;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -40,10 +38,12 @@ public class CollegeListActivity extends ListActivity {
     private ActionBarDrawerToggle mDrawerToggle;
 
 
+    //private customCustomAdapter customCourseAdapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_college_list);
+//        setContentView(R.layout.activity_course_list);
         //getListView().setClickable(false);
 
 
@@ -67,7 +67,7 @@ public class CollegeListActivity extends ListActivity {
         AppCompatDelegate delegate = AppCompatDelegate.create(this, callback);
 
         delegate.onCreate(savedInstanceState);
-        delegate.setContentView(R.layout.activity_college_list);
+        delegate.setContentView(R.layout.activity_course_list);
 
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -76,8 +76,7 @@ public class CollegeListActivity extends ListActivity {
         addDrawerItems();
         setupDrawer();
 
-
-// Find the toolbar view inside the activity layout
+        // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
@@ -87,31 +86,24 @@ public class CollegeListActivity extends ListActivity {
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
 
 
-        mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);
+        mainFavouriteCourseAdapter = new ParseQueryAdapter<Favourite>(this, Favourite.class);
 
-        mainCollegeAdapter.setTextKey("Name");
-        mainCollegeAdapter.setImageKey("ImageFile");
-        mainCollegeAdapter.loadObjects();
+        mainFavouriteCourseAdapter.setTextKey("Name");
+        ;
+        mainFavouriteCourseAdapter.loadObjects();
 
-        // Subclass of ParseQueryAdapter
-        customAdapter = new CustomAdapter(this);
 
-        // Subclass of ParseQueryAdapter
-        collegeAdapter = new CollegeAdapter(this);
+        favouriteCourseAdapter = new FavouriteCourseAdapter(this);
 
-        collegeListView = (ListView) findViewById(android.R.id.list);
-        collegeListView.setAdapter(collegeAdapter);
+        courseListView = (ListView) findViewById(android.R.id.list);
+        courseListView.setAdapter(favouriteCourseAdapter);
 
         // Default view is collegeAdapter (all college sorted asc)
-        setListAdapter(collegeAdapter);
+        setListAdapter(favouriteCourseAdapter);
 
         //getListView().setOnItemClickListener();
 
-        setUpCollegeItems();
-
-
-
-
+        setUpCourseItems();
 
 
     }
@@ -127,23 +119,24 @@ public class CollegeListActivity extends ListActivity {
 //                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0: {
-                        Intent intent = new Intent(CollegeListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(FavouriteCourseActivity.this, CollegeListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(CollegeListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(FavouriteCourseActivity.this, SearchCourseListActivity.class);
                         startActivity(intent);
                         break;
                     }
+
                     case 2: {
-                        Intent intent = new Intent(CollegeListActivity.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(FavouriteCourseActivity.this, FavouriteCollegeActivity.class);
                         startActivity(intent);
                         break;
                     }
 
                     case 3: {
-                        Intent intent = new Intent(CollegeListActivity.this, FavouriteCourseActivity.class);
+                        Intent intent = new Intent(FavouriteCourseActivity.this, FavouriteCourseActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -181,7 +174,6 @@ public class CollegeListActivity extends ListActivity {
     }
 
 
-
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -191,17 +183,14 @@ public class CollegeListActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.activity_action_college_list, menu);
+        getMenuInflater().inflate(R.menu.activity_action_course_list, menu);
         return true;
-
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_show_uni).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_search_courses).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
 
         return true;
     }
@@ -214,7 +203,6 @@ public class CollegeListActivity extends ListActivity {
         mDrawerToggle.syncState();
     }
 
-
     /*
      * "Show Unis" and refreshing the "show all" list will be controlled from the Action
      * Bar.
@@ -223,72 +211,50 @@ public class CollegeListActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_refresh: {
-                updateCollegeList();
-                break;
-            }
-
-            case R.id.action_show_uni: {
-                showUnis();
-                break;
-            }
-
-            case R.id.action_show_map: {
-                Intent intent = new Intent(CollegeListActivity.this, MapActivity.class);
+            case R.id.action_search_courses: {
+                Intent intent = new Intent(FavouriteCourseActivity.this, SearchCourseListActivity.class);
                 startActivity(intent);
-                break;
+                //break;
             }
 
 
-        }
-
-        // Activate the navigation drawer toggle
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateCollegeList() {
-        collegeAdapter.loadObjects();
-        setListAdapter(collegeAdapter);
-    }
 
-    private void showUnis() {
-        customAdapter.loadObjects();
-        setListAdapter(customAdapter);
-    }
+//    private void showUnis() {
+//        customAdapter.loadObjects();
+//        setListAdapter(customAdapter);
+//    }
 
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK) {
-            // If a new post has been added, update
-            // the list of posts
-            updateCollegeList();
-        }
-    }
-
-    private void setUpCollegeItems() {
-        collegeListView.setOnItemClickListener(new OnItemClickListener() {
-            public static final String TAG = "buttonClick collegelist";
+    private void setUpCourseItems() {
+        courseListView.setOnItemClickListener(new OnItemClickListener() {
+            public static final String TAG = "buttonClick courselist";
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick");
 
-                ParseObject college = collegeAdapter.getItem(position);
-                ParseProxyObject college_ppo = new ParseProxyObject(college);
+                ParseObject favourite = favouriteCourseAdapter.getItem(position);
+                ParseProxyObject favourite_ppo = new ParseProxyObject(favourite);
 
-                Intent intent = new Intent(CollegeListActivity.this, CollegeSingleItem.class);
-                intent.putExtra("college", college_ppo);
-                intent.putExtra("collegeID", college.getObjectId());
-                intent.putExtra("collegeName", college.getString("Name"));
-                intent.putExtra("initials", college.getString("Initials"));
-                intent.putExtra("averageRating", college.getInt("Average_Rating"));
-                intent.putExtra("reviewCount", college.getInt("Review_Count"));
-                intent.putExtra("courseCount", college.getInt("Course_Count"));
-                intent.putExtra("clubSocCount", college.getInt("Club_Soc_Count"));
+                Intent intent = new Intent(FavouriteCourseActivity.this, CourseSingleItem.class);
+                intent.putExtra("course", favourite_ppo);
+                intent.putExtra("courseID", favourite.getParseObject("Course_Id").getObjectId());
+                intent.putExtra("courseDescription", favourite.getParseObject("Course_Id").getString("Description"));
+                intent.putExtra("caoCode", favourite.getParseObject("Course_Id").getString("CAO_Code"));
+                intent.putExtra("modeOfStudy", favourite.getParseObject("Course_Id").getString("Mode_0f_Study"));
+                intent.putExtra("qualification", favourite.getParseObject("Course_Id").getString("Qualification_Type"));
+                intent.putExtra("nfqLevel", favourite.getParseObject("Course_Id").getInt("Level"));
+                intent.putExtra("duration", favourite.getParseObject("Course_Id").getString("Duration"));
+                intent.putExtra("courseLevel", favourite.getParseObject("Course_Id").getString("Course_Level"));
+                intent.putExtra("fees", favourite.getParseObject("Course_Id").getInt("Fees"));
+                intent.putExtra("departmentFaculty", favourite.getParseObject("Course_Id").getString("Department_Faculty"));
+                intent.putExtra("averageRating", favourite.getParseObject("Course_Id").getInt("Average_Rating"));
+                intent.putExtra("reviewCount", favourite.getParseObject("Course_Id").getInt("Review_Count"));
+                intent.putExtra("moduleCount", favourite.getParseObject("Course_Id").getInt("Module_Count"));
                 startActivity(intent);
 
             }
