@@ -31,6 +31,7 @@
     <string name="action_fav">Save to Favourites</string>
     <string name="action_follow">Add to Following</string>
     <string name="action_search_courses">Search all Courses</string>
+    <string name="comment_label">New Comment Title</string>
 
 
     <string-array name="ratings_array">

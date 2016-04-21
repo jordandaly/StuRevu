@@ -3,6 +3,7 @@ package ie.ncirl.jordandaly.classdoor;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,8 +84,15 @@ public class NewReviewFragment extends Fragment {
                 // Add data to the review object:
                 review.setTitle(reviewTitle.getText().toString());
 
-                // Associate the meal with the current user
-                review.setAuthor(ParseUser.getCurrentUser());
+
+                // Associate the review with the current user
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                String userId = currentUser.getObjectId();
+                Log.d("DEBUG", "userId is " + userId);
+                review.put("User_Id", ParseObject.createWithoutData("_User", userId));
+
+
+//                review.setAuthor(ParseUser.getCurrentUser());
 
 
                 // Associate the review with the current college

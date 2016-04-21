@@ -32,6 +32,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     int disableBtn = 1;
     private Button helpfulVoteButton;
     private Button flaggedSpamButton;
+    private Button commentListButton;
+    private Button addNewCommentButton;
     private ParseProxyObject reviewObject = null;
     private String reviewID;
     private String reviewTitle;
@@ -119,10 +121,14 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
         helpfulVoteButton = (Button) findViewById(R.id.helpfulVoteButtonId);
         flaggedSpamButton = (Button) findViewById(R.id.flaggedSpamButtonId);
+        commentListButton = (Button) findViewById(R.id.commentListButtonId);
+        addNewCommentButton = (Button) findViewById(R.id.addNewCommentButtonId);
 
 
         helpfulVoteButton.setOnClickListener(this);
         flaggedSpamButton.setOnClickListener(this);
+        commentListButton.setOnClickListener(this);
+        addNewCommentButton.setOnClickListener(this);
 
 
     }
@@ -140,7 +146,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.helpfulVoteButtonId:
-                //TODO: 11/12/2015
+
 
 
 // Retrieve the object by id
@@ -163,7 +169,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
                 break;
             case R.id.flaggedSpamButtonId:
-                //// TODO: 11/12/2015
+
                 query.getInBackground(reviewID, new GetCallback<ParseObject>() {
                     public void done(ParseObject review, ParseException e) {
                         if (e == null) {
@@ -177,6 +183,19 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
+                break;
+            case R.id.commentListButtonId:
+                Intent commentListIntent = new Intent(this, CommentListActivity.class);
+                Log.d("DEBUG", "reviewId is " + reviewID);
+                commentListIntent.putExtra("reviewId", reviewID);
+                startActivity(commentListIntent);
+                break;
+            case R.id.addNewCommentButtonId:
+                Intent addnewCommentIntent = new Intent(this, NewCommentActivity.class);
+                Log.d("DEBUG", "reviewId is " + reviewID);
+                addnewCommentIntent.putExtra("reviewId", reviewID);
+                startActivity(addnewCommentIntent);
+
 
         }
     }

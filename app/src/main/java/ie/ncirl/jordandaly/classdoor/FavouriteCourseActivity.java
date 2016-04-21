@@ -67,7 +67,7 @@ public class FavouriteCourseActivity extends ListActivity {
         AppCompatDelegate delegate = AppCompatDelegate.create(this, callback);
 
         delegate.onCreate(savedInstanceState);
-        delegate.setContentView(R.layout.activity_course_list);
+        delegate.setContentView(R.layout.activity_favourite_course_list);
 
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

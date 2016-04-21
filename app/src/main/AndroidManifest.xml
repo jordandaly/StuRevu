@@ -86,6 +86,10 @@
         <activity android:name=".MapActivity" />
         <activity android:name=".FavouriteCollegeActivity" />
         <activity android:name=".FavouriteCourseActivity" />
+        <activity android:name=".CommentListActivity" />
+        <activity android:name=".CommentSingleItem" />
+        <activity android:name=".NewCommentActivity" />
+
         <!--<activity android:name=".SearchCourseListActivity" />-->
 
 

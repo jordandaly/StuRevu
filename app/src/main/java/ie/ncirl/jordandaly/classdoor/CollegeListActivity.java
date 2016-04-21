@@ -127,7 +127,7 @@ public class CollegeListActivity extends ListActivity {
 //                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0: {
-                        Intent intent = new Intent(CollegeListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(CollegeListActivity.this, CollegeListActivity.class);
                         startActivity(intent);
                         break;
                     }
