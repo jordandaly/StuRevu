@@ -16,6 +16,11 @@ public class Course extends ParseObject {
         super();
     }
 
+    // Use getString and others to access fields
+    public String getName() {
+        return getString("Name");
+    }
+
 
     public String getDescription() {
         return getString("Description");
