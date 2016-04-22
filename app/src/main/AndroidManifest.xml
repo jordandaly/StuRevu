@@ -89,6 +89,7 @@
         <activity android:name=".CommentListActivity" />
         <activity android:name=".CommentSingleItem" />
         <activity android:name=".NewCommentActivity" />
+        <activity android:name=".NewReplyActivity" />
 
         <!--<activity android:name=".SearchCourseListActivity" />-->
 

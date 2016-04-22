@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Reply: "
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/reply_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine" />
+
+
+    <com.dd.processbutton.FlatButton
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_button_text"
+        custom:pb_colorNormal="@android:color/holo_green_light"
+        custom:pb_colorPressed="@android:color/holo_green_dark" />
+
+    <com.dd.processbutton.FlatButton
+        android:id="@+id/cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_button_text"
+        custom:pb_colorNormal="@android:color/holo_red_light"
+        custom:pb_colorPressed="@android:color/holo_red_dark" />
+
+
+</LinearLayout>

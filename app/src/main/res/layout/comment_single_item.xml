@@ -29,25 +29,20 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/addNewReplyButtonId"
+        android:layout_below="@id/comment_content"
+        android:layout_marginTop="15dp" />
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/replyListButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/comment_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="9dp"
-        android:text="Reply List"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_orange_light"
-        custom:pb_colorPressed="@android:color/holo_orange_dark" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/addNewReplyButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/replyListButtonId"
+        android:layout_below="@+id/list"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
