@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_main"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_gold" />
+        android:src="@drawable/logo_gold_icon" />
 
 
     <com.dd.processbutton.FlatButton

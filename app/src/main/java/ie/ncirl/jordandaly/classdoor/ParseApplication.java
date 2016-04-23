@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 
 /**
@@ -80,5 +81,12 @@ public class ParseApplication extends Application {
         ParseFacebookUtils.initialize(this);
 
         // ...
+
+        // Specify a Activity to handle all pushes by default.
+//        PushService.setDefaultPushCallback(this, MainActivity.class);
+
+
+        // Save the current installation.
+        ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 }

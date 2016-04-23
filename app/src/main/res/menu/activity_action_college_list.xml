@@ -15,7 +15,7 @@
         app:showAsAction="always"></item>
     <item
         android:id="@+id/action_show_uni"
-        android:icon="@drawable/uni_icon2"
+        android:icon="@drawable/uni_color_icon"
         android:title="@string/action_show_uni_list"
         app:showAsAction="always"></item>
 
