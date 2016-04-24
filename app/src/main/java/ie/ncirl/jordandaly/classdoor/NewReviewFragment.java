@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -98,11 +99,21 @@ public class NewReviewFragment extends Fragment {
                 // Associate the review with the current college
                 if (collegeId != null) {
                     review.put("College_Id", ParseObject.createWithoutData("College", collegeId));
+
+                    
+                    ParsePush push = new ParsePush();
+                    push.setChannel(collegeId);
+                    push.setMessage("A new review has been created for one your favourite Colleges");
+                    push.sendInBackground();
                 }
 
                 // Associate the review with the current course
                 if (courseId != null) {
                     review.put("Course_Id", ParseObject.createWithoutData("Course", courseId));
+                    ParsePush push = new ParsePush();
+                    push.setChannel(courseId);
+                    push.setMessage("A new review has been created for one your favourite Courses");
+                    push.sendInBackground();
                 }
 
                 // Add the rating

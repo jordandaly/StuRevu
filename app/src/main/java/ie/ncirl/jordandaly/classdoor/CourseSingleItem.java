@@ -23,6 +23,7 @@ import com.parse.GetCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -431,6 +432,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                 if (e == null) {
                     //object exists
                     object.deleteInBackground();
+                    ParsePush.unsubscribeInBackground(courseID);
                     Toast.makeText(getApplicationContext(), "Course Removed from Favourites!"
                             , Toast.LENGTH_LONG).show();
                 } else {
@@ -443,6 +445,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                         favourite.put("User_Id", ParseObject.createWithoutData("_User", userId));
                         favourite.put("Course_Id", ParseObject.createWithoutData("Course", courseID));
                         favourite.saveInBackground();
+                        ParsePush.subscribeInBackground(courseID);
                         Toast.makeText(getApplicationContext(), "Course Added to Favourites!"
                                 , Toast.LENGTH_LONG).show();
                     } else {
