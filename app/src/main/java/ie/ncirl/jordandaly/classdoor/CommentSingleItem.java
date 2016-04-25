@@ -97,12 +97,7 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
         delegate.onCreate(savedInstanceState);
         delegate.setContentView(R.layout.comment_single_item);
 
-        mDrawerList = (ListView) findViewById(R.id.navList);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-
-        addDrawerItems();
-        setupDrawer();
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -156,7 +151,12 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
         setListAdapter(replyAdapter);
 
 
+        mDrawerList = (ListView) findViewById(R.id.navList);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+
+        addDrawerItems();
+        setupDrawer();
 
 
 
