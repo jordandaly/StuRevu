@@ -32,7 +32,7 @@ public class ReplyAdapter extends ParseQueryAdapter<Reply> {
 
                 ParseQuery query = new ParseQuery("Reply");
                 query.whereMatchesQuery("Comment_Id", innerQuery);
-
+                query.include("User_Id");
                 query.orderByAscending("createdAt");
                 return query;
             }
@@ -49,7 +49,8 @@ public class ReplyAdapter extends ParseQueryAdapter<Reply> {
 
         super.getItemView(reply, v, parent);
 
-
+        TextView authorTextView = (TextView) v.findViewById(R.id.author_reply);
+        authorTextView.setText(reply.getAuthor());
         TextView titleTextView = (TextView) v.findViewById(R.id.reply_content);
         titleTextView.setText(reply.getContent());
         TextView createdAtTextView = (TextView) v.findViewById(R.id.created_at);

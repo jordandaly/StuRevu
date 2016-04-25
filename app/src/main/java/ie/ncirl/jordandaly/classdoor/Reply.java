@@ -32,4 +32,9 @@ public class Reply extends ParseObject {
     public void setComment(String comment) {
         put("Comment_Id", comment);
     }
+
+    // Get the comment for this reply
+    public String getAuthor() {
+        return getParseObject("User_Id").getString("username");
+    }
 }

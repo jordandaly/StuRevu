@@ -13,11 +13,6 @@
         android:icon="@drawable/fav_icon"
         android:title="@string/action_fav"
         app:showAsAction="always"></item>
-    <item
-        android:id="@+id/action_follow"
-        android:icon="@drawable/follow_icon"
-        android:title="@string/action_follow"
-        app:showAsAction="always"></item>
 
 
 </menu>

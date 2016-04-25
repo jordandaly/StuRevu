@@ -116,7 +116,7 @@ public class CourseListActivity extends ListActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Following"};
+        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -142,6 +142,16 @@ public class CourseListActivity extends ListActivity {
                     }
                     case 3: {
                         Intent intent = new Intent(CourseListActivity.this, FavouriteCourseActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 4: {
+                        Intent intent = new Intent(CourseListActivity.this, FavouriteCollegeReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 5: {
+                        Intent intent = new Intent(CourseListActivity.this, FavouriteCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -228,6 +238,10 @@ public class CourseListActivity extends ListActivity {
 //                break;
 //            }
 
+        }
+        // Activate the navigation drawer toggle
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

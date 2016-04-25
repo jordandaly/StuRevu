@@ -32,7 +32,7 @@ public class CourseReviewAdapter extends ParseQueryAdapter<Review> {
 
                 ParseQuery query = new ParseQuery("Review");
                 query.whereMatchesQuery("Course_Id", innerQuery);
-
+                query.include("User_Id");
                 query.orderByAscending("createdAt");
                 return query;
             }

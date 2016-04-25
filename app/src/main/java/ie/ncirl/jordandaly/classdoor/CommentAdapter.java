@@ -32,7 +32,7 @@ public class CommentAdapter extends ParseQueryAdapter<Comment> {
 
                 ParseQuery query = new ParseQuery("Comment");
                 query.whereMatchesQuery("Review_Id", innerQuery);
-
+                query.include("User_Id");
                 query.orderByAscending("createdAt");
                 return query;
             }

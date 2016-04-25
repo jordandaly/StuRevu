@@ -3,13 +3,22 @@ package ie.ncirl.jordandaly.classdoor;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.parse.ParseObject;
@@ -25,16 +34,59 @@ public class CourseReviewListActivity extends ListActivity {
     private ParseQueryAdapter<Review> mainReviewAdapter;
     private CourseReviewAdapter reviewAdapter;
 
+    private ListView mDrawerList;
+    private DrawerLayout mDrawerLayout;
+    private ArrayAdapter<String> mAdapter;
+    private ActionBarDrawerToggle mDrawerToggle;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review_list);
+//        setContentView(R.layout.activity_review_list);
 
 
         Intent intent = getIntent();
         courseId = intent.getStringExtra("courseId");
         Log.d("DEBUG", "collegeId2r is " + courseId);
+
+        AppCompatCallback callback = new AppCompatCallback() {
+
+            @Nullable
+            @Override
+            public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+                return null;
+            }
+
+            @Override
+            public void onSupportActionModeStarted(ActionMode actionMode) {
+            }
+
+            @Override
+            public void onSupportActionModeFinished(ActionMode actionMode) {
+            }
+        };
+
+        AppCompatDelegate delegate = AppCompatDelegate.create(this, callback);
+
+        delegate.onCreate(savedInstanceState);
+        delegate.setContentView(R.layout.activity_review_list);
+
+        mDrawerList = (ListView) findViewById(R.id.navList);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+        addDrawerItems();
+        setupDrawer();
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        delegate.setSupportActionBar(toolbar);
+
+        delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        delegate.getSupportActionBar().setHomeButtonEnabled(true);
 
 
         mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
@@ -58,6 +110,95 @@ public class CourseReviewListActivity extends ListActivity {
         setUpReviewItems();
 
 
+    }
+
+    private void addDrawerItems() {
+        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews"};
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
+        mDrawerList.setAdapter(mAdapter);
+
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
+                switch (position) {
+                    case 0: {
+                        Intent intent = new Intent(CourseReviewListActivity.this, CollegeListActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1: {
+                        Intent intent = new Intent(CourseReviewListActivity.this, SearchCourseListActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2: {
+                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCollegeActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3: {
+                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCourseActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 4: {
+                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCollegeReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 5: {
+                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCourseReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        });
+    }
+
+
+    private void setupDrawer() {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
+
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+//                getSupportActionBar().setTitle("Navigation!");
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+//                getSupportActionBar().setTitle(mActivityTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+        };
+
+
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+    }
+
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mDrawerToggle.syncState();
     }
 
 
@@ -125,6 +266,7 @@ public class CourseReviewListActivity extends ListActivity {
                 intent.putExtra("reviewID", review.getObjectId());
                 intent.putExtra("reviewTitle", review.getString("Title"));
                 intent.putExtra("rating", review.getDouble("Rating"));
+                intent.putExtra("username", review.getParseObject("User_Id").getString("username"));
                 intent.putExtra("studentType", review.getString("Student_Type"));
                 intent.putExtra("contentPros", review.getString("Content_Pros"));
                 intent.putExtra("contentCons", review.getString("Content_Cons"));

@@ -99,8 +99,6 @@ public class NewReviewFragment extends Fragment {
                 // Associate the review with the current college
                 if (collegeId != null) {
                     review.put("College_Id", ParseObject.createWithoutData("College", collegeId));
-
-                    
                     ParsePush push = new ParsePush();
                     push.setChannel(collegeId);
                     push.setMessage("A new review has been created for one your favourite Colleges");

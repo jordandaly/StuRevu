@@ -11,8 +11,6 @@
         android:protectionLevel="signature"></permission>
 
     <uses-permission android:name="ie.ncirl.jordandaly.classdoor.MAPS_RECEIVE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -50,6 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -96,7 +95,6 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -137,6 +135,9 @@
         <activity android:name=".CommentSingleItem" />
         <activity android:name=".NewCommentActivity" />
         <activity android:name=".NewReplyActivity" />
+        <activity android:name=".FavouriteCollegeReviewActivity" />
+        <activity android:name=".FavouriteCourseReviewActivity" />
+
 
         <!--<activity android:name=".SearchCourseListActivity" />-->
 

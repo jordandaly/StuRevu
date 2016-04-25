@@ -292,7 +292,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Following"};
+        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -318,6 +318,16 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                     }
                     case 3: {
                         Intent intent = new Intent(CollegeSingleItem.this, FavouriteCourseActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 4: {
+                        Intent intent = new Intent(CollegeSingleItem.this, FavouriteCollegeReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 5: {
+                        Intent intent = new Intent(CollegeSingleItem.this, FavouriteCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -365,7 +375,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.activity_action_course_single_item, menu);
+        getMenuInflater().inflate(R.menu.activity_action_single_item, menu);
         return true;
 
     }
@@ -373,9 +383,6 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_favourite).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_follow).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
-
         return true;
     }
 
@@ -398,11 +405,6 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 
             case R.id.action_favourite: {
                 saveFavourite();
-                break;
-            }
-
-            case R.id.action_follow: {
-                addFollowing();
                 break;
             }
 
@@ -449,10 +451,6 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                 }
             }
         });
-    }
-
-    private void addFollowing() {
-        //TODO
     }
 
 

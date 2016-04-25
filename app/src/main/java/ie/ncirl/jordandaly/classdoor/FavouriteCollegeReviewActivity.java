@@ -27,12 +27,12 @@ import com.parse.ParseQueryAdapter;
 /**
  * Created by jdaly on 09/12/2015.
  */
-public class CollegeReviewListActivity extends ListActivity {
+public class FavouriteCollegeReviewActivity extends ListActivity {
 
-    public static String collegeId;
+
     ListView reviewListView;
-    private ParseQueryAdapter<Review> mainReviewAdapter;
-    private CollegeReviewAdapter reviewAdapter;
+    private ParseQueryAdapter<Favourite> mainReviewAdapter;
+    private FavouriteCollegeReviewAdapter reviewAdapter;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -85,12 +85,7 @@ public class CollegeReviewListActivity extends ListActivity {
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
 
 
-        Intent intent = getIntent();
-        collegeId = intent.getStringExtra("collegeId");
-        Log.d("DEBUG", "collegeId2r is " + collegeId);
-
-
-        mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
+        mainReviewAdapter = new ParseQueryAdapter<Favourite>(this, Favourite.class);
 
         mainReviewAdapter.setTextKey("Title");
 
@@ -98,7 +93,7 @@ public class CollegeReviewListActivity extends ListActivity {
 
 
         // Subclass of ParseQueryAdapter
-        reviewAdapter = new CollegeReviewAdapter(this);
+        reviewAdapter = new FavouriteCollegeReviewAdapter(this);
 
         reviewListView = (ListView) findViewById(android.R.id.list);
         reviewListView.setAdapter(reviewAdapter);
@@ -124,39 +119,39 @@ public class CollegeReviewListActivity extends ListActivity {
 //                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, CollegeListActivity.class);
+                        Intent intent = new Intent(FavouriteCollegeReviewActivity.this, CollegeListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(FavouriteCollegeReviewActivity.this, SearchCourseListActivity.class);
                         startActivity(intent);
                         break;
                     }
+
                     case 2: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(FavouriteCollegeReviewActivity.this, FavouriteCollegeActivity.class);
                         startActivity(intent);
                         break;
                     }
 
                     case 3: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCourseActivity.class);
+                        Intent intent = new Intent(FavouriteCollegeReviewActivity.this, FavouriteCourseActivity.class);
                         startActivity(intent);
                         break;
                     }
 
                     case 4: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCollegeReviewActivity.class);
+                        Intent intent = new Intent(FavouriteCollegeReviewActivity.this, FavouriteCollegeReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
 
                     case 5: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCourseReviewActivity.class);
+                        Intent intent = new Intent(FavouriteCollegeReviewActivity.this, FavouriteCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
-
                     default:
                         break;
                 }
@@ -189,7 +184,6 @@ public class CollegeReviewListActivity extends ListActivity {
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
     }
-
 
 
     @Override
@@ -267,21 +261,21 @@ public class CollegeReviewListActivity extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick");
 
-                ParseObject review = reviewAdapter.getItem(position);
-                ParseProxyObject review_ppo = new ParseProxyObject(review);
+                ParseObject favourite = reviewAdapter.getItem(position);
+                ParseProxyObject favourite_ppo = new ParseProxyObject(favourite);
 
-                Intent intent = new Intent(CollegeReviewListActivity.this, ReviewSingleItem.class);
-                intent.putExtra("review", review_ppo);
-                intent.putExtra("reviewID", review.getObjectId());
-                intent.putExtra("reviewTitle", review.getString("Title"));
-                intent.putExtra("rating", review.getDouble("Rating"));
-                intent.putExtra("username", review.getParseObject("User_Id").getString("username"));
-                intent.putExtra("studentType", review.getString("Student_Type"));
-                intent.putExtra("contentPros", review.getString("Content_Pros"));
-                intent.putExtra("contentCons", review.getString("Content_Cons"));
-                intent.putExtra("contentAdvice", review.getString("Content_Advice"));
-                intent.putExtra("helpfulVoteCount", review.getInt("Helpful_Vote_Count"));
-                intent.putExtra("flaggedSpamCount", review.getInt("Flagged_Spam_Count"));
+                Intent intent = new Intent(FavouriteCollegeReviewActivity.this, ReviewSingleItem.class);
+                intent.putExtra("review", favourite_ppo);
+                intent.putExtra("reviewID", favourite.getParseObject("Review_Id").getObjectId());
+                intent.putExtra("reviewTitle", favourite.getParseObject("Review_Id").getString("Title"));
+                intent.putExtra("rating", favourite.getParseObject("Review_Id").getDouble("Rating"));
+                intent.putExtra("username", favourite.getParseObject("Review_Id").getParseObject("User_Id").getString("username"));
+                intent.putExtra("studentType", favourite.getParseObject("Review_Id").getString("Student_Type"));
+                intent.putExtra("contentPros", favourite.getParseObject("Review_Id").getString("Content_Pros"));
+                intent.putExtra("contentCons", favourite.getParseObject("Review_Id").getString("Content_Cons"));
+                intent.putExtra("contentAdvice", favourite.getParseObject("Review_Id").getString("Content_Advice"));
+                intent.putExtra("helpfulVoteCount", favourite.getParseObject("Review_Id").getInt("Helpful_Vote_Count"));
+                intent.putExtra("flaggedSpamCount", favourite.getParseObject("Review_Id").getInt("Flagged_Spam_Count"));
                 startActivity(intent);
 
             }
@@ -289,3 +283,4 @@ public class CollegeReviewListActivity extends ListActivity {
     }
 
 }
+

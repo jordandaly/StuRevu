@@ -2,7 +2,6 @@ package ie.ncirl.jordandaly.classdoor;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 //import com.parse.ParseUser;
 
 /**
@@ -82,13 +81,6 @@ public class Review extends ParseObject {
     }
 
 
-    public ParseUser getAuthor() {
-        return getParseUser("author");
-    }
-
-    public void setAuthor(ParseUser user) {
-        put("author", user);
-    }
 
     // Get the college for this college review
     public String getCollege() {

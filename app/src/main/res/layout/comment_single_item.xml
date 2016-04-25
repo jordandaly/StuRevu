@@ -13,19 +13,21 @@
 
 
     <TextView
-        android:id="@+id/contentLabel"
+        android:id="@+id/author_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/comment_title"
-        android:text="Comment: "
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/comment_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/contentLabel"
+        android:layout_below="@id/comment_title"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/author_comment"
         android:textSize="20sp"
         android:textStyle="bold" />
 
