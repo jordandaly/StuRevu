@@ -20,25 +20,25 @@
         android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar_main"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
+            android:textSize="30sp"
         android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/authorLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/review_title"
-            android:text="Author:"
-            android:textSize="20sp" />
-
     <TextView
-        android:id="@+id/author"
+        android:id="@+id/authorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/review_title"
+        android:text="Author:"
+        android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/review_title"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/authorLabel"
-        android:textSize="20sp"
+            android:textSize="15sp"
         android:textStyle="italic" />
 
 
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/authorLabel"
         android:text="Student Type:"
-        android:textSize="20sp" />
+            android:textSize="15sp" />
 
     <TextView
         android:id="@+id/student_type"
@@ -57,7 +57,7 @@
         android:layout_below="@id/authorLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/studentTypeLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
 
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/student_type"
         android:text="Rating: "
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/rating"
@@ -76,7 +76,7 @@
         android:layout_below="@id/student_type"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/ratingLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rating"
         android:text="Pros: "
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/content_pros"
@@ -94,7 +94,7 @@
         android:layout_below="@id/ratingLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentProsLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_pros"
         android:text="Cons: "
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/content_cons"
@@ -112,7 +112,7 @@
         android:layout_below="@id/content_pros"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentConsLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_cons"
         android:text="Advice: "
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/content_advice"
@@ -130,7 +130,7 @@
         android:layout_below="@id/content_cons"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentAdviceLabel"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
 
@@ -140,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_advice"
         android:text="Helpful Votes :"
-        android:textSize="25sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/helpful_vote"
@@ -148,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_advice"
         android:layout_toRightOf="@+id/helpfulVoteLabel"
-        android:textSize="25sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/flaggedSpamLabel"
@@ -156,7 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/helpfulVoteLabel"
         android:text="Spam Flags :"
-        android:textSize="25sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/flagged_spam"
@@ -164,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/helpfulVoteLabel"
         android:layout_toRightOf="@+id/flaggedSpamLabel"
-        android:textSize="25sp" />
+        android:textSize="15sp" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/commentListButtonId"
@@ -187,7 +187,6 @@
         android:layout_below="@+id/commentListButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="9dp"
         android:text="Vote Helpful"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_blue_light"
@@ -212,7 +211,6 @@
         android:layout_below="@+id/flaggedSpamButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="9dp"
         android:text="Add New Comment"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_green_light"

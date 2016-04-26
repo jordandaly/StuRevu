@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -67,6 +68,10 @@ public class NewCommentFragment extends Fragment {
                 // Associate the review with the current college
 
                 comment.put("Review_Id", ParseObject.createWithoutData("Review", reviewId));
+                ParsePush push = new ParsePush();
+                push.setChannel(reviewId);
+                push.setMessage("A new comment has been created for one your favourite Reviews");
+                push.sendInBackground();
 
 
                 comment.setContent(commentContent.getText().toString());
