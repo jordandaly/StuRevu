@@ -219,8 +219,8 @@
         android:layout_marginTop="9dp"
         android:text="Course Reviews List"
         android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_orange_dark"
-        custom:pb_colorPressed="@android:color/holo_orange_light" />
+        custom:pb_colorNormal="@android:color/holo_orange_light"
+        custom:pb_colorPressed="@android:color/holo_orange_dark" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/modulesButtonId"

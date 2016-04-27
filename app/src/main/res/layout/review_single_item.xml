@@ -69,15 +69,26 @@
         android:text="Rating: "
         android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/student_type"
-        android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@id/ratingLabel"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        <!--<TextView-->
+        <!--android:id="@+id/rating"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/student_type"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_toRightOf="@id/ratingLabel"-->
+        <!--android:textSize="15sp"-->
+        <!--android:textStyle="bold" />-->
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/rating"
+            style="?android:attr/ratingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/student_type"
+            android:layout_toRightOf="@id/ratingLabel"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5" />
 
     <TextView
         android:id="@+id/contentProsLabel"
@@ -91,7 +102,7 @@
         android:id="@+id/content_pros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ratingLabel"
+        android:layout_below="@id/rating"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentProsLabel"
         android:textSize="15sp"

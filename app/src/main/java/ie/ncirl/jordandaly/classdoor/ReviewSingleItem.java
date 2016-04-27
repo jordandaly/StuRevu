@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     // Declare Variables
 
     TextView tv_reviewTitle;
-    TextView tv_rating;
+    RatingBar tv_rating;
     TextView tv_author;
     TextView tv_studentType;
     TextView tv_contentPros;
@@ -107,9 +108,16 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         tv_studentType.setText(studentType);
 
         // Locate the TextView in singleitemview.xml
-        tv_rating = (TextView) findViewById(R.id.rating);
-        // Load the text into the TextView
-        tv_rating.setText(Double.toString(rating));
+//        tv_rating = (TextView) findViewById(R.id.rating);
+//        // Load the text into the TextView
+//        tv_rating.setText(Double.toString(rating));
+
+        tv_rating = (RatingBar) findViewById(R.id.rating);
+        // Load the value into the ratingbar
+        float r = (float) rating;
+        Log.v("Test", String.format("rating float value: " + r));
+        tv_rating.setRating(r);
+
 
 
         // Locate the TextView in singleitemview.xml

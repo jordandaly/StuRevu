@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -16,14 +17,18 @@
         <requestFocus />
     </EditText>
 
-    <Button
+    <com.dd.processbutton.FlatButton
         android:id="@+id/searchButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/searchFriend"
-        android:text="@string/search_button" />
+        android:layout_below="@+id/module_count"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="9dp"
+        android:text="@string/search_button"
+        android:textColor="@android:color/white"
+        custom:pb_colorNormal="@android:color/holo_purple"
+        custom:pb_colorPressed="@android:color/darker_gray" />
 
     <ListView
         android:id="@android:id/list"
