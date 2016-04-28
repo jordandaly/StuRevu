@@ -12,9 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -58,20 +61,56 @@ public class NewCommentFragment extends Fragment {
                 comment.setTitle(commentTitle.getText().toString());
 
 
-                // Associate the review with the current user
+                // Associate the comment with the current user
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 String userId = currentUser.getObjectId();
                 Log.d("DEBUG", "userId is " + userId);
                 comment.put("User_Id", ParseObject.createWithoutData("_User", userId));
 
+                // Associate the device with a user
+                ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+                installation.put("user", ParseUser.getCurrentUser());
+                installation.saveInBackground();
 
-                // Associate the review with the current college
+
+                // Associate the comment with the current review
 
                 comment.put("Review_Id", ParseObject.createWithoutData("Review", reviewId));
-                ParsePush push = new ParsePush();
-                push.setChannel(reviewId);
-                push.setMessage("A new comment has been created for one your favourite Reviews");
-                push.sendInBackground();
+                ParsePush push_fav = new ParsePush();
+                push_fav.setChannel(reviewId);
+                push_fav.setMessage("A new comment has been created for one your favourite Reviews");
+                push_fav.sendInBackground();
+
+                //set up query for author of review
+                ParseQuery<ParseObject> query = new ParseQuery("Review");
+                query.include("User_Id");
+                query.getInBackground(reviewId, new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if (e == null) {
+                            String author = object.getParseObject("User_Id").getObjectId();
+                            Log.d("DEBUG", "review UserId is " + author);
+
+                            // Create our Installation query
+                            ParseQuery pushQuery = ParseInstallation.getQuery();
+                            ParseObject user_id = ParseObject.createWithoutData("_User", author);
+                            pushQuery.whereEqualTo("user", user_id);
+
+                            // Send push notification to query
+                            ParsePush push_author = new ParsePush();
+                            push_author.setQuery(pushQuery); // Set our Installation query
+                            push_author.setMessage("A new comment has been added to a review that you created");
+                            push_author.sendInBackground();
+
+                        } else {
+                            // something went wrong
+                            Log.d("DEBUG", "something went wrong");
+                        }
+                    }
+                });
+
+
+
 
 
                 comment.setContent(commentContent.getText().toString());

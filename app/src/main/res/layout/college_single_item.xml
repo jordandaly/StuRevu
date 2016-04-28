@@ -82,27 +82,27 @@
         android:layout_toRightOf="@+id/coursecountlabel"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/clubsoccountlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/coursecountlabel"
-        android:text="@string/clubsoccountlabel"
-        android:textSize="25sp" />
+    <!--<TextView-->
+    <!--android:id="@+id/clubsoccountlabel"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/coursecountlabel"-->
+    <!--android:text="@string/clubsoccountlabel"-->
+    <!--android:textSize="25sp" />-->
 
-    <TextView
-        android:id="@+id/club_soc_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/coursecountlabel"
-        android:layout_toRightOf="@+id/clubsoccountlabel"
-        android:textSize="25sp" />
+    <!--<TextView-->
+    <!--android:id="@+id/club_soc_count"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/coursecountlabel"-->
+    <!--android:layout_toRightOf="@+id/clubsoccountlabel"-->
+    <!--android:textSize="25sp" />-->
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/reviewsButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/club_soc_count"
+        android:layout_below="@+id/course_count"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
@@ -123,23 +123,23 @@
         custom:pb_colorNormal="@android:color/holo_blue_light"
         custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/clubsocsButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/coursesButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Clubs/Socs List"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+    <!--<com.dd.processbutton.FlatButton-->
+    <!--android:id="@+id/clubsocsButtonId"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/coursesButtonId"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="Clubs/Socs List"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--custom:pb_colorNormal="@android:color/holo_blue_light"-->
+    <!--custom:pb_colorPressed="@android:color/holo_blue_dark" />-->
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/addNewReviewButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/clubsocsButtonId"
+        android:layout_below="@+id/coursesButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Add New College Review"

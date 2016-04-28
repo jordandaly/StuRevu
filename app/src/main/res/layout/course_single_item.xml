@@ -192,28 +192,28 @@
         android:layout_toRightOf="@+id/revcountlabel"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/modulecountlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/revcountlabel"
-        android:text="@string/modulecountlabel"
-        android:textSize="20sp" />
+        <!--<TextView-->
+        <!--android:id="@+id/modulecountlabel"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/revcountlabel"-->
+        <!--android:text="@string/modulecountlabel"-->
+        <!--android:textSize="20sp" />-->
 
-    <TextView
-        android:id="@+id/module_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rev_count"
-        android:layout_toRightOf="@+id/modulecountlabel"
-        android:textSize="20sp" />
+        <!--<TextView-->
+        <!--android:id="@+id/module_count"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/rev_count"-->
+        <!--android:layout_toRightOf="@+id/modulecountlabel"-->
+        <!--android:textSize="20sp" />-->
 
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/reviewsButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/module_count"
+        android:layout_below="@+id/rev_count"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
@@ -222,23 +222,23 @@
         custom:pb_colorNormal="@android:color/holo_orange_light"
         custom:pb_colorPressed="@android:color/holo_orange_dark" />
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/modulesButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/reviewsButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Modules List"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+        <!--<com.dd.processbutton.FlatButton-->
+        <!--android:id="@+id/modulesButtonId"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/reviewsButtonId"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:text="Modules List"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--custom:pb_colorNormal="@android:color/holo_blue_light"-->
+        <!--custom:pb_colorPressed="@android:color/holo_blue_dark" />-->
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/addNewReviewButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/modulesButtonId"
+        android:layout_below="@+id/reviewsButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Add New Course Review"

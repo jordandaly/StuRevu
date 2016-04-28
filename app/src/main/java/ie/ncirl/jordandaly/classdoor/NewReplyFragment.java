@@ -12,8 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -55,16 +59,44 @@ public class NewReplyFragment extends Fragment {
                 // Add data to the review object:
 
 
-                // Associate the review with the current user
+                // Associate the reply with the current user
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 String userId = currentUser.getObjectId();
                 Log.d("DEBUG", "userId is " + userId);
                 reply.put("User_Id", ParseObject.createWithoutData("_User", userId));
 
 
-                // Associate the review with the current college
+                // Associate the reply with the current comment
 
                 reply.put("Comment_Id", ParseObject.createWithoutData("Comment", commentId));
+
+                //set up query for author of comment
+                ParseQuery<ParseObject> query = new ParseQuery("Comment");
+                query.include("User_Id");
+                query.getInBackground(commentId, new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if (e == null) {
+                            String author = object.getParseObject("User_Id").getObjectId();
+                            Log.d("DEBUG", "reply UserId is " + author);
+
+                            // Create our Installation query
+                            ParseQuery pushQuery = ParseInstallation.getQuery();
+                            ParseObject user_id = ParseObject.createWithoutData("_User", author);
+                            pushQuery.whereEqualTo("user", user_id);
+
+                            // Send push notification to query
+                            ParsePush push_author = new ParsePush();
+                            push_author.setQuery(pushQuery); // Set our Installation query
+                            push_author.setMessage("A new reply has been added to a comment that you created");
+                            push_author.sendInBackground();
+
+                        } else {
+                            // something went wrong
+                            Log.d("DEBUG", "something went wrong");
+                        }
+                    }
+                });
 
 
                 reply.setContent(replyContent.getText().toString());

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
@@ -94,6 +95,11 @@ public class NewReviewFragment extends Fragment {
 
 
 //                review.setAuthor(ParseUser.getCurrentUser());
+
+                // Associate the device with a user
+                ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+                installation.put("user", ParseUser.getCurrentUser());
+                installation.saveInBackground();
 
 
                 // Associate the review with the current college

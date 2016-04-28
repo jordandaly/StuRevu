@@ -221,17 +221,17 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 //        tv_reviewCount.setText(Integer.toString(reviewCount));
 
         // Locate the TextView in singleitemview.xml
-        tv_moduleCount = (TextView) findViewById(R.id.module_count);
-        // Load the text into the TextView
-        tv_moduleCount.setText(Integer.toString(moduleCount));
+//        tv_moduleCount = (TextView) findViewById(R.id.module_count);
+//        // Load the text into the TextView
+//        tv_moduleCount.setText(Integer.toString(moduleCount));
 
 
-        modulesButton = (Button) findViewById(R.id.modulesButtonId);
+//        modulesButton = (Button) findViewById(R.id.modulesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
 
-        modulesButton.setOnClickListener(this);
+//        modulesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         addNewReviewButton.setOnClickListener(this);
 
@@ -258,9 +258,9 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.modulesButtonId:
-                startActivity(new Intent(CourseSingleItem.this, ModuleListActivity.class));
-                break;
+//            case R.id.modulesButtonId:
+//                startActivity(new Intent(CourseSingleItem.this, ModuleListActivity.class));
+//                break;
             case R.id.reviewsButtonId:
                 Intent reviewListIntent = new Intent(this, CourseReviewListActivity.class);
                 Log.d("DEBUG", "courseID1r is " + courseID);

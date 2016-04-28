@@ -208,18 +208,18 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 //        tv_courseCount.setText(Integer.toString(courseCount));
 
         // Locate the TextView in singleitemview.xml
-        tv_clubSocCount = (TextView) findViewById(R.id.club_soc_count);
-        // Load the text into the TextView
-        tv_clubSocCount.setText(Integer.toString(clubSocCount));
+//        tv_clubSocCount = (TextView) findViewById(R.id.club_soc_count);
+//        // Load the text into the TextView
+//        tv_clubSocCount.setText(Integer.toString(clubSocCount));
 
         coursesButton = (Button) findViewById(R.id.coursesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
-        clubsocsButton = (Button) findViewById(R.id.clubsocsButtonId);
+//        clubsocsButton = (Button) findViewById(R.id.clubsocsButtonId);
         addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
         coursesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
-        clubsocsButton.setOnClickListener(this);
+//        clubsocsButton.setOnClickListener(this);
         addNewReviewButton.setOnClickListener(this);
 
         // Find the toolbar view inside the activity layout
@@ -260,9 +260,9 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                 startActivity(reviewListIntent);
                 //startActivity(new Intent(CollegeSingleItem.this, CollegeReviewListActivity.class));
                 break;
-            case R.id.clubsocsButtonId:
-                startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));
-                break;
+//            case R.id.clubsocsButtonId:
+//                startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));
+//                break;
             case R.id.addNewReviewButtonId:
                 Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
                 Log.d("DEBUG", "collegeID1ncr is " + collegeID);
