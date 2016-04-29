@@ -109,7 +109,8 @@ public class FavouriteCourseActivity extends ListActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews"};
+        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews"
+                , "My College Reviews", "My Course Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -137,6 +138,27 @@ public class FavouriteCourseActivity extends ListActivity {
 
                     case 3: {
                         Intent intent = new Intent(FavouriteCourseActivity.this, FavouriteCourseActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 4: {
+                        Intent intent = new Intent(FavouriteCourseActivity.this, FavouriteCollegeReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+
+                    case 5: {
+                        Intent intent = new Intent(FavouriteCourseActivity.this, FavouriteCourseReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 6: {
+                        Intent intent = new Intent(FavouriteCourseActivity.this, MyCollegeReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 7: {
+                        Intent intent = new Intent(FavouriteCourseActivity.this, MyCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }

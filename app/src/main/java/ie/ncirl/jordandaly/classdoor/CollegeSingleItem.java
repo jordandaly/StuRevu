@@ -292,7 +292,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews"};
+        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews", "My College Reviews", "My Course Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -328,6 +328,16 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                     }
                     case 5: {
                         Intent intent = new Intent(CollegeSingleItem.this, FavouriteCourseReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 6: {
+                        Intent intent = new Intent(CollegeSingleItem.this, MyCollegeReviewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 7: {
+                        Intent intent = new Intent(CollegeSingleItem.this, MyCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
