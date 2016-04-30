@@ -32,6 +32,7 @@
     <string name="action_follow">Add to Following</string>
     <string name="action_search_courses">Search all Courses</string>
     <string name="comment_label">New Comment Title</string>
+    <string name="commentcountlabel">Comments: </string>
 
 
     <string-array name="ratings_array">

@@ -104,7 +104,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     // Accuracy for calculating the map bounds
     private static final float OFFSET_CALCULATION_ACCURACY = 0.01f;
     // Maximum post search radius for map in kilometers
-    private static final int MAX_POST_SEARCH_DISTANCE = 100;
+    private static final int MAX_SEARCH_DISTANCE = 100;
     // Fields for helping process map and location changes
     private final Map<String, Marker> mapMarkers = new HashMap<String, Marker>();
     GoogleMap Map;
@@ -120,7 +120,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private float lastRadius;
     private int mostRecentMapUpdate;
     private boolean hasSetUpInitialLocation;
-    private String selectedPostObjectId;
+    private String selectedCollegeObjectId;
     private Location lastLocation;
     private Location currentLocation;
 
@@ -202,7 +202,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         collegesListView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final College item = collegesQueryAdapter.getItem(position);
-                selectedPostObjectId = item.getObjectId();
+                selectedCollegeObjectId = item.getObjectId();
                 mapFragment.getMap().animateCamera(
                         CameraUpdateFactory.newLatLng(new LatLng(item.getLocation().getLatitude(), item
                                 .getLocation().getLongitude())), new CancelableCallback() {
@@ -239,11 +239,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 //            }
 //        });
 
-        // Set up the handler for the post button click
+        // Set up the handler for the button click
         Button postButton = (Button) findViewById(R.id.college_button);
         postButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                // Only allow posts if we have a location
+                // Only allow if we have a location
                 Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
                 if (myLoc == null) {
                     Toast.makeText(MapActivity.this,
@@ -633,9 +633,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         // Create the map Parse query
         ParseQuery<College> mapQuery = College.getQuery();
         // Set up additional query filters
-        mapQuery.whereWithinKilometers("Geolocation", myPoint, MAX_POST_SEARCH_DISTANCE);
+        mapQuery.whereWithinKilometers("Geolocation", myPoint, MAX_SEARCH_DISTANCE);
         mapQuery.orderByAscending("Name");
-//        mapQuery.setLimit(MAX_POST_SEARCH_RESULTS);
+//        mapQuery.setLimit(MAX_SEARCH_DISTANCE);
         // Kick off the query in the background
         mapQuery.findInBackground(new FindCallback<College>() {
             @Override
@@ -654,13 +654,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                 if (myUpdateNumber != mostRecentMapUpdate) {
                     return;
                 }
-                // Posts to show on the map
+                // Colleges to show on the map
                 Set<String> toKeep = new HashSet<String>();
                 // Loop through the results of the search
                 for (College college : objects) {
-                    // Add this post to the list of map pins to keep
+                    // Add this college to the list of map pins to keep
                     toKeep.add(college.getObjectId());
-                    // Check for an existing marker for this post
+                    // Check for an existing marker for this college
                     Marker oldMarker = mapMarkers.get(college.getObjectId());
                     // Set up the map marker's location
                     MarkerOptions markerOpts =
@@ -679,10 +679,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                                 oldMarker.remove();
                             }
                         }
-//                        // Display a red marker with a predefined title and no snippet
-//                        markerOpts =
-//                                markerOpts.title(getResources().getString(R.string.college_out_of_range)).icon(
-//                                        BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
                         // Display a green marker with the college information
                         markerOpts =
                                 markerOpts.title(college.getName()).snippet(college.getInitials())
@@ -706,9 +702,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                     // Add a new marker
                     Marker marker = mapFragment.getMap().addMarker(markerOpts);
                     mapMarkers.put(college.getObjectId(), marker);
-                    if (college.getObjectId().equals(selectedPostObjectId)) {
+                    if (college.getObjectId().equals(selectedCollegeObjectId)) {
                         marker.showInfoWindow();
-                        selectedPostObjectId = null;
+                        selectedCollegeObjectId = null;
                     }
                 }
                 // Clean up old markers.

@@ -67,7 +67,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
     private String departmentFaculty;
     private Object averageRating;
     private int reviewCount = 0;
-    private int moduleCount = 0;
+
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -243,6 +243,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("Course");
 
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -90,6 +90,7 @@ public class CourseListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("Course List");
 
 
         mainCourseAdapter = new ParseQueryAdapter<Course>(this, Course.class);

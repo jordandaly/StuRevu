@@ -19,7 +19,7 @@ public class FavouriteCourseReviewAdapter extends ParseQueryAdapter<Favourite> {
         super(context, new ParseQueryAdapter.QueryFactory<Favourite>() {
             public ParseQuery<Favourite> create() {
                 // Here we can configure a ParseQuery to display
-                // required data
+                // Favourite Course reviews
                 ParseQuery query = new ParseQuery("Favourite");
                 ParseObject user_id = ParseObject.createWithoutData("_User", ParseUser.getCurrentUser().getObjectId());
                 query.whereEqualTo("User_Id", user_id);
@@ -28,7 +28,6 @@ public class FavouriteCourseReviewAdapter extends ParseQueryAdapter<Favourite> {
                 ParseQuery innerQuery = new ParseQuery("Review");
                 innerQuery.whereExists("Course_Id");
                 query.whereMatchesQuery("Review_Id", innerQuery);
-                //query.whereExists("Review_Id.Course_Id");
                 query.include("Review_Id.Course_Id");
                 query.include("Review_Id.User_Id");
                 query.orderByAscending("createdAt");

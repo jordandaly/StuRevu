@@ -22,7 +22,6 @@
         android:layout_below="@+id/profile_image"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Name"
         android:textColor="@color/abc_secondary_text_material_light" />
 
     <TextView
@@ -32,7 +31,6 @@
         android:layout_below="@+id/txt_name"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Email"
         android:textColor="@color/abc_secondary_text_material_light" />
 
     <Button

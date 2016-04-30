@@ -82,6 +82,7 @@ public class MyCourseReviewActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("My Course Review List");
 
 
         mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);

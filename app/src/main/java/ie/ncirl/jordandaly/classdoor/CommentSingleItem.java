@@ -107,6 +107,7 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("Comment");
 
 
         // Locate the TextView in singleitemview.xml

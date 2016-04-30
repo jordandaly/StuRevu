@@ -138,13 +138,13 @@ public class Login extends AppCompatActivity {
                     public void done(ParseUser user, ParseException err) {
 
                         if (user == null) {
-                            Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                            Log.d("StuRevu", "Uh oh. The user cancelled the Facebook login.");
                         } else if (user.isNew()) {
-                            Log.d("MyApp", "User signed up and logged in through Facebook!");
+                            Log.d("StuRevu", "User signed up and logged in through Facebook!");
                             getUserDetailsFromFB();
                             startActivity(new Intent(Login.this, CollegeListActivity.class));
                         } else {
-                            Log.d("MyApp", "User logged in through Facebook!");
+                            Log.d("StuRevu", "User logged in through Facebook!");
                             getUserDetailsFromParse();
                             startActivity(new Intent(Login.this, CollegeListActivity.class));
                         }
@@ -173,7 +173,6 @@ public class Login extends AppCompatActivity {
     }
 
     private void getUserDetailsFromFB() {
-        // Suggested by https://disqus.com/by/dominiquecanlas/
         Bundle parameters = new Bundle();
         parameters.putString("fields", "email,name,picture");
         new GraphRequest(

@@ -19,12 +19,16 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FunctionCallback;
 import com.parse.GetCallback;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.HashMap;
 
 /**
  * Created by jdaly on 10/12/2015.
@@ -42,6 +46,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     TextView tv_contentAdvice;
     TextView tv_helpfulVoteCount;
     TextView tv_flaggedSpamCount;
+    TextView tv_commentCount;
     int disableBtn = 1;
     private Button helpfulVoteButton;
     private Button flaggedSpamButton;
@@ -58,6 +63,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     private String contentAdvice;
     private int helpfulVoteCount = 0;
     private int flaggedSpamCount = 0;
+    private int commentCount = 0;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -90,6 +96,34 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
 
         //Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
+
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("Review_Id", reviewID);
+
+        ParseCloud.callFunctionInBackground("countReviewComments", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result_count:" + count);
+                    if (count != null) {
+
+
+                        commentCount = count;
+                        System.out.println("count:" + commentCount);
+
+                    } else {
+                        commentCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_commentCount = (TextView) findViewById(R.id.comment_count);
+                    // Load the text into the TextView
+                    tv_commentCount.setText(Integer.toString(commentCount));
+
+
+                }
+            }
+        });
 
 
         // Locate the TextView in singleitemview.xml
@@ -170,6 +204,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("Review");
 
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

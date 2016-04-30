@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/review_title"
         android:text="Author:"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
         <TextView
             android:id="@+id/author"
@@ -43,7 +43,7 @@
             android:layout_below="@id/review_title"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/authorLabel"
-            android:textSize="25sp"
+            android:textSize="20sp"
         android:textStyle="italic" />
 
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/authorLabel"
         android:text="Student Type:"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
     <TextView
         android:id="@+id/student_type"
@@ -62,7 +62,7 @@
         android:layout_below="@id/authorLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/studentTypeLabel"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
 
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/student_type"
         android:text="Rating: "
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
         <!--<TextView-->
         <!--android:id="@+id/rating"-->
@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rating"
         android:text="Pros: "
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/content_pros"
@@ -110,7 +110,7 @@
         android:layout_below="@id/rating"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentProsLabel"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_pros"
         android:text="Cons: "
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/content_cons"
@@ -128,7 +128,7 @@
         android:layout_below="@id/content_pros"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentConsLabel"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_cons"
         android:text="Advice: "
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/content_advice"
@@ -146,25 +146,41 @@
         android:layout_below="@id/content_cons"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentAdviceLabel"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/commentCountlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/content_advice"
+                android:text="@string/commentcountlabel"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/content_advice"
+                android:layout_toRightOf="@+id/commentCountlabel"
+                android:textSize="20sp" />
 
 
     <TextView
         android:id="@+id/helpfulVoteLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/content_advice"
+        android:layout_below="@id/commentCountlabel"
         android:text="Helpful Votes :"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/helpful_vote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/content_advice"
+        android:layout_below="@id/comment_count"
         android:layout_toRightOf="@+id/helpfulVoteLabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/flaggedSpamLabel"
@@ -172,7 +188,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/helpfulVoteLabel"
         android:text="Spam Flags :"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/flagged_spam"
@@ -180,7 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/helpfulVoteLabel"
         android:layout_toRightOf="@+id/flaggedSpamLabel"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/commentListButtonId"

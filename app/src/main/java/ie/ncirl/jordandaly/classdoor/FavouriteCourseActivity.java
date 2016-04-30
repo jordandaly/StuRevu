@@ -84,6 +84,7 @@ public class FavouriteCourseActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("Favourite Course List");
 
 
         mainFavouriteCourseAdapter = new ParseQueryAdapter<Favourite>(this, Favourite.class);
@@ -240,6 +241,10 @@ public class FavouriteCourseActivity extends ListActivity {
             }
 
 
+        }
+        // Activate the navigation drawer toggle
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

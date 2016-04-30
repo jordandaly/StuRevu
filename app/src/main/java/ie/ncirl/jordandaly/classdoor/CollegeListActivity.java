@@ -85,6 +85,7 @@ public class CollegeListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("College List");
 
 
         mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);

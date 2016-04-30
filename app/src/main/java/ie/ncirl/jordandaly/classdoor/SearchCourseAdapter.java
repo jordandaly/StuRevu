@@ -21,10 +21,9 @@ public class SearchCourseAdapter extends ParseQueryAdapter<Course> {
 
 
             public ParseQuery<Course> create() {
-                // Here we can configure a ParseQuery to display
-                // only associated courses.
+                // Here we can configure a ParseQuery to search
+                // based on course name starts with.
                 ParseQuery query = new ParseQuery("Course");
-//                    query.whereEqualTo("Name", coursename);
                 String course_name = SearchCourseListActivity.coursename;
                 Log.d("DEBUG", "course_name is " + course_name);
                 query.whereStartsWith("Name", course_name);

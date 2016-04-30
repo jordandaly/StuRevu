@@ -67,6 +67,7 @@ public class CollegeReviewListActivity extends ListActivity {
         delegate.onCreate(savedInstanceState);
         delegate.setContentView(R.layout.activity_review_list);
 
+
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -83,6 +84,7 @@ public class CollegeReviewListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("College Review List");
 
 
         Intent intent = getIntent();

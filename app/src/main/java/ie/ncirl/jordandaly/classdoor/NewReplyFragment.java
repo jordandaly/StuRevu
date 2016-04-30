@@ -66,11 +66,11 @@ public class NewReplyFragment extends Fragment {
                 reply.put("User_Id", ParseObject.createWithoutData("_User", userId));
 
 
-                // Associate the reply with the current comment
+                // Associate the reply with the current reply
 
                 reply.put("Comment_Id", ParseObject.createWithoutData("Comment", commentId));
 
-                //set up query for author of comment
+                //set up query for author of reply
                 ParseQuery<ParseObject> query = new ParseQuery("Comment");
                 query.include("User_Id");
                 query.getInBackground(commentId, new GetCallback<ParseObject>() {

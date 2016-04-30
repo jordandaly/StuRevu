@@ -83,6 +83,7 @@ public class FavouriteCollegeReviewActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("Favourite College Review List");
 
 
         mainReviewAdapter = new ParseQueryAdapter<Favourite>(this, Favourite.class);

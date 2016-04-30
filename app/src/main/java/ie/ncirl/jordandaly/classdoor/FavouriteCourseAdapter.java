@@ -19,7 +19,7 @@ public class FavouriteCourseAdapter extends ParseQueryAdapter<Favourite> {
         super(context, new ParseQueryAdapter.QueryFactory<Favourite>() {
             public ParseQuery<Favourite> create() {
                 // Here we can configure a ParseQuery to display
-                // only universities.
+                // favourite courses
                 ParseQuery query = new ParseQuery("Favourite");
                 ParseObject user_id = ParseObject.createWithoutData("_User", ParseUser.getCurrentUser().getObjectId());
                 query.whereEqualTo("User_Id", user_id);

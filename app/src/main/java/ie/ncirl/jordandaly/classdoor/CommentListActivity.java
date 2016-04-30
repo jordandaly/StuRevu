@@ -87,6 +87,7 @@ public class CommentListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
+        delegate.getSupportActionBar().setTitle("Comment List");
 
 
         mainCommentAdapter = new ParseQueryAdapter<Comment>(this, Comment.class);
