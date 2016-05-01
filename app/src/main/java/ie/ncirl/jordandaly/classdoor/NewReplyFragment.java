@@ -98,6 +98,62 @@ public class NewReplyFragment extends Fragment {
                     }
                 });
 
+//                //send push notification to author of college/course review
+//                ParseQuery<ParseObject> query = new ParseQuery("Comment");
+//                query.include("User_Id");
+//                query.include("Review_Id");
+//                query.include("Review_Id.College_Id");
+//                query.include("Review_Id.Course_Id");
+//                query.include("Review_Id.Course_Id.College_Id");
+//                query.getInBackground(commentId, new GetCallback<ParseObject>() {
+//                    @Override
+//                    public void done(ParseObject object, ParseException e) {
+//                        if (e == null) {
+//                            String author = object.getParseObject("User_Id").getObjectId();
+//                            Log.d("DEBUG", "comment UserId is " + author);
+//                            // object will be your comment
+//                            String reviewTitle = object.getString("Title");
+//                            Log.d("DEBUG", "comment title is " + reviewTitle);
+//
+//
+//                            if (object.getParseObject("Review_Id").getParseObject("Course_Id") != null) {
+//                                String courseDesc = object.getParseObject("Review_Id").getParseObject("Course_Id").getString("Description");
+//                                String collegeInitials = object.getParseObject("Review_Id").getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
+//
+//                                // Create our Installation query
+//                                ParseQuery pushQuery = ParseInstallation.getQuery();
+//                                ParseObject user_id = ParseObject.createWithoutData("_User", author);
+//                                pushQuery.whereEqualTo("user", user_id);
+//
+//                                // Send push notification to query
+//                                ParsePush push_author_course = new ParsePush();
+//                                push_author_course.setQuery(pushQuery); // Set our Installation query
+//                                push_author_course.setMessage("A new Reply has been added to a Comment you created for Course Review, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
+//                                push_author_course.sendInBackground();
+//
+//                            } else if (object.getParseObject("Review_Id").getParseObject("College_Id") != null) {
+//                                String collegeInitials = object.getParseObject("Review_Id").getParseObject("College_Id").getString("Initials");
+//
+//                                // Create our Installation query
+//                                ParseQuery pushQuery = ParseInstallation.getQuery();
+//                                ParseObject user_id = ParseObject.createWithoutData("_User", author);
+//                                pushQuery.whereEqualTo("user", user_id);
+//
+//                                // Send push notification to query
+//                                ParsePush push_author_college = new ParsePush();
+//                                push_author_college.setQuery(pushQuery); // Set our Installation query
+//                                push_author_college.setMessage("A new Reply has been added to a Comment you created for College Review, Title: " + reviewTitle + " at " + collegeInitials);
+//                                push_author_college.sendInBackground();
+//
+//                            }
+//
+//                        } else {
+//                            // something went wrong
+//                            Log.d("DEBUG", "something went wrong");
+//                        }
+//                    }
+//                });
+
 
                 reply.setContent(replyContent.getText().toString());
 

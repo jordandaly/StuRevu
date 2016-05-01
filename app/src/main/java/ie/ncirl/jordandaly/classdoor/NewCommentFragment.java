@@ -76,31 +76,92 @@ public class NewCommentFragment extends Fragment {
                 // Associate the comment with the current review
 
                 comment.put("Review_Id", ParseObject.createWithoutData("Review", reviewId));
-                ParsePush push_fav = new ParsePush();
-                push_fav.setChannel(reviewId);
-                push_fav.setMessage("A new comment has been created for one your favourite Reviews");
-                push_fav.sendInBackground();
+//                ParsePush push_fav = new ParsePush();
+//                push_fav.setChannel(reviewId);
+//                push_fav.setMessage("A new comment has been created for one your favourite Reviews");
+//                push_fav.sendInBackground();
 
-                //set up query for author of review
-                ParseQuery<ParseObject> query = new ParseQuery("Review");
-                query.include("User_Id");
-                query.getInBackground(reviewId, new GetCallback<ParseObject>() {
+                //send fav college/course review push notification and include course description and college name
+                ParseQuery<ParseObject> query_fav = new ParseQuery("Review");
+                query_fav.include("College_Id");
+                query_fav.include("Course_Id");
+                query_fav.include("Course_Id.College_Id");
+                query_fav.getInBackground(reviewId, new GetCallback<ParseObject>() {
+                    public void done(ParseObject object, ParseException e) {
+                        if (e == null) {
+                            // object will be your review
+                            String reviewTitle = object.getString("Title");
+
+                            if (object.getParseObject("Course_Id") != null) {
+                                String courseDesc = object.getParseObject("Course_Id").getString("Description");
+                                String collegeInitials = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
+
+                                ParsePush push_fav_course = new ParsePush();
+                                push_fav_course.setChannel(reviewId);
+                                push_fav_course.setMessage("A new comment has been created for one your favourite Course Reviews, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
+                                push_fav_course.sendInBackground();
+                            } else if (object.getParseObject("College_Id") != null) {
+                                String collegeInitials = object.getParseObject("College_Id").getString("Initials");
+
+
+                                ParsePush push_fav_college = new ParsePush();
+                                push_fav_college.setChannel(reviewId);
+                                push_fav_college.setMessage("A new comment has been created for one your favourite College Reviews, Title: " + reviewTitle + " at " + collegeInitials);
+                                push_fav_college.sendInBackground();
+                            } else {
+                                // something went wrong
+                            }
+                        }
+                    }
+                });
+
+                //send push notification to author of college/course review
+                ParseQuery<ParseObject> query_author = new ParseQuery("Review");
+                query_author.include("User_Id");
+                query_author.include("College_Id");
+                query_author.include("Course_Id");
+                query_author.include("Course_Id.College_Id");
+                query_author.getInBackground(reviewId, new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
                         if (e == null) {
                             String author = object.getParseObject("User_Id").getObjectId();
                             Log.d("DEBUG", "review UserId is " + author);
+                            // object will be your review
+                            String reviewTitle = object.getString("Title");
+                            Log.d("DEBUG", "review title is " + reviewTitle);
 
-                            // Create our Installation query
-                            ParseQuery pushQuery = ParseInstallation.getQuery();
-                            ParseObject user_id = ParseObject.createWithoutData("_User", author);
-                            pushQuery.whereEqualTo("user", user_id);
 
-                            // Send push notification to query
-                            ParsePush push_author = new ParsePush();
-                            push_author.setQuery(pushQuery); // Set our Installation query
-                            push_author.setMessage("A new comment has been added to a review that you created");
-                            push_author.sendInBackground();
+                            if (object.getParseObject("Course_Id") != null) {
+                                String courseDesc = object.getParseObject("Course_Id").getString("Description");
+                                String collegeInitials = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
+
+                                // Create our Installation query
+                                ParseQuery pushQuery = ParseInstallation.getQuery();
+                                ParseObject user_id = ParseObject.createWithoutData("_User", author);
+                                pushQuery.whereEqualTo("user", user_id);
+
+                                // Send push notification to query
+                                ParsePush push_author_course = new ParsePush();
+                                push_author_course.setQuery(pushQuery); // Set our Installation query
+                                push_author_course.setMessage("A new comment has been added to a Course Review that you created, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
+                                push_author_course.sendInBackground();
+
+                            } else if (object.getParseObject("College_Id") != null) {
+                                String collegeInitials = object.getParseObject("College_Id").getString("Initials");
+
+                                // Create our Installation query
+                                ParseQuery pushQuery = ParseInstallation.getQuery();
+                                ParseObject user_id = ParseObject.createWithoutData("_User", author);
+                                pushQuery.whereEqualTo("user", user_id);
+
+                                // Send push notification to query
+                                ParsePush push_author_college = new ParsePush();
+                                push_author_college.setQuery(pushQuery); // Set our Installation query
+                                push_author_college.setMessage("A new comment has been added to a College Review that you created, Title: " + reviewTitle + " at " + collegeInitials);
+                                push_author_college.sendInBackground();
+
+                            }
 
                         } else {
                             // something went wrong

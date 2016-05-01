@@ -15,10 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -105,19 +107,49 @@ public class NewReviewFragment extends Fragment {
                 // Associate the review with the current college
                 if (collegeId != null) {
                     review.put("College_Id", ParseObject.createWithoutData("College", collegeId));
-                    ParsePush push = new ParsePush();
-                    push.setChannel(collegeId);
-                    push.setMessage("A new review has been created for one your favourite Colleges");
-                    push.sendInBackground();
+
+                    //send push notification and include college name
+                    ParseQuery<ParseObject> query = new ParseQuery("College");
+                    query.getInBackground(collegeId, new GetCallback<ParseObject>() {
+                        public void done(ParseObject object, ParseException e) {
+                            if (e == null) {
+                                // object will be your college
+                                String collegeName = object.getString("Name");
+                                ParsePush push = new ParsePush();
+                                push.setChannel(collegeId);
+                                push.setMessage("A new review has been created for one your favourite Colleges: " + collegeName);
+                                push.sendInBackground();
+                            } else {
+                                // something went wrong
+                            }
+                        }
+                    });
+
                 }
 
                 // Associate the review with the current course
                 if (courseId != null) {
                     review.put("Course_Id", ParseObject.createWithoutData("Course", courseId));
-                    ParsePush push = new ParsePush();
-                    push.setChannel(courseId);
-                    push.setMessage("A new review has been created for one your favourite Courses");
-                    push.sendInBackground();
+
+                    //send push notification and include course description and college name
+                    ParseQuery<ParseObject> query = new ParseQuery("Course");
+                    query.include("College_Id");
+                    query.getInBackground(courseId, new GetCallback<ParseObject>() {
+                        public void done(ParseObject object, ParseException e) {
+                            if (e == null) {
+                                // object will be your college
+                                String courseDesc = object.getString("Description");
+                                String collegeName = object.getParseObject("College_Id").getString("Name");
+                                ParsePush push = new ParsePush();
+                                push.setChannel(courseId);
+                                push.setMessage("A new review has been created for one your favourite Courses: " + courseDesc + " at " + collegeName);
+                                push.sendInBackground();
+                            } else {
+                                // something went wrong
+                            }
+                        }
+                    });
+
                 }
 
                 // Add the rating
