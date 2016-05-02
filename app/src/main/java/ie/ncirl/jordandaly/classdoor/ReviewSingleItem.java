@@ -39,6 +39,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
     TextView tv_reviewTitle;
     RatingBar tv_rating;
+    TextView tv_courseDesc;
+    TextView tv_collegeInitials;
     TextView tv_author;
     TextView tv_studentType;
     TextView tv_contentPros;
@@ -135,6 +137,41 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         tv_author = (TextView) findViewById(R.id.author);
         // Load the text into the TextView
         tv_author.setText(author);
+
+        //send push notification to author of college/course review
+        ParseQuery<ParseObject> query_author = new ParseQuery("Review");
+        query_author.include("College_Id");
+        query_author.include("Course_Id");
+        query_author.include("Course_Id.College_Id");
+        query_author.getInBackground(reviewID, new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if (e == null) {
+                    if (object.getParseObject("Course_Id") != null) {
+                        String courseDesc = object.getParseObject("Course_Id").getString("Description");
+                        String collegeInitials = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
+
+                        // Locate the TextView in singleitemview.xml
+                        tv_courseDesc = (TextView) findViewById(R.id.course_description);
+                        // Load the text into the TextView
+                        tv_courseDesc.setText(courseDesc + " at " + collegeInitials);
+
+                    } else if (object.getParseObject("College_Id") != null) {
+                        String collegeInitials = object.getParseObject("College_Id").getString("Initials");
+
+                        // Locate the TextView in singleitemview.xml
+                        tv_collegeInitials = (TextView) findViewById(R.id.college_initials);
+                        // Load the text into the TextView
+                        tv_collegeInitials.setText(collegeInitials);
+
+                    }
+
+                } else {
+                    // something went wrong
+                    Log.d("DEBUG", "something went wrong");
+                }
+            }
+        });
 
         // Locate the TextView in singleitemview.xml
         tv_studentType = (TextView) findViewById(R.id.student_type);
