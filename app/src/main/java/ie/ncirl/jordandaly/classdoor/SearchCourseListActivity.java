@@ -238,6 +238,9 @@ public class SearchCourseListActivity extends ListActivity {
                 coursename = coursename.trim();
                 //password = password.trim();
 
+                String s1 = coursename.substring(0, 1).toUpperCase();
+                coursename = s1 + coursename.substring(1);
+
                 //Check if fields not empty
                 if (coursename.isEmpty()) {
 

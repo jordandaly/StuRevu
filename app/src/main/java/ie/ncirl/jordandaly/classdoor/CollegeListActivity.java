@@ -286,8 +286,8 @@ public class CollegeListActivity extends ListActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            // If a new post has been added, update
-            // the list of posts
+            // If a new college has been added, update
+            // the list of colleges
             updateCollegeList();
         }
     }

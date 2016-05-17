@@ -1,7 +1,5 @@
 package ie.ncirl.jordandaly.classdoor;
 
-import java.util.Arrays;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +21,7 @@ public class CollegeAdapter extends ParseQueryAdapter<College> {
         super(context, new ParseQueryAdapter.QueryFactory<College>() {
             public ParseQuery<College> create() {
                 // Here we can configure a ParseQuery to display
-                // only universities.
+                // colleges
                 ParseQuery query = new ParseQuery("College");
                 query.orderByAscending("Name");
                 return query;
@@ -39,7 +37,7 @@ public class CollegeAdapter extends ParseQueryAdapter<College> {
         }
 
         super.getItemView(college, v, parent);
-
+        //set image data
         ParseImageView collegeImage = (ParseImageView) v.findViewById(R.id.icon);
         ParseFile photoFile = college.getParseFile("ImageFile");
         if (photoFile != null) {

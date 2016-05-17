@@ -105,11 +105,7 @@ public class CollegeReviewListActivity extends ListActivity {
         reviewListView = (ListView) findViewById(android.R.id.list);
         reviewListView.setAdapter(reviewAdapter);
 
-        // Default view is collegeAdapter (all college sorted asc)
         setListAdapter(reviewAdapter);
-
-        //getListView().setOnItemClickListener();
-
         setUpReviewItems();
 
 
@@ -227,7 +223,7 @@ public class CollegeReviewListActivity extends ListActivity {
     }
 
     /*
-     * "Show Unis" and refreshing the "show all" list will be controlled from the Action
+     * refreshing the list will be controlled from the Action
      * Bar.
      */
     @Override
@@ -239,10 +235,6 @@ public class CollegeReviewListActivity extends ListActivity {
                 //break;
             }
 
-//            case R.id.action_show_uni: {
-//                showUnis();
-//                break;
-//            }
 
         }
         // Activate the navigation drawer toggle
@@ -257,17 +249,14 @@ public class CollegeReviewListActivity extends ListActivity {
         setListAdapter(reviewAdapter);
     }
 
-//    private void showUnis() {
-//        customAdapter.loadObjects();
-//        setListAdapter(customAdapter);
-//    }
+
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            // If a new post has been added, update
-            // the list of posts
+            // If a new review has been added, update
+            // the list of reviews
             updateReviewList();
         }
     }

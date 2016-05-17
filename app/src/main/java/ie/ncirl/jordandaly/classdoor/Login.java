@@ -139,6 +139,7 @@ public class Login extends AppCompatActivity {
 
                         if (user == null) {
                             Log.d("StuRevu", "Uh oh. The user cancelled the Facebook login.");
+                            Toast.makeText(getApplicationContext(), err.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                         } else if (user.isNew()) {
                             Log.d("StuRevu", "User signed up and logged in through Facebook!");
                             getUserDetailsFromFB();

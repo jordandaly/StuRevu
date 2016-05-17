@@ -20,11 +20,9 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -239,23 +237,23 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 //            }
 //        });
 
-        // Set up the handler for the button click
-        Button postButton = (Button) findViewById(R.id.college_button);
-        postButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                // Only allow if we have a location
-                Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
-                if (myLoc == null) {
-                    Toast.makeText(MapActivity.this,
-                            "Please try again after your location appears on the map.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                Intent intent = new Intent(MapActivity.this, CollegeSingleItem.class);
-                intent.putExtra(ParseApplication.INTENT_EXTRA_LOCATION, myLoc);
-                startActivity(intent);
-            }
-        });
+//        // Set up the handler for the button click
+//        Button postButton = (Button) findViewById(R.id.college_button);
+//        postButton.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                // Only allow if we have a location
+//                Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
+//                if (myLoc == null) {
+//                    Toast.makeText(MapActivity.this,
+//                            "Please try again after your location appears on the map.", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
+//
+//                Intent intent = new Intent(MapActivity.this, CollegeSingleItem.class);
+//                intent.putExtra(ParseApplication.INTENT_EXTRA_LOCATION, myLoc);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override

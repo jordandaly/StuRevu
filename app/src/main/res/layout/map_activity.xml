@@ -10,12 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/college_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/college"
-        android:textAppearance="?android:attr/textAppearanceSmallInverse" />
+    <!--<Button-->
+    <!--android:id="@+id/college_button"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/college"-->
+    <!--android:textAppearance="?android:attr/textAppearanceSmallInverse" />-->
 
     <fragment
         android:id="@+id/map_fragment"
