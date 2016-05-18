@@ -106,6 +106,7 @@ public class SearchCourseListActivity extends ListActivity {
         searchCourseAdapter = new SearchCourseAdapter(this);
 
         courseListView = (ListView) findViewById(android.R.id.list);
+        courseListView.setVisibility(View.INVISIBLE);
 //        courseListView.setAdapter(searchCourseAdapter);
 //
 //        // Default view is collegeAdapter (all college sorted asc)
@@ -233,25 +234,24 @@ public class SearchCourseListActivity extends ListActivity {
                 //String password = mPassword.getText().toString();
 
 
-                ///Remove white spaces from any field
-                /// and make sure they are not empty
-                coursename = coursename.trim();
-                //password = password.trim();
-
-                String s1 = coursename.substring(0, 1).toUpperCase();
-                coursename = s1 + coursename.substring(1);
-
                 //Check if fields not empty
                 if (coursename.isEmpty()) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(SearchCourseListActivity.this);
-                    builder.setMessage(R.string.error)
+                    builder.setMessage(R.string.searchError)
                             .setTitle(R.string.error)
                             .setPositiveButton(android.R.string.ok, null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
 
+                    ///Remove white spaces from any field
+                    /// and make sure they are not empty
+                    coursename = coursename.trim();
+                    //password = password.trim();
+
+                    String s1 = coursename.substring(0, 1).toUpperCase();
+                    coursename = s1 + coursename.substring(1);
 
 //                    courseListView = (ListView) findViewById(android.R.id.list);
                     courseListView.setAdapter(searchCourseAdapter);

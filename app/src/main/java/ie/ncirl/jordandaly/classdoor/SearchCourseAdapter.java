@@ -14,6 +14,7 @@ import com.parse.ParseQueryAdapter;
  */
 public class SearchCourseAdapter extends ParseQueryAdapter<Course> {
 
+
     public SearchCourseAdapter(Context context) {
 
 
