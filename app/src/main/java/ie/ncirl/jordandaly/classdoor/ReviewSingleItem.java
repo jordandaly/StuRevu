@@ -67,6 +67,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     private int flaggedSpamCount = 0;
     private int commentCount = 0;
 
+
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
@@ -81,6 +82,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
         // Retrieve data from college list activity on item click event
         Intent intent = getIntent();
+
+        getIntent().setAction("Comment created");
 
 
         reviewObject = (ParseProxyObject) intent
@@ -253,6 +256,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
     }
 
+
     @Override
     public void onClick(View v) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
@@ -265,6 +269,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         disableBtn = 0;
 
         switch (v.getId()) {
+
             case R.id.helpfulVoteButtonId:
 
 
@@ -318,6 +323,25 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        Log.v("Example", "onResume");
+
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if (action == null || !action.equals("Comment created")) {
+            Log.v("Example", "Force restart");
+            Intent intent = getIntent();
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
     }
 
     private void addDrawerItems() {

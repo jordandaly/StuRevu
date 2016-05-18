@@ -238,7 +238,7 @@ public class SearchCourseListActivity extends ListActivity {
                 if (coursename.isEmpty()) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(SearchCourseListActivity.this);
-                    builder.setMessage(R.string.searchError)
+                    builder.setMessage(R.string.inputValidation)
                             .setTitle(R.string.error)
                             .setPositiveButton(android.R.string.ok, null);
                     AlertDialog dialog = builder.create();

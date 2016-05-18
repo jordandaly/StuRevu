@@ -26,7 +26,7 @@
     <string name="search_course_hint">Search Courses</string>
     <string name="search_button">Search</string>
     <string name="error">Error</string>
-    <string name="searchError">Search input value can\'t be null, please enter text</string>
+    <string name="inputValidation">Input value can\'t be null, please enter text</string>
     <string name="app_label">app label</string>
     <string name="search_hint">Search....</string>
     <string name="action_fav">Save to Favourites</string>
@@ -34,6 +34,7 @@
     <string name="action_search_courses">Search all Courses</string>
     <string name="comment_label">New Comment Title</string>
     <string name="commentcountlabel">Comments: </string>
+    <string name="share">Share on Facebook</string>
 
 
     <string-array name="ratings_array">

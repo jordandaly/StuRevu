@@ -47,10 +47,15 @@ import java.util.List;
  */
 public class Login extends AppCompatActivity {
 
-    public static final List<String> Permissions = new ArrayList<String>() {{
+    public static final List<String> readPermissions = new ArrayList<String>() {{
         add("public_profile");
         add("email");
     }};
+
+    public static final List<String> publishPermission = new ArrayList<String>() {{
+        add("publish_actions");
+    }};
+
     ImageView mProfileImage;
     Button mBtnFb;
     TextView mUsername, mEmailID;
@@ -133,7 +138,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ParseFacebookUtils.logInWithReadPermissionsInBackground(Login.this, Permissions, new LogInCallback() {
+                ParseFacebookUtils.logInWithReadPermissionsInBackground(Login.this, readPermissions, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
 
@@ -143,10 +148,16 @@ public class Login extends AppCompatActivity {
                         } else if (user.isNew()) {
                             Log.d("StuRevu", "User signed up and logged in through Facebook!");
                             getUserDetailsFromFB();
+                            ParseFacebookUtils.linkWithPublishPermissionsInBackground(ParseUser.getCurrentUser(),
+                                    Login.this,
+                                    publishPermission);
                             startActivity(new Intent(Login.this, CollegeListActivity.class));
                         } else {
                             Log.d("StuRevu", "User logged in through Facebook!");
                             getUserDetailsFromParse();
+                            ParseFacebookUtils.linkWithPublishPermissionsInBackground(ParseUser.getCurrentUser(),
+                                    Login.this,
+                                    publishPermission);
                             startActivity(new Intent(Login.this, CollegeListActivity.class));
                         }
                     }

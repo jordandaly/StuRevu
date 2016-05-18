@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/review_title"
-        android:text="Author:"
+        android:text="Author: "
         android:textSize="20sp" />
 
         <TextView
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/authorLabel"
-                android:text="Reviewed:"
+                android:text="Reviewed: "
                 android:textSize="20sp" />
 
             <TextView
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
                 android:layout_below="@id/course_description"
-        android:text="Student Type:"
+                android:text="Student Type: "
             android:textSize="20sp" />
 
     <TextView
@@ -199,7 +199,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/commentCountlabel"
-        android:text="Helpful Votes :"
+        android:text="Helpful Votes : "
         android:textSize="20sp" />
 
     <TextView
@@ -215,7 +215,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/helpfulVoteLabel"
-        android:text="Spam Flags :"
+        android:text="Spam Flags : "
         android:textSize="20sp" />
 
     <TextView
@@ -226,7 +226,8 @@
         android:layout_toRightOf="@+id/flaggedSpamLabel"
         android:textSize="20sp" />
 
-    <com.dd.processbutton.FlatButton
+
+            <com.dd.processbutton.FlatButton
         android:id="@+id/commentListButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
