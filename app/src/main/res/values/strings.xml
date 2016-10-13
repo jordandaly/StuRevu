@@ -9,6 +9,7 @@
     <string name="action_show_uni_list">Only Show Universities</string>
     <string name="action_new">Add a Review</string>
     <string name="menu_title">Menu</string>
+    <string name="logout">Logout</string>
     <string name="review_label">New Review Title</string>
     <string name="avgratinglabel">"Average Rating : "</string>
     <string name="revcountlabel">"Reviews : "</string>

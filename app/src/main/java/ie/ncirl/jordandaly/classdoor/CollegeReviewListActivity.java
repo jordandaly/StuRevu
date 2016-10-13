@@ -92,7 +92,8 @@ public class CollegeReviewListActivity extends ListActivity {
         Log.d("DEBUG", "collegeId2r is " + collegeId);
 
 
-        mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
+        //mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
+        mainReviewAdapter = new ParseQueryAdapter<Review>(this, "Review");
 
         mainReviewAdapter.setTextKey("Title");
 

@@ -25,6 +25,7 @@ public class MyCourseReviewAdapter extends ParseQueryAdapter<Review> {
                 query.whereEqualTo("User_Id", user_id);
                 query.whereExists("Course_Id");
                 query.include("Course_Id");
+                query.include("User_Id");
                 query.orderByAscending("createdAt");
                 return query;
             }

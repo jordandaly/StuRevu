@@ -90,7 +90,8 @@ public class CommentListActivity extends ListActivity {
         delegate.getSupportActionBar().setTitle("Comment List");
 
 
-        mainCommentAdapter = new ParseQueryAdapter<Comment>(this, Comment.class);
+        //mainCommentAdapter = new ParseQueryAdapter<Comment>(this, Comment.class);
+        mainCommentAdapter = new ParseQueryAdapter<Comment>(this, "Comment");
 
         mainCommentAdapter.setTextKey("Title");
 

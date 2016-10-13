@@ -21,9 +21,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.parse.LogOutCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 
 public class CollegeListActivity extends ListActivity {
@@ -88,7 +92,8 @@ public class CollegeListActivity extends ListActivity {
         delegate.getSupportActionBar().setTitle("College List");
 
 
-        mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);
+        //mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);
+        mainCollegeAdapter = new ParseQueryAdapter<College>(this, "College");
 
         mainCollegeAdapter.setTextKey("Name");
         mainCollegeAdapter.setImageKey("ImageFile");
@@ -246,6 +251,23 @@ public class CollegeListActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
+            case R.id.logout: {
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            Toast.makeText(getApplicationContext(), "Logout Successful!"
+                                    , Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(CollegeListActivity.this, Login.class);
+                            startActivity(intent);
+
+                        } else {
+//                    somethingWentWrong();
+                        }
+                    }
+                });
+                break;
+            }
+
             case R.id.action_refresh: {
                 updateCollegeList();
                 break;
@@ -271,6 +293,7 @@ public class CollegeListActivity extends ListActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private void updateCollegeList() {
         collegeAdapter.loadObjects();

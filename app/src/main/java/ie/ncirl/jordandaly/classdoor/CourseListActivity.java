@@ -93,7 +93,8 @@ public class CourseListActivity extends ListActivity {
         delegate.getSupportActionBar().setTitle("Course List");
 
 
-        mainCourseAdapter = new ParseQueryAdapter<Course>(this, Course.class);
+        //mainCourseAdapter = new ParseQueryAdapter<Course>(this, Course.class);
+        mainCourseAdapter = new ParseQueryAdapter<Course>(this, "Course");
 
         mainCourseAdapter.setTextKey("Description");
 

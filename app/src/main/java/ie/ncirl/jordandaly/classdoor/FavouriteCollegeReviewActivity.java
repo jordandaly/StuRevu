@@ -86,7 +86,8 @@ public class FavouriteCollegeReviewActivity extends ListActivity {
         delegate.getSupportActionBar().setTitle("Favourite College Review List");
 
 
-        mainReviewAdapter = new ParseQueryAdapter<Favourite>(this, Favourite.class);
+        //mainReviewAdapter = new ParseQueryAdapter<Favourite>(this, Favourite.class);
+        mainReviewAdapter = new ParseQueryAdapter<Favourite>(this, "Favourite");
 
         mainReviewAdapter.setTextKey("Title");
 

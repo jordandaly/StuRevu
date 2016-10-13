@@ -52,9 +52,9 @@ public class Login extends AppCompatActivity {
         add("email");
     }};
 
-    public static final List<String> publishPermission = new ArrayList<String>() {{
-        add("publish_actions");
-    }};
+//    public static final List<String> publishPermission = new ArrayList<String>() {{
+//        add("publish_actions");
+//    }};
 
     ImageView mProfileImage;
     Button mBtnFb;
@@ -148,16 +148,16 @@ public class Login extends AppCompatActivity {
                         } else if (user.isNew()) {
                             Log.d("StuRevu", "User signed up and logged in through Facebook!");
                             getUserDetailsFromFB();
-                            ParseFacebookUtils.linkWithPublishPermissionsInBackground(ParseUser.getCurrentUser(),
-                                    Login.this,
-                                    publishPermission);
+//                            ParseFacebookUtils.linkWithPublishPermissionsInBackground(ParseUser.getCurrentUser(),
+//                                    Login.this,
+//                                    publishPermission);
                             startActivity(new Intent(Login.this, CollegeListActivity.class));
                         } else {
                             Log.d("StuRevu", "User logged in through Facebook!");
                             getUserDetailsFromParse();
-                            ParseFacebookUtils.linkWithPublishPermissionsInBackground(ParseUser.getCurrentUser(),
-                                    Login.this,
-                                    publishPermission);
+//                            ParseFacebookUtils.linkWithPublishPermissionsInBackground(ParseUser.getCurrentUser(),
+//                                    Login.this,
+//                                    publishPermission);
                             startActivity(new Intent(Login.this, CollegeListActivity.class));
                         }
                     }
@@ -238,6 +238,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

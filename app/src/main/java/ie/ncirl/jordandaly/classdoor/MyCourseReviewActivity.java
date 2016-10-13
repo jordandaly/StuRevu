@@ -85,7 +85,8 @@ public class MyCourseReviewActivity extends ListActivity {
         delegate.getSupportActionBar().setTitle("My Course Review List");
 
 
-        mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
+        //mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
+        mainReviewAdapter = new ParseQueryAdapter<Review>(this, "Review");
 
         mainReviewAdapter.setTextKey("Title");
 

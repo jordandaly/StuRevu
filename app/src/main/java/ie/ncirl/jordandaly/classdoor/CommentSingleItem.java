@@ -135,7 +135,8 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
         addNewReplyButton.setOnClickListener(this);
 
 
-        mainReplyAdapter = new ParseQueryAdapter<Reply>(this, Reply.class);
+        //mainReplyAdapter = new ParseQueryAdapter<Reply>(this, Reply.class);
+        mainReplyAdapter = new ParseQueryAdapter<Reply>(this, "Reply");
 
         mainReplyAdapter.setTextKey("Content");
 

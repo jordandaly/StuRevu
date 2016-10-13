@@ -76,7 +76,17 @@ public class ParseApplication extends Application {
         Add your initialization code here
         */
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+
+        //Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                        .applicationId(YOUR_APPLICATION_ID)
+                        .clientKey(null)
+                        .server("http://sturevu.herokuapp.com/parse/") // The trailing slash is important.
+                                //.server("http://localhost:1337/parse/") // The trailing slash is important.
+
+
+                        .build()
+        );
 
         ParseFacebookUtils.initialize(this);
 
