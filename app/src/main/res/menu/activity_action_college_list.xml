@@ -25,5 +25,11 @@
         android:title="@string/action_collegeMap"
         app:showAsAction="always"></item>
 
+    <item
+        android:id="@+id/action_add_college"
+        android:icon="@drawable/ic_action_new"
+        android:title="@string/action_college_add"
+        app:showAsAction="always"></item>
+
 
 </menu>

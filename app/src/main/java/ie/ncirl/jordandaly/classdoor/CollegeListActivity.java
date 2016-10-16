@@ -230,6 +230,7 @@ public class CollegeListActivity extends ListActivity {
         menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.findItem(R.id.action_show_uni).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_add_college).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         return true;
     }
@@ -279,8 +280,14 @@ public class CollegeListActivity extends ListActivity {
             }
 
             case R.id.action_show_map: {
-                Intent intent = new Intent(CollegeListActivity.this, MapActivity.class);
-                startActivity(intent);
+                Intent map_intent = new Intent(CollegeListActivity.this, MapActivity.class);
+                startActivity(map_intent);
+                break;
+            }
+
+            case R.id.action_add_college: {
+                Intent new_college_intent = new Intent(CollegeListActivity.this, NewCollegeActivity.class);
+                startActivity(new_college_intent);
                 break;
             }
 

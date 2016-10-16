@@ -20,6 +20,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <permission
         android:name="ie.ncirl.jordandaly.classdoor.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -142,6 +145,7 @@
         <activity android:name=".FavouriteCourseReviewActivity" />
         <activity android:name=".MyCollegeReviewActivity" />
         <activity android:name=".MyCourseReviewActivity" />
+        <activity android:name=".NewCollegeActivity" />
 
 
         <!--<activity android:name=".SearchCourseListActivity" />-->

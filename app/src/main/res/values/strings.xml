@@ -8,9 +8,11 @@
     <string name="action_refresh">Return to List All and refresh</string>
     <string name="action_show_uni_list">Only Show Universities</string>
     <string name="action_new">Add a Review</string>
+    <string name="action_college_add">Add a College</string>
     <string name="menu_title">Menu</string>
     <string name="logout">Logout</string>
     <string name="review_label">New Review Title</string>
+    <string name="college_label">New College Name</string>
     <string name="avgratinglabel">"Average Rating : "</string>
     <string name="revcountlabel">"Reviews : "</string>
     <string name="coursecountlabel">"Courses : "</string>
@@ -45,6 +47,13 @@
         <item>3</item>
         <item>2</item>
         <item>1</item>
+    </string-array>
+
+    <string-array name="college_type_array">
+        <item></item>
+        <item>University</item>
+        <item>Institute Of Technology</item>
+        <item>Third Level Institute</item>
     </string-array>
 
     <string-array name="student_type_array">
