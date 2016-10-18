@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="@string/course_label"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/course_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Course Description"
+        android:textSize="10sp" />
+
+    <EditText
+        android:id="@+id/course_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Course Level"
+        android:textSize="10sp" />
+
+    <Spinner
+        android:id="@+id/course_level_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/course_level_array" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Qualification Type"
+        android:textSize="10sp" />
+
+    <Spinner
+        android:id="@+id/qualification_type_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/qualification_type_array" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Mode of Study"
+        android:textSize="10sp" />
+
+    <Spinner
+        android:id="@+id/mode_of_study_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/mode_of_study_array" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Course Duration"
+        android:textSize="10sp" />
+
+    <Spinner
+        android:id="@+id/course_duration_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/course_duration_array" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Fees (optional): "
+        android:textSize="10sp" />
+
+    <EditText
+        android:id="@+id/course_fees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Department/Faculty (optional): "
+        android:textSize="10sp" />
+
+    <EditText
+        android:id="@+id/department_faculty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="CAO Code (optional): "
+        android:textSize="10sp" />
+
+    <EditText
+        android:id="@+id/cao_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine" />
+
+
+    <com.dd.processbutton.FlatButton
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_button_text"
+        custom:pb_colorNormal="@android:color/holo_green_light"
+        custom:pb_colorPressed="@android:color/holo_green_dark" />
+
+    <com.dd.processbutton.FlatButton
+        android:id="@+id/cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_button_text"
+        custom:pb_colorNormal="@android:color/holo_red_light"
+        custom:pb_colorPressed="@android:color/holo_red_dark" />
+
+
+</LinearLayout>

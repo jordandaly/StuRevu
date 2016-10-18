@@ -9,10 +9,12 @@
     <string name="action_show_uni_list">Only Show Universities</string>
     <string name="action_new">Add a Review</string>
     <string name="action_college_add">Add a College</string>
+    <string name="action_course_add">Add a Course</string>
     <string name="menu_title">Menu</string>
     <string name="logout">Logout</string>
     <string name="review_label">New Review Title</string>
     <string name="college_label">New College Name</string>
+    <string name="course_label">New Course Name</string>
     <string name="avgratinglabel">"Average Rating : "</string>
     <string name="revcountlabel">"Reviews : "</string>
     <string name="coursecountlabel">"Courses : "</string>
@@ -66,5 +68,35 @@
         <item>Part Time Undergraduate International</item>
         <item>Part Time Postgraduate EU</item>
         <item>Part Time Postgraduate International</item>
+    </string-array>
+
+    <string-array name="course_level_array">
+        <item></item>
+        <item>Undergraduate</item>
+        <item>Postgraduate</item>
+    </string-array>
+
+    <string-array name="mode_of_study_array">
+        <item></item>
+        <item>Full Time</item>
+        <item>Part Time</item>
+    </string-array>
+
+    <string-array name="qualification_type_array">
+        <item></item>
+        <item>Higher Certificate (level 6)</item>
+        <item>Ordinary Bachelor Degree (level 7)</item>
+        <item>Honours Bachelor Degree (level 8)</item>
+        <item>Higher Diploma (level 8)</item>
+        <item>Postgraduate Diploma (level 9)</item>
+        <item>Masters Degree (level 9)</item>
+    </string-array>
+
+    <string-array name="course_duration_array">
+        <item></item>
+        <item>1 year</item>
+        <item>2 years</item>
+        <item>3 years</item>
+        <item>4 years</item>
     </string-array>
 </resources>

@@ -146,6 +146,7 @@
         <activity android:name=".MyCollegeReviewActivity" />
         <activity android:name=".MyCourseReviewActivity" />
         <activity android:name=".NewCollegeActivity" />
+        <activity android:name=".NewCourseActivity" />
 
 
         <!--<activity android:name=".SearchCourseListActivity" />-->

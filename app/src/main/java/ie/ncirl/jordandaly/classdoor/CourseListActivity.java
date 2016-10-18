@@ -53,6 +53,8 @@ public class CourseListActivity extends ListActivity {
         collegeId = intent.getStringExtra("collegeId");
         Log.d("DEBUG", "collegeId2 is " + collegeId);
 
+        getIntent().setAction("New Course Added");
+
         AppCompatCallback callback = new AppCompatCallback() {
 
             @Nullable
@@ -200,6 +202,25 @@ public class CourseListActivity extends ListActivity {
         mDrawerToggle.syncState();
     }
 
+    @Override
+    protected void onResume() {
+        Log.v("Example", "onResume");
+
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if (action == null || !action.equals("New Course Added")) {
+            Log.v("Example", "Force restart");
+            Intent intent = getIntent();
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
+    }
+
 
 
     @Override
@@ -218,6 +239,8 @@ public class CourseListActivity extends ListActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_search_courses).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_add_course).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
 
 
         return true;
@@ -242,13 +265,14 @@ public class CourseListActivity extends ListActivity {
             case R.id.action_search_courses: {
                 Intent intent = new Intent(CourseListActivity.this, SearchCourseListActivity.class);
                 startActivity(intent);
-                //break;
+                break;
             }
 
-//            case R.id.action_show_uni: {
-//                showUnis();
-//                break;
-//            }
+            case R.id.action_add_course: {
+                Intent intent = new Intent(CourseListActivity.this, NewCourseActivity.class);
+                intent.putExtra("collegeId", collegeId);
+                startActivity(intent);
+            }
 
         }
         // Activate the navigation drawer toggle
