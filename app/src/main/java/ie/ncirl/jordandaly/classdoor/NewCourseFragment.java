@@ -95,8 +95,11 @@ public class NewCourseFragment extends Fragment {
 
                 // When the user clicks "Save," upload the course to Parse
                 // Add data to the course object:
-                course.setName(courseName.getText().toString());
                 String courseNameInput = courseName.getText().toString();
+                String s1 = courseNameInput.substring(0, 1).toUpperCase();
+                String courseNameCapitalized = s1 + courseNameInput.substring(1);
+                course.setName(courseNameCapitalized);
+
 
                 course.setDescription(courseDescription.getText().toString());
                 String courseDescriptionInput = courseDescription.getText().toString();
@@ -108,22 +111,22 @@ public class NewCourseFragment extends Fragment {
                 Log.d("DEBUG", "qualificationTypeInput is " + qualificationTypeInput);
 
                 switch (qualificationTypeInput) {
-                    case "Higher Certificate (level 6)":
+                    case "Higher Certificate":
                         level = 6;
                         break;
-                    case "Ordinary Bachelor Degree (level 7)":
+                    case "Ordinary Bachelor Degree":
                         level = 7;
                         break;
-                    case "Honours Bachelor Degree (level 8)":
+                    case "Honours Bachelor Degree":
                         level = 8;
                         break;
-                    case "Higher Diploma (level 8)":
+                    case "Higher Diploma":
                         level = 8;
                         break;
-                    case "Postgraduate Diploma (level 9":
+                    case "Postgraduate Diploma":
                         level = 9;
                         break;
-                    case "Masters Degree (level 9":
+                    case "Masters Degree":
                         level = 9;
                         break;
                     default:

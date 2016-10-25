@@ -40,6 +40,12 @@
     <string name="comment_label">New Comment Title</string>
     <string name="commentcountlabel">Comments: </string>
     <string name="share">Share on Facebook</string>
+    <string name="profile_title_logged_in">Your are logged in as</string>
+    <string name="profile_logout_button_label">Log out</string>
+    <string name="profile_title_logged_out">You must be logged in to view your profile</string>
+    <string name="profile_login_button_label">Log in</string>
+    <string name="course_name_hint">English</string>
+    <string name="course_description_hint">BSc Hons English</string>
 
 
     <string-array name="ratings_array">
@@ -60,14 +66,8 @@
 
     <string-array name="student_type_array">
         <item></item>
-        <item>Full Time Undergraduate EU</item>
-        <item>Full Time Undergraduate International</item>
-        <item>Full Time Postgraduate EU</item>
-        <item>Full Time Postgraduate International</item>
-        <item>Part Time Undergraduate EU</item>
-        <item>Part Time Undergraduate International</item>
-        <item>Part Time Postgraduate EU</item>
-        <item>Part Time Postgraduate International</item>
+        <item>EU</item>
+        <item>International</item>
     </string-array>
 
     <string-array name="course_level_array">
@@ -84,12 +84,12 @@
 
     <string-array name="qualification_type_array">
         <item></item>
-        <item>Higher Certificate (level 6)</item>
-        <item>Ordinary Bachelor Degree (level 7)</item>
-        <item>Honours Bachelor Degree (level 8)</item>
-        <item>Higher Diploma (level 8)</item>
-        <item>Postgraduate Diploma (level 9)</item>
-        <item>Masters Degree (level 9)</item>
+        <item>Higher Certificate</item>
+        <item>Ordinary Bachelor Degree</item>
+        <item>Honours Bachelor Degree</item>
+        <item>Higher Diploma</item>
+        <item>Postgraduate Diploma</item>
+        <item>Masters Degree</item>
     </string-array>
 
     <string-array name="course_duration_array">
