@@ -2,20 +2,30 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
 
-    <com.parse.ParseImageView
-        android:id="@+id/icon"
-        android:layout_width="100dp"
+    <!--<com.parse.ParseImageView-->
+    <!--android:id="@+id/icon"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_marginLeft="15dip"-->
+    <!--android:layout_marginRight="15dip" />-->
+
+    <TextView
+        android:id="@+id/college_initials"
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip" />
+        android:layout_marginRight="15dip"
+        android:textAllCaps="true"
+        android:textSize="50dp" />
 
     <TextView
         android:id="@+id/college_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/icon"
-        android:layout_toRightOf="@id/icon"
+        android:layout_alignTop="@+id/college_initials"
+        android:layout_toRightOf="@id/college_initials"
         android:textStyle="bold" />
 
     <TextView
@@ -23,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/college_name"
-        android:layout_toRightOf="@id/icon"
+        android:layout_toRightOf="@id/college_initials"
         android:textStyle="italic" />
 
 </RelativeLayout>

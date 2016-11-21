@@ -44,7 +44,7 @@ public class NewReviewFragment extends Fragment {
     private TextView contentAdvice;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 

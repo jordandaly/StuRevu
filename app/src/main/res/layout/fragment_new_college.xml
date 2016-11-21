@@ -46,38 +46,38 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="Latitude: "
-        android:textSize="20sp" />
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:text="Latitude: "-->
+    <!--android:textSize="20sp" />-->
 
-    <EditText
-        android:id="@+id/college_latitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine" />
+    <!--<EditText-->
+    <!--android:id="@+id/college_latitude"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:inputType="textMultiLine" />-->
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="Longitude: "
-        android:textSize="20sp" />
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:text="Longitude: "-->
+    <!--android:textSize="20sp" />-->
 
-    <EditText
-        android:id="@+id/college_longitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine" />
+    <!--<EditText-->
+    <!--android:id="@+id/college_longitude"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:inputType="textMultiLine" />-->
 
-    <ImageButton
-        android:id="@+id/photo_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_photo" />
+    <!--<ImageButton-->
+    <!--android:id="@+id/photo_button"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:src="@drawable/ic_action_photo" />-->
 
 
     <com.dd.processbutton.FlatButton
@@ -96,10 +96,10 @@
         custom:pb_colorNormal="@android:color/holo_red_light"
         custom:pb_colorPressed="@android:color/holo_red_dark" />
 
-    <com.parse.ParseImageView
-        android:id="@+id/college_preview_image"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp" />
+    <!--<com.parse.ParseImageView-->
+    <!--android:id="@+id/college_preview_image"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="200dp" />-->
 
 
 </LinearLayout>

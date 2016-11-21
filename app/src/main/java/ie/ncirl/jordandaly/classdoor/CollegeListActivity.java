@@ -50,6 +50,8 @@ public class CollegeListActivity extends ListActivity {
 //        setContentView(R.layout.activity_college_list);
         //getListView().setClickable(false);
 
+        getIntent().setAction("New College Added");
+
 
         AppCompatCallback callback = new AppCompatCallback() {
 
@@ -208,6 +210,25 @@ public class CollegeListActivity extends ListActivity {
         mDrawerToggle.syncState();
     }
 
+    @Override
+    protected void onResume() {
+        Log.v("Example", "onResume");
+
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if (action == null || !action.equals("New College Added")) {
+            Log.v("Example", "Force restart");
+            Intent intent = getIntent();
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
+    }
+
 
 
     @Override
@@ -228,8 +249,8 @@ public class CollegeListActivity extends ListActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_show_uni).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        menu.findItem(R.id.action_show_uni).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.findItem(R.id.action_add_college).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         return true;
@@ -269,21 +290,21 @@ public class CollegeListActivity extends ListActivity {
                 break;
             }
 
-            case R.id.action_refresh: {
-                updateCollegeList();
-                break;
-            }
+//            case R.id.action_refresh: {
+//                updateCollegeList();
+//                break;
+//            }
 
-            case R.id.action_show_uni: {
-                showUnis();
-                break;
-            }
+//            case R.id.action_show_uni: {
+//                showUnis();
+//                break;
+//            }
 
-            case R.id.action_show_map: {
-                Intent map_intent = new Intent(CollegeListActivity.this, MapActivity.class);
-                startActivity(map_intent);
-                break;
-            }
+//            case R.id.action_show_map: {
+//                Intent map_intent = new Intent(CollegeListActivity.this, MapActivity.class);
+//                startActivity(map_intent);
+//                break;
+//            }
 
             case R.id.action_add_college: {
                 Intent new_college_intent = new Intent(CollegeListActivity.this, NewCollegeActivity.class);
@@ -307,10 +328,10 @@ public class CollegeListActivity extends ListActivity {
         setListAdapter(collegeAdapter);
     }
 
-    private void showUnis() {
-        customAdapter.loadObjects();
-        setListAdapter(customAdapter);
-    }
+//    private void showUnis() {
+//        customAdapter.loadObjects();
+//        setListAdapter(customAdapter);
+//    }
 
 
     @Override

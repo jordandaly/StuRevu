@@ -221,7 +221,7 @@ public class FavouriteCollegeActivity extends ListActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         return true;
     }
@@ -236,11 +236,11 @@ public class FavouriteCollegeActivity extends ListActivity {
         switch (item.getItemId()) {
 
 
-            case R.id.action_show_map: {
-                Intent intent = new Intent(FavouriteCollegeActivity.this, MapActivity.class);
-                startActivity(intent);
-                break;
-            }
+//            case R.id.action_show_map: {
+//                Intent intent = new Intent(FavouriteCollegeActivity.this, MapActivity.class);
+//                startActivity(intent);
+//                break;
+//            }
 
 
         }

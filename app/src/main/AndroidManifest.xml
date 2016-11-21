@@ -152,7 +152,6 @@
         <activity android:name=".CourseReviewListActivity" />
         <activity android:name=".ReviewSingleItem" />
         <activity android:name=".NewReviewActivity" />
-        <activity android:name=".MapActivity" />
         <activity android:name=".FavouriteCollegeActivity" />
         <activity android:name=".FavouriteCourseActivity" />
         <activity android:name=".CommentListActivity" />
