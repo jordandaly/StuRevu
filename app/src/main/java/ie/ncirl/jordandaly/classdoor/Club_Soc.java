@@ -15,29 +15,40 @@ public class Club_Soc extends ParseObject {
         super();
     }
 
-    // Add a constructor that contains core properties
-    public Club_Soc(String body) {
-        super();
-        setBody(body);
+
+    public String getName() {
+        return getString("Name");
+    }
+
+    public void setName(String name) {
+        put("Name", name);
     }
 
 
-    public String getBody(){
-        return getString("body");
+    public String getDescription() {
+        return getString("Description");
     }
 
-    public void setBody(String body){
-        put("body", body);
+    public void setDescription(String description) {
+        put("Decription", description);
     }
 
 
-    // Associate each club/soc with a college
-    public void setCollege(College college) {
-        put("college", college);
+    public String getType() {
+        return getString("Type");
+    }
+
+    public void setType(String type) {
+        put("Type", type);
     }
 
     // Get the college for this club/soc
     public College getCollege()  {
         return (College) getParseObject("college");
+    }
+
+    // Associate each club/soc with a college
+    public void setCollege(College college) {
+        put("college", college);
     }
 }

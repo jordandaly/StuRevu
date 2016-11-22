@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +23,7 @@ import com.parse.SaveCallback;
  */
 public class NewCollegeFragment extends Fragment {
 
-    private ImageButton photoButton;
+
     private Button saveButton;
     private Button cancelButton;
     private TextView collegeName;
@@ -59,18 +58,6 @@ public class NewCollegeFragment extends Fragment {
 
 //        collegeLatitude = ((EditText) v.findViewById(R.id.college_latitude));
 //        collegeLongitude = ((EditText) v.findViewById(R.id.college_longitude));
-//
-//        photoButton = ((ImageButton) v.findViewById(R.id.photo_button));
-//        photoButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                InputMethodManager imm = (InputMethodManager) getActivity()
-//                        .getSystemService(Context.INPUT_METHOD_SERVICE);
-//                imm.hideSoftInputFromWindow(collegeName.getWindowToken(), 0);
-//                startCamera();
-//            }
-//        });
 
 
         saveButton = ((Button) v.findViewById(R.id.save_button));
@@ -156,53 +143,11 @@ public class NewCollegeFragment extends Fragment {
             }
         });
 
-        // Until the user has taken a photo, hide the preview
-//        collegePreview = (ParseImageView) v.findViewById(R.id.college_preview_image);
-//        collegePreview.setVisibility(View.INVISIBLE);
-
 
         return v;
 
     }
 
-    /*
-     * All data entry about a College object is managed from the NewCollegeActivity.
-	 * When the user wants to add a photo, we'll start up a custom
-	 * CameraFragment that will let them take the photo and save it to the College
-	 * object owned by the NewCollegeActivity. Create a new CameraFragment, swap
-	 * the contents of the fragmentContainer (see activity_new_college.xml), then
-	 * add the NewCollegeFragment to the back stack so we can return to it when the
-	 * camera is finished.
-	 */
-//    public void startCamera() {
-//        Fragment cameraFragment = new CameraFragment();
-//        FragmentTransaction transaction = getActivity().getFragmentManager()
-//                .beginTransaction();
-//        transaction.replace(R.id.fragmentContainer, cameraFragment);
-//        transaction.addToBackStack("NewMealFragment");
-//        transaction.commit();
-//    }
-
-    /*
-     * On resume, check and see if a college photo has been set from the
-     * CameraFragment. If it has, load the image in this fragment and make the
-     * preview image visible.
-     */
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        ParseFile photoFile = ((NewCollegeActivity) getActivity())
-//                .getCurrentCollege().getImageFile();
-//        if (photoFile != null) {
-//            collegePreview.setParseFile(photoFile);
-//            collegePreview.loadInBackground(new GetDataCallback() {
-//                @Override
-//                public void done(byte[] data, ParseException e) {
-//                    collegePreview.setVisibility(View.VISIBLE);
-//                }
-//            });
-//        }
-//    }
 
 
 }

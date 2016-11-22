@@ -10,6 +10,7 @@
     <string name="action_new">Add a Review</string>
     <string name="action_college_add">Add a College</string>
     <string name="action_course_add">Add a Course</string>
+    <string name="action_clubsoc_add">Add a Club or Society</string>
     <string name="menu_title">Menu</string>
     <string name="logout">Logout</string>
     <string name="review_label">New Review Title</string>
