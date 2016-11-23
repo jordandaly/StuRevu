@@ -30,7 +30,7 @@ public class Club_Soc extends ParseObject {
     }
 
     public void setDescription(String description) {
-        put("Decription", description);
+        put("Description", description);
     }
 
 

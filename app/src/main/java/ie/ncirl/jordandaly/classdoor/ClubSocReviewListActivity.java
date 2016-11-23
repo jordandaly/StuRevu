@@ -25,11 +25,11 @@ import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
 /**
- * Created by jdaly on 10/12/2015.
+ * Created by jdaly on 23/11/2016.
  */
-public class CourseReviewListActivity extends ListActivity {
+public class ClubSocReviewListActivity extends ListActivity {
 
-    public static String courseId;
+    public static String clubsocId;
     ListView reviewListView;
     private ParseQueryAdapter<Review> mainReviewAdapter;
     private CourseReviewAdapter reviewAdapter;
@@ -47,8 +47,8 @@ public class CourseReviewListActivity extends ListActivity {
 
 
         Intent intent = getIntent();
-        courseId = intent.getStringExtra("courseId");
-        Log.d("DEBUG", "courseId2r is " + courseId);
+        clubsocId = intent.getStringExtra("clubsocId");
+        Log.d("DEBUG", "clubsocId2r is " + clubsocId);
 
         AppCompatCallback callback = new AppCompatCallback() {
 
@@ -87,7 +87,7 @@ public class CourseReviewListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
-        delegate.getSupportActionBar().setTitle("Course Review List");
+        delegate.getSupportActionBar().setTitle("Club/Society Review List");
 
 
         //mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
@@ -125,42 +125,42 @@ public class CourseReviewListActivity extends ListActivity {
 //                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, CollegeListActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, CollegeListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, SearchCourseListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, FavouriteCollegeActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 3: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCourseActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, FavouriteCourseActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 4: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCollegeReviewActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, FavouriteCollegeReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 5: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, FavouriteCourseReviewActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, FavouriteCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 6: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, MyCollegeReviewActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, MyCollegeReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 7: {
-                        Intent intent = new Intent(CourseReviewListActivity.this, MyCourseReviewActivity.class);
+                        Intent intent = new Intent(ClubSocReviewListActivity.this, MyCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -197,7 +197,6 @@ public class CourseReviewListActivity extends ListActivity {
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
     }
-
 
 
     @Override
@@ -278,7 +277,7 @@ public class CourseReviewListActivity extends ListActivity {
                 ParseObject review = reviewAdapter.getItem(position);
                 ParseProxyObject review_ppo = new ParseProxyObject(review);
 
-                Intent intent = new Intent(CourseReviewListActivity.this, ReviewSingleItem.class);
+                Intent intent = new Intent(ClubSocReviewListActivity.this, ReviewSingleItem.class);
                 intent.putExtra("review", review_ppo);
                 intent.putExtra("reviewID", review.getObjectId());
                 intent.putExtra("reviewTitle", review.getString("Title"));
@@ -295,5 +294,4 @@ public class CourseReviewListActivity extends ListActivity {
             }
         });
     }
-
 }

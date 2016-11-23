@@ -24,7 +24,7 @@ public class ClubSocAdapter extends ParseQueryAdapter<Club_Soc> {
                 // Here we can configure a ParseQuery to display
                 // only associated clubs & societies.
                 ParseQuery innerQuery = new ParseQuery("College");
-                String objectId = CourseListActivity.collegeId;
+                String objectId = ClubSocListActivity.collegeId;
 
                 Log.d("DEBUG", "collegeId3 is " + objectId);
 
@@ -51,8 +51,8 @@ public class ClubSocAdapter extends ParseQueryAdapter<Club_Soc> {
 
         TextView nameTextView = (TextView) v.findViewById(R.id.clubsoc_name);
         nameTextView.setText(club_soc.getName());
-        TextView descriptionTextView = (TextView) v.findViewById(R.id.clubsoc_description);
-        descriptionTextView.setText(club_soc.getDescription());
+//        TextView descriptionTextView = (TextView) v.findViewById(R.id.clubsoc_description);
+//        descriptionTextView.setText(club_soc.getDescription());
         TextView typeTextView = (TextView) v.findViewById(R.id.clubsoc_type);
         typeTextView.setText(club_soc.getType());
 

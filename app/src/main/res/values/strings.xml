@@ -16,10 +16,14 @@
     <string name="review_label">New Review Title</string>
     <string name="college_label">New College Name</string>
     <string name="course_label">New Course Name</string>
+    <string name="clubsoc_label">New Club/Society Name</string>
+    <string name="course_description_label">New Course Description</string>
+    <string name="clubsoc_description_label">New Club/Society Description</string>
+    <string name="clubsoc_type_label">New Club/Society Type</string>
     <string name="avgratinglabel">"Average Rating : "</string>
     <string name="revcountlabel">"Reviews : "</string>
     <string name="coursecountlabel">"Courses : "</string>
-    <string name="clubsoccountlabel">"Clubs + Socs : "</string>
+    <string name="clubsoccountlabel">"Clubs &#038; Societies : "</string>
     <string name="modulecountlabel">"Modules : "</string>
     <string name="save_button_text">Save</string>
     <string name="cancel_button_text">Cancel</string>
@@ -47,6 +51,8 @@
     <string name="profile_login_button_label">Log in</string>
     <string name="course_name_hint">English</string>
     <string name="course_description_hint">BSc Hons English</string>
+    <string name="clubsoc_name_hint">Chess Club</string>
+    <string name="clubsoc_description_hint">University of Example Chess Club</string>
 
     <string name="instruction">Enter the words above</string>
     <string name="verify">Verify</string>
@@ -82,6 +88,12 @@
         <item></item>
         <item>Undergraduate</item>
         <item>Postgraduate</item>
+    </string-array>
+
+    <string-array name="clubsoc_type_array">
+        <item></item>
+        <item>Club</item>
+        <item>Society</item>
     </string-array>
 
     <string-array name="mode_of_study_array">
