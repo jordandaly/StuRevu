@@ -40,6 +40,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     TextView tv_reviewTitle;
     RatingBar tv_rating;
     TextView tv_courseDesc;
+    TextView tv_clubsocName;
     TextView tv_collegeInitials;
     TextView tv_author;
     TextView tv_studentType;
@@ -146,6 +147,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         query_author.include("College_Id");
         query_author.include("Course_Id");
         query_author.include("Course_Id.College_Id");
+        query_author.include("Club_Soc_Id");
+        query_author.include("Club_Soc_Id.College_Id");
         query_author.getInBackground(reviewID, new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
@@ -166,6 +169,15 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         tv_collegeInitials = (TextView) findViewById(R.id.college_initials);
                         // Load the text into the TextView
                         tv_collegeInitials.setText(collegeInitials);
+
+                    } else if (object.getParseObject("Club_Soc_Id") != null) {
+                        String clubsocName = object.getParseObject("Club_Soc_Id").getString("Name");
+                        String collegeInitials = object.getParseObject("Club_Soc_Id").getParseObject("College_Id").getString("Initials");
+
+                        // Locate the TextView in singleitemview.xml
+                        tv_clubsocName = (TextView) findViewById(R.id.clubsoc_name);
+                        // Load the text into the TextView
+                        tv_clubsocName.setText(clubsocName + " at " + collegeInitials);
 
                     }
 

@@ -44,11 +44,11 @@ public class Club_Soc extends ParseObject {
 
     // Get the college for this club/soc
     public College getCollege()  {
-        return (College) getParseObject("college");
+        return (College) getParseObject("College_Id");
     }
 
     // Associate each club/soc with a college
     public void setCollege(College college) {
-        put("college", college);
+        put("College_Id", college);
     }
 }

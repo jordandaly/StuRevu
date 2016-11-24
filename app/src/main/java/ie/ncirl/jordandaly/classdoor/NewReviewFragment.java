@@ -32,6 +32,7 @@ public class NewReviewFragment extends Fragment {
 
     String collegeId = NewReviewActivity.collegeId;
     String courseId = NewReviewActivity.courseId;
+    String clubsocId = NewReviewActivity.clubsocId;
     RatingBar ratingBar;
     TextView rateDisplay;
     private Button saveButton;
@@ -180,6 +181,31 @@ public class NewReviewFragment extends Fragment {
                                     ParsePush push = new ParsePush();
                                     push.setChannel(courseId);
                                     push.setMessage("A new review has been created for one of your favourite Courses: " + courseDesc + " at " + collegeName);
+                                    push.sendInBackground();
+                                } else {
+                                    // something went wrong
+                                }
+                            }
+                        });
+
+                    }
+
+                    // Associate the review with the current clubsoc
+                    if (clubsocId != null) {
+                        review.put("Club_Soc_Id", ParseObject.createWithoutData("Club_Soc", clubsocId));
+
+                        //send push notification and include course description and college name
+                        ParseQuery<ParseObject> query = new ParseQuery("Club_Soc");
+                        query.include("College_Id");
+                        query.getInBackground(clubsocId, new GetCallback<ParseObject>() {
+                            public void done(ParseObject object, ParseException e) {
+                                if (e == null) {
+                                    // object will be your college
+                                    String clubsocDesc = object.getString("Name");
+                                    String collegeName = object.getParseObject("College_Id").getString("Name");
+                                    ParsePush push = new ParsePush();
+                                    push.setChannel(clubsocId);
+                                    push.setMessage("A new review has been created for one of your favourite Clubs/Societies: " + clubsocDesc + " at " + collegeName);
                                     push.sendInBackground();
                                 } else {
                                     // something went wrong

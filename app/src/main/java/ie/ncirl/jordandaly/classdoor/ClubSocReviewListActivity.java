@@ -32,7 +32,7 @@ public class ClubSocReviewListActivity extends ListActivity {
     public static String clubsocId;
     ListView reviewListView;
     private ParseQueryAdapter<Review> mainReviewAdapter;
-    private CourseReviewAdapter reviewAdapter;
+    private ClubSocReviewAdapter reviewAdapter;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -99,7 +99,7 @@ public class ClubSocReviewListActivity extends ListActivity {
 
 
         // Subclass of ParseQueryAdapter
-        reviewAdapter = new CourseReviewAdapter(this);
+        reviewAdapter = new ClubSocReviewAdapter(this);
 
         reviewListView = (ListView) findViewById(android.R.id.list);
         reviewListView.setAdapter(reviewAdapter);

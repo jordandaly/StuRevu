@@ -5,10 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -44,18 +40,20 @@ public class FavouriteCollegeAdapter extends ParseQueryAdapter<Favourite> {
 
         super.getItemView(favourite, v, parent);
 
-        ParseImageView collegeImage = (ParseImageView) v.findViewById(R.id.icon);
-        ParseFile photoFile = favourite.getParseObject("College_Id").getParseFile("ImageFile");
-        if (photoFile != null) {
-            collegeImage.setParseFile(photoFile);
-            collegeImage.loadInBackground(new GetDataCallback() {
-                @Override
-                public void done(byte[] data, ParseException e) {
-                    // nothing to do
-                }
-            });
-        }
+//        ParseImageView collegeImage = (ParseImageView) v.findViewById(R.id.icon);
+//        ParseFile photoFile = favourite.getParseObject("College_Id").getParseFile("ImageFile");
+//        if (photoFile != null) {
+//            collegeImage.setParseFile(photoFile);
+//            collegeImage.loadInBackground(new GetDataCallback() {
+//                @Override
+//                public void done(byte[] data, ParseException e) {
+//                    // nothing to do
+//                }
+//            });
+//        }
 
+        TextView initialsTextView = (TextView) v.findViewById(R.id.college_initials);
+        initialsTextView.setText(favourite.getParseObject("College_Id").getString("Initials"));
         TextView nameTextView = (TextView) v.findViewById(R.id.college_name);
         nameTextView.setText(favourite.getParseObject("College_Id").getString("Name"));
         TextView collegeTypeTextView = (TextView) v.findViewById(R.id.college_type);
