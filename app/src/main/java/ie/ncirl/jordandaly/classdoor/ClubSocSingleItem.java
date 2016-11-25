@@ -18,12 +18,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FunctionCallback;
 import com.parse.GetCallback;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.HashMap;
+
 /**
  * Created by jdaly on 22/11/2016.
  */
@@ -81,62 +86,62 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
 
         //Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
 
-//        HashMap<String, Object> params = new HashMap<String, Object>();
-//        params.put("Club_Soc_Id", clubsocID);
-//        ParseCloud.callFunctionInBackground("averageClubSocRating", params, new FunctionCallback<Object>() {
-//            public void done(Object rating, ParseException e) {
-//                if (e == null) {
-//                    System.out.println("Result:" + rating);
-//                    if (rating != null) {
-//
-//
-//                        averageRating = rating;
-//
-//                        if (averageRating instanceof Double) {
-//
-//                            averageRating = String.format("%3.1f", averageRating);
-//                        }
-//
-//                        System.out.println("avg:" + averageRating);
-//
-//                    } else {
-//                        averageRating = 0.0;
-//
-//
-//                    }
-//                    // Locate the TextView in singleitemview.xml
-//                    tv_averageRating = (TextView) findViewById(R.id.avg_rating);
-//                    // Load the text into the TextView
-//                    tv_averageRating.setText(averageRating.toString());
-//                }
-//            }
-//        });
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("Club_Soc_Id", clubsocID);
+        ParseCloud.callFunctionInBackground("averageClubSocRating", params, new FunctionCallback<Object>() {
+            public void done(Object rating, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result:" + rating);
+                    if (rating != null) {
 
 
-//        ParseCloud.callFunctionInBackground("countClubSocReviews", params, new FunctionCallback<Integer>() {
-//            public void done(Integer count, ParseException e) {
-//                if (e == null) {
-//                    System.out.println("Result_count:" + count);
-//                    if (count != null) {
-//
-//
-//                        reviewCount = count;
-//                        System.out.println("count:" + reviewCount);
-//
-//                    } else {
-//                        reviewCount = 0;
-//
-//
-//                    }
-//                    // Locate the TextView in singleitemview.xml
-//                    tv_reviewCount = (TextView) findViewById(R.id.rev_count);
-//                    // Load the text into the TextView
-//                    tv_reviewCount.setText(Integer.toString(reviewCount));
-//
-//
-//                }
-//            }
-//        });
+                        averageRating = rating;
+
+                        if (averageRating instanceof Double) {
+
+                            averageRating = String.format("%3.1f", averageRating);
+                        }
+
+                        System.out.println("avg:" + averageRating);
+
+                    } else {
+                        averageRating = 0.0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_averageRating = (TextView) findViewById(R.id.avg_rating);
+                    // Load the text into the TextView
+                    tv_averageRating.setText(averageRating.toString());
+                }
+            }
+        });
+
+
+        ParseCloud.callFunctionInBackground("countClubSocReviews", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result_count:" + count);
+                    if (count != null) {
+
+
+                        reviewCount = count;
+                        System.out.println("count:" + reviewCount);
+
+                    } else {
+                        reviewCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_reviewCount = (TextView) findViewById(R.id.rev_count);
+                    // Load the text into the TextView
+                    tv_reviewCount.setText(Integer.toString(reviewCount));
+
+
+                }
+            }
+        });
 
         // Locate the TextView in singleitemview.xml
         tv_clubsocName = (TextView) findViewById(R.id.clubsoc_name);

@@ -40,7 +40,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     TextView tv_averageRating;
     TextView tv_reviewCount;
     TextView tv_courseCount;
-    TextView tv_clubSocCount;
+    TextView tv_clubsocCount;
 
     private Button coursesButton;
     private Button reviewsButton;
@@ -59,7 +59,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 
     private int courseCount = 0;
 
-    private int clubSocCount = 0;
+    private int clubsocCount = 0;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -176,6 +176,31 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
             }
         });
 
+        ParseCloud.callFunctionInBackground("countCollegeClubSocs", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("clubsoc_count:" + count);
+                    if (count != null) {
+
+
+                        clubsocCount = count;
+                        System.out.println("count:" + clubsocCount);
+
+                    } else {
+                        clubsocCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_clubsocCount = (TextView) findViewById(R.id.clubsoc_count);
+                    // Load the text into the TextView
+                    tv_clubsocCount.setText(Integer.toString(clubsocCount));
+
+
+                }
+            }
+        });
+
 
 
 
@@ -207,10 +232,10 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 //        // Load the text into the TextView
 //        tv_courseCount.setText(Integer.toString(courseCount));
 
-        // Locate the TextView in singleitemview.xml
-        tv_clubSocCount = (TextView) findViewById(R.id.club_soc_count);
-        // Load the text into the TextView
-        tv_clubSocCount.setText(Integer.toString(clubSocCount));
+//        // Locate the TextView in singleitemview.xml
+//        tv_clubsocCount = (TextView) findViewById(R.id.clubsoc_count);
+//        // Load the text into the TextView
+//        tv_clubsocCount.setText(Integer.toString(clubsocCount));
 
         coursesButton = (Button) findViewById(R.id.coursesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
