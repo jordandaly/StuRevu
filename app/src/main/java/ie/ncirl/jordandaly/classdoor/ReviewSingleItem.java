@@ -237,14 +237,14 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
 
 
-        helpfulVoteButton = (Button) findViewById(R.id.helpfulVoteButtonId);
-        flaggedSpamButton = (Button) findViewById(R.id.flaggedSpamButtonId);
+//        helpfulVoteButton = (Button) findViewById(R.id.helpfulVoteButtonId);
+//        flaggedSpamButton = (Button) findViewById(R.id.flaggedSpamButtonId);
         commentListButton = (Button) findViewById(R.id.commentListButtonId);
         addNewCommentButton = (Button) findViewById(R.id.addNewCommentButtonId);
 
 
-        helpfulVoteButton.setOnClickListener(this);
-        flaggedSpamButton.setOnClickListener(this);
+//        helpfulVoteButton.setOnClickListener(this);
+//        flaggedSpamButton.setOnClickListener(this);
         commentListButton.setOnClickListener(this);
         addNewCommentButton.setOnClickListener(this);
 
@@ -271,56 +271,54 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
+//        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
 
-        if (disableBtn == 1) {
-            helpfulVoteButton.setEnabled(false);
-            flaggedSpamButton.setEnabled(false);
-            Log.d("disableBtn", "called");
-        }
-        disableBtn = 0;
+//        if (disableBtn == 1) {
+//            helpfulVoteButton.setEnabled(false);
+//            flaggedSpamButton.setEnabled(false);
+//            Log.d("disableBtn", "called");
+//        }
+//        disableBtn = 0;
 
         switch (v.getId()) {
 
-            case R.id.helpfulVoteButtonId:
-
-
+//            case R.id.helpfulVoteButtonId:
+//
+//
 
 // Retrieve the object by id
-                query.getInBackground(reviewID, new GetCallback<ParseObject>() {
-                    public void done(ParseObject review, ParseException e) {
-                        if (e == null) {
-
-                            review.increment("Helpful_Vote_Count");
-                            review.saveInBackground();
-
-                            helpfulVoteCount++;
-                            tv_helpfulVoteCount.setText(Integer.toString(helpfulVoteCount));
-                            Toast.makeText(getApplicationContext(), "Review marked as helpful!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-
+//                query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+//                    public void done(ParseObject review, ParseException e) {
+//                        if (e == null) {
+//
+//                            review.increment("Helpful_Vote_Count");
+//                            review.saveInBackground();
+//
+//                            helpfulVoteCount++;
+//                            tv_helpfulVoteCount.setText(Integer.toString(helpfulVoteCount));
+//                            Toast.makeText(getApplicationContext(), "Review marked as helpful!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
 
 
-                break;
-            case R.id.flaggedSpamButtonId:
-
-                query.getInBackground(reviewID, new GetCallback<ParseObject>() {
-                    public void done(ParseObject review, ParseException e) {
-                        if (e == null) {
-
-                            review.increment("Flagged_Spam_Count");
-                            review.saveInBackground();
-
-                            flaggedSpamCount++;
-                            tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
-                            Toast.makeText(getApplicationContext(), "Review flagged as Spam!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                break;
+//                break;
+//            case R.id.flaggedSpamButtonId:
+//
+//                query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+//                    public void done(ParseObject review, ParseException e) {
+//                        if (e == null) {
+//
+//                            review.increment("Flagged_Spam_Count");
+//                            review.saveInBackground();
+//
+//                            flaggedSpamCount++;
+//                            tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
+//                            Toast.makeText(getApplicationContext(), "Review flagged as Spam!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//                break;
             case R.id.commentListButtonId:
                 Intent commentListIntent = new Intent(this, CommentListActivity.class);
                 Log.d("DEBUG", "reviewId is " + reviewID);
@@ -450,7 +448,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.activity_action_single_item, menu);
+        getMenuInflater().inflate(R.menu.activity_action_review_single_item, menu);
         return true;
 
     }
@@ -458,6 +456,8 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_favourite).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_helpful_vote).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_report_abuse).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -480,6 +480,14 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
             case R.id.action_favourite: {
                 saveFavourite();
+                break;
+            }
+            case R.id.action_helpful_vote: {
+                voteHelpful();
+                break;
+            }
+            case R.id.action_report_abuse: {
+                reportAbuse();
                 break;
             }
 
@@ -527,6 +535,50 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
             }
         });
 
+
+    }
+
+    private void voteHelpful() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
+
+//        if (disableBtn == 1) {
+//            helpfulVoteButton.setEnabled(false);
+//            flaggedSpamButton.setEnabled(false);
+//            Log.d("disableBtn", "called");
+//        }
+//        disableBtn = 0;
+
+        query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+            public void done(ParseObject review, ParseException e) {
+                if (e == null) {
+
+                    review.increment("Helpful_Vote_Count");
+                    review.saveInBackground();
+
+                    helpfulVoteCount++;
+                    tv_helpfulVoteCount.setText(Integer.toString(helpfulVoteCount));
+                    Toast.makeText(getApplicationContext(), "Review marked as helpful!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    private void reportAbuse() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
+        query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+            public void done(ParseObject review, ParseException e) {
+                if (e == null) {
+
+                    review.increment("Flagged_Spam_Count");
+                    review.saveInBackground();
+
+                    flaggedSpamCount++;
+                    tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
+                    Toast.makeText(getApplicationContext(), "Review flagged as Spam!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 

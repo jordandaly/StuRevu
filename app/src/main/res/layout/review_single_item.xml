@@ -251,43 +251,45 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
+                android:drawableLeft="@drawable/list_white_small_icon"
         android:text="Comment List"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_orange_light"
         custom:pb_colorPressed="@android:color/holo_orange_dark" />
 
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/helpfulVoteButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/commentListButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Vote Helpful"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_blue_light"
-        custom:pb_colorPressed="@android:color/holo_blue_dark" />
+            <!--<com.dd.processbutton.FlatButton-->
+            <!--android:id="@+id/helpfulVoteButtonId"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/commentListButtonId"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="Vote Helpful"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--custom:pb_colorNormal="@android:color/holo_blue_light"-->
+            <!--custom:pb_colorPressed="@android:color/holo_blue_dark" />-->
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/flaggedSpamButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/helpfulVoteButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Flag Spam"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_red_light"
-        custom:pb_colorPressed="@android:color/holo_red_dark" />
+            <!--<com.dd.processbutton.FlatButton-->
+            <!--android:id="@+id/flaggedSpamButtonId"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/helpfulVoteButtonId"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="Flag Spam"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--custom:pb_colorNormal="@android:color/holo_red_light"-->
+            <!--custom:pb_colorPressed="@android:color/holo_red_dark" />-->
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/addNewCommentButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/flaggedSpamButtonId"
+        android:layout_below="@+id/commentListButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/ic_action_new_white_small"
         android:text="Add New Comment"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_green_light"

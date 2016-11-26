@@ -3,6 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
@@ -114,6 +119,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
+        android:drawableLeft="@drawable/list_white_small_icon"
         android:text="College Reviews List"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_orange_light"
@@ -126,6 +132,7 @@
         android:layout_below="@+id/reviewsButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/list_white_small_icon"
         android:text="Courses List"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_blue_light"
@@ -138,6 +145,7 @@
         android:layout_below="@+id/coursesButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/list_white_small_icon"
         android:text="Clubs &#038; Societies List"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_blue_light"
@@ -150,12 +158,14 @@
         android:layout_below="@+id/clubsocsButtonId"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/ic_action_new_white_small"
         android:text="Add New College Review"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_green_light"
         custom:pb_colorPressed="@android:color/holo_green_dark" />
 
 </RelativeLayout>
+    </ScrollView>
 
     <!-- Side navigation drawer UI -->
     <ListView
