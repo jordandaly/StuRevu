@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_favourite"
-        android:icon="@drawable/fav_icon"
+        android:icon="@drawable/fav_icon_white"
         android:title="@string/action_fav"
         app:showAsAction="always"></item>
 
     <item
         android:id="@+id/action_report_error"
-        android:icon="@drawable/error_icon"
+        android:icon="@drawable/error_icon_white"
         android:title="Report Error"
         app:showAsAction="always"></item>
 

@@ -226,12 +226,12 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
 //        tv_moduleCount.setText(Integer.toString(moduleCount));
 
 
-//        modulesButton = (Button) findViewById(R.id.modulesButtonId);
+        modulesButton = (Button) findViewById(R.id.modulesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
 
-//        modulesButton.setOnClickListener(this);
+        modulesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         addNewReviewButton.setOnClickListener(this);
 
@@ -268,6 +268,13 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                 reviewListIntent.putExtra("courseId", courseID);
                 startActivity(reviewListIntent);
                 //startActivity(new Intent(CourseSingleItem.this, CollegeReviewListActivity.class));
+                break;
+            case R.id.modulesButtonId:
+                Intent moduleListIntent = new Intent(this, ModuleListActivity.class);
+                Log.d("DEBUG", "courseID1m is " + courseID);
+                moduleListIntent.putExtra("courseId", courseID);
+                startActivity(moduleListIntent);
+                //startActivity(new Intent(CourseSingleItem.this, ModuleListActivity.class));
                 break;
             case R.id.addNewReviewButtonId:
                 Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);

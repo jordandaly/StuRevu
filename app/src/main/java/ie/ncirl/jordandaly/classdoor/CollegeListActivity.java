@@ -33,6 +33,7 @@ import com.parse.ParseUser;
 public class CollegeListActivity extends ListActivity {
 
 
+
     ListView collegeListView;
     private ParseQueryAdapter<College> mainCollegeAdapter;
     private CollegeAdapter collegeAdapter;
@@ -47,8 +48,8 @@ public class CollegeListActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_college_list);
-        //getListView().setClickable(false);
+        setContentView(R.layout.activity_college_list);
+        getListView().setClickable(false);
 
         getIntent().setAction("New College Added");
 
@@ -98,7 +99,7 @@ public class CollegeListActivity extends ListActivity {
         mainCollegeAdapter = new ParseQueryAdapter<College>(this, "College");
 
         mainCollegeAdapter.setTextKey("Name");
-        mainCollegeAdapter.setImageKey("ImageFile");
+//        mainCollegeAdapter.setImageKey("ImageFile");
         mainCollegeAdapter.loadObjects();
 
         // Subclass of ParseQueryAdapter
@@ -111,7 +112,7 @@ public class CollegeListActivity extends ListActivity {
         collegeListView.setAdapter(collegeAdapter);
 
         // Default view is collegeAdapter (all college sorted asc)
-        setListAdapter(collegeAdapter);
+//        setListAdapter(collegeAdapter);
 
         //getListView().setOnItemClickListener();
 
@@ -316,7 +317,7 @@ public class CollegeListActivity extends ListActivity {
 
         }
 
-        // Activate the navigation drawer toggle
+        //Activate the navigation drawer toggle
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -326,7 +327,7 @@ public class CollegeListActivity extends ListActivity {
 
     private void updateCollegeList() {
         collegeAdapter.loadObjects();
-        setListAdapter(collegeAdapter);
+//        setListAdapter(collegeAdapter);
     }
 
 //    private void showUnis() {

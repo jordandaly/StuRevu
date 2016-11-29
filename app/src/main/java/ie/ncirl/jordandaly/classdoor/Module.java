@@ -15,29 +15,49 @@ public class Module extends ParseObject {
         super();
     }
 
-    // Add a constructor that contains core properties
-    public Module(String body) {
-        super();
-        setBody(body);
+    /// ------------------
+    public String getName() {
+        return getString("Name");
     }
 
-
-    public String getBody(){
-        return getString("body");
+    public void setName(String name) {
+        put("Name", name);
     }
 
-    public void setBody(String body){
-        put("body", body);
+    //--------------------
+    public String getDescription() {
+        return getString("Description");
     }
 
+    public void setDescription(String description) {
+        put("Description", description);
+    }
 
-    // Associate each module with a course
-    public void setCourse(Course course) {
-        put("course", course);
+    //--------------------
+    public String getType() {
+        return getString("Type");
+    }
+
+    public void setType(String type) {
+        put("Type", type);
+    }
+
+    //--------------------
+    public String getCourseYear() {
+        return getString("Course_Year");
+    }
+
+    public void setCourseYear(String courseyear) {
+        put("Course_Year", courseyear);
     }
 
     // Get the course for this module
     public Course getCourse()  {
-        return (Course) getParseObject("course");
+        return (Course) getParseObject("Course_Id");
+    }
+
+    // Associate each module with a course
+    public void setCourse(Course course) {
+        put("Course_Id", course);
     }
 }

@@ -1,15 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/menu_title"
-        android:orderInCategory="100"
-        android:title="@string/menu_title"
-        app:showAsAction="never" />
+    <!--<item-->
+    <!--android:id="@+id/menu_title"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:title="@string/menu_title"-->
+    <!--app:showAsAction="never" />-->
 
     <item
         android:id="@+id/action_refresh"
-        android:icon="@drawable/refresh_icon"
+        android:icon="@drawable/refresh_icon_white"
         android:title="@string/action_refresh"
         app:showAsAction="always"></item>
     <!--<item-->

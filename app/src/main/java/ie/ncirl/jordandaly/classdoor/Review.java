@@ -93,7 +93,7 @@ public class Review extends ParseObject {
     }
 
 
-    // Get the college for this course review
+    // Get the course for this course review
     public String getCourse() {
         return getString("Course_Id");
     }
@@ -101,5 +101,27 @@ public class Review extends ParseObject {
     // Associate each course review with a course
     public void setCourse(String course) {
         put("Course_Id", course);
+    }
+
+
+    // Get the clubsoc for this clubsoc review
+    public String getClubSoc() {
+        return getString("Club_Soc_Id");
+    }
+
+    // Associate each clubsoc review with a clubsoc
+    public void setClubSoc(String clubsoc) {
+        put("Club_Soc_Id", clubsoc);
+    }
+
+
+    // Get the module for this module review
+    public String getModule() {
+        return getString("Module_Id");
+    }
+
+    // Associate each module review with a module
+    public void setModule(String module) {
+        put("Module_Id", module);
     }
 }

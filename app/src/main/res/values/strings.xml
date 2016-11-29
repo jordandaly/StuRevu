@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">StuRevu</string>
     <string name="action_settings">Settings</string>
+    <string name="menu">Menu</string>
 
     <string name="menu_settings">Settings</string>
     <string name="title_activity_college_list">StuRevu</string>
@@ -119,4 +120,17 @@
         <item>3 years</item>
         <item>4 years</item>
     </string-array>
+
+    <string-array name="navigation_drawer_menu_array">
+        <item>Home</item>
+        <item>College List</item>
+        <item>Course Search</item>
+        <item>Favourite Colleges</item>
+        <item>Favourite Courses</item>
+        <item>Favourite College Reviews</item>
+        <item>Favourite Course Reviews</item>
+        <item>My College Reviews</item>
+        <item>My Course Reviews</item>
+    </string-array>
+
 </resources>

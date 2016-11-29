@@ -173,9 +173,9 @@
         <activity android:name=".ClubSocSingleItem" />
         <activity android:name=".ClubSocReviewListActivity" />
         <activity android:name=".NewClubSocActivity" />
-        <!--<activity android:name=".ModuleListActivity" />-->
-        <!--<activity android:name=".ModuleSingleItem" />-->
-        <!--<activity android:name=".ModuleReviewListActivity" />-->
-        <!--<activity android:name=".NewModuleActivity" />-->
+        <activity android:name=".ModuleListActivity" />
+        <activity android:name=".ModuleSingleItem" />
+        <activity android:name=".ModuleReviewListActivity" />
+        <activity android:name=".NewModuleActivity" />
     </application>
 </manifest>

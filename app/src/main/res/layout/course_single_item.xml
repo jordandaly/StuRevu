@@ -219,19 +219,32 @@
         custom:pb_colorNormal="@android:color/holo_orange_light"
         custom:pb_colorPressed="@android:color/holo_orange_dark" />
 
+            <com.dd.processbutton.FlatButton
+                android:id="@+id/modulesButtonId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reviewsButtonId"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/list_white_small_icon"
+                android:text="Modules List"
+                android:textColor="@android:color/white"
+                custom:pb_colorNormal="@android:color/holo_blue_light"
+                custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/addNewReviewButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/reviewsButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/ic_action_new_white_small"
-        android:text="Add New Course Review"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_green_light"
-        custom:pb_colorPressed="@android:color/holo_green_dark" />
+
+            <com.dd.processbutton.FlatButton
+                android:id="@+id/addNewReviewButtonId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/modulesButtonId"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/ic_action_new_white_small"
+                android:text="Add New Course Review"
+                android:textColor="@android:color/white"
+                custom:pb_colorNormal="@android:color/holo_green_light"
+                custom:pb_colorPressed="@android:color/holo_green_dark" />
 
 
 </RelativeLayout>

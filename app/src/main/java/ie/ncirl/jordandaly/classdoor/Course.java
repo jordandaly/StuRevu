@@ -77,8 +77,8 @@ public class Course extends ParseObject {
         return getString("Duration");
     }
 
-    public void setCourseDuration(String modeOfStudy) {
-        put("Duration", modeOfStudy);
+    public void setCourseDuration(String duration) {
+        put("Duration", duration);
     }
 
     //--------------------
