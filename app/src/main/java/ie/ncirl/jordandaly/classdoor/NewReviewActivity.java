@@ -17,6 +17,7 @@ public class NewReviewActivity extends Activity {
     public static String collegeId;
     public static String courseId;
     public static String clubsocId;
+    public static String moduleId;
     private Review review;
 
     @Override
@@ -35,6 +36,9 @@ public class NewReviewActivity extends Activity {
 
         clubsocId = intent.getStringExtra("clubsocId");
         Log.d("DEBUG", "clubsocId2 is " + clubsocId);
+
+        moduleId = intent.getStringExtra("moduleId");
+        Log.d("DEBUG", "moduleId2 is " + moduleId);
 
         // Begin with main data entry view,
         // NewReviewFragment

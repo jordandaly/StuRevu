@@ -90,6 +90,16 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/module_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/author"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@id/reviewTypeLabel"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
 
             <TextView
             android:id="@+id/studentTypeLabel"

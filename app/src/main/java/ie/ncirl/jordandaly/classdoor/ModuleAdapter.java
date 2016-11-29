@@ -32,6 +32,7 @@ public class ModuleAdapter extends ParseQueryAdapter<Module> {
 
                 ParseQuery query = new ParseQuery("Module");
                 query.whereMatchesQuery("Course_Id", innerQuery);
+                query.include("Course_Id");
 
                 query.orderByAscending("Name");
                 return query;

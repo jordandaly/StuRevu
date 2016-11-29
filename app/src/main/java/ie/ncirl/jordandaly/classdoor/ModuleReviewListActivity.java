@@ -25,15 +25,14 @@ import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
 /**
- * Created by jdaly on 09/12/2015.
+ * Created by jdaly on 29/11/2016.
  */
-public class ModuleListActivity extends ListActivity {
+public class ModuleReviewListActivity extends ListActivity {
 
-    public static String courseId;
-    ListView moduleListView;
-    private ParseQueryAdapter<Module> mainModuleAdapter;
-    private ModuleAdapter moduleAdapter;
-    //public String getCollegeId() { return collegeId; }
+    public static String moduleId;
+    ListView reviewListView;
+    private ParseQueryAdapter<Review> mainReviewAdapter;
+    private ModuleReviewAdapter reviewAdapter;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -41,19 +40,15 @@ public class ModuleListActivity extends ListActivity {
     private ActionBarDrawerToggle mDrawerToggle;
 
 
-    //private customCustomAdapter customCourseAdapter;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_course_list);
-        //getListView().setClickable(false);
+//        setContentView(R.layout.activity_review_list);
+
 
         Intent intent = getIntent();
-        courseId = intent.getStringExtra("courseId");
-        Log.d("DEBUG", "courseId2 is " + courseId);
-
-        getIntent().setAction("New Module Added");
+        moduleId = intent.getStringExtra("moduleId");
+        Log.d("DEBUG", "moduleId2r is " + moduleId);
 
         AppCompatCallback callback = new AppCompatCallback() {
 
@@ -75,7 +70,7 @@ public class ModuleListActivity extends ListActivity {
         AppCompatDelegate delegate = AppCompatDelegate.create(this, callback);
 
         delegate.onCreate(savedInstanceState);
-        delegate.setContentView(R.layout.activity_module_list);
+        delegate.setContentView(R.layout.activity_review_list);
 
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -92,29 +87,29 @@ public class ModuleListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
-        delegate.getSupportActionBar().setTitle("Module List");
+        delegate.getSupportActionBar().setTitle("Module Review List");
 
 
-        //mainCourseAdapter = new ParseQueryAdapter<Course>(this, Course.class);
-        mainModuleAdapter = new ParseQueryAdapter<Module>(this, "Module");
+        //mainReviewAdapter = new ParseQueryAdapter<Review>(this, Review.class);
+        mainReviewAdapter = new ParseQueryAdapter<Review>(this, "Review");
 
-        mainModuleAdapter.setTextKey("Description");
+        mainReviewAdapter.setTextKey("Title");
 
-        mainModuleAdapter.loadObjects();
+        mainReviewAdapter.loadObjects();
 
 
         // Subclass of ParseQueryAdapter
-        moduleAdapter = new ModuleAdapter(this);
+        reviewAdapter = new ModuleReviewAdapter(this);
 
-        moduleListView = (ListView) findViewById(android.R.id.list);
-        moduleListView.setAdapter(moduleAdapter);
+        reviewListView = (ListView) findViewById(android.R.id.list);
+        reviewListView.setAdapter(reviewAdapter);
 
         // Default view is collegeAdapter (all college sorted asc)
-        setListAdapter(moduleAdapter);
+        setListAdapter(reviewAdapter);
 
         //getListView().setOnItemClickListener();
 
-        setUpModuleItems();
+        setUpReviewItems();
 
 
     }
@@ -130,45 +125,46 @@ public class ModuleListActivity extends ListActivity {
 //                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0: {
-                        Intent intent = new Intent(ModuleListActivity.this, CollegeListActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, CollegeListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(ModuleListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, SearchCourseListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(ModuleListActivity.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, FavouriteCollegeActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 3: {
-                        Intent intent = new Intent(ModuleListActivity.this, FavouriteCourseActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, FavouriteCourseActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 4: {
-                        Intent intent = new Intent(ModuleListActivity.this, FavouriteCollegeReviewActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, FavouriteCollegeReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 5: {
-                        Intent intent = new Intent(ModuleListActivity.this, FavouriteCourseReviewActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, FavouriteCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 6: {
-                        Intent intent = new Intent(ModuleListActivity.this, MyCollegeReviewActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, MyCollegeReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 7: {
-                        Intent intent = new Intent(ModuleListActivity.this, MyCourseReviewActivity.class);
+                        Intent intent = new Intent(ModuleReviewListActivity.this, MyCourseReviewActivity.class);
                         startActivity(intent);
                         break;
                     }
+
                     default:
                         break;
                 }
@@ -202,46 +198,11 @@ public class ModuleListActivity extends ListActivity {
         mDrawerToggle.syncState();
     }
 
-    @Override
-    protected void onResume() {
-        Log.v("Example", "onResume");
-
-        String action = getIntent().getAction();
-        // Prevent endless loop by adding a unique action, don't restart if action is present
-        if (action == null || !action.equals("New Module Added")) {
-            Log.v("Example", "Force restart");
-            Intent intent = getIntent();
-            startActivity(intent);
-            finish();
-        }
-        // Remove the unique action so the next time onResume is called it will restart
-        else
-            getIntent().setAction(null);
-
-        super.onResume();
-    }
-
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_action_module_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_search_modules).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_add_module).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
-
-        return true;
     }
 
 
@@ -252,6 +213,13 @@ public class ModuleListActivity extends ListActivity {
         mDrawerToggle.syncState();
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_action_review_list, menu);
+        return true;
+    }
+
     /*
      * "Show Unis" and refreshing the "show all" list will be controlled from the Action
      * Bar.
@@ -260,17 +228,11 @@ public class ModuleListActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_search_modules: {
-                Intent intent = new Intent(ModuleListActivity.this, SearchModuleListActivity.class);
-                startActivity(intent);
-                break;
+            case R.id.action_refresh: {
+                updateReviewList();
+                //break;
             }
 
-            case R.id.action_add_module: {
-                Intent intent = new Intent(ModuleListActivity.this, NewModuleActivity.class);
-                intent.putExtra("courseId", courseId);
-                startActivity(intent);
-            }
 
         }
         // Activate the navigation drawer toggle
@@ -280,15 +242,10 @@ public class ModuleListActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateCourseList() {
-        moduleAdapter.loadObjects();
-        setListAdapter(moduleAdapter);
+    private void updateReviewList() {
+        reviewAdapter.loadObjects();
+        setListAdapter(reviewAdapter);
     }
-
-//    private void showUnis() {
-//        customAdapter.loadObjects();
-//        setListAdapter(customAdapter);
-//    }
 
 
     @Override
@@ -296,33 +253,37 @@ public class ModuleListActivity extends ListActivity {
         if (resultCode == Activity.RESULT_OK) {
             // If a new post has been added, update
             // the list of posts
-            updateCourseList();
+            updateReviewList();
         }
     }
 
-    private void setUpModuleItems() {
-        moduleListView.setOnItemClickListener(new OnItemClickListener() {
-            public static final String TAG = "buttonClick modulelist";
+    private void setUpReviewItems() {
+        reviewListView.setOnItemClickListener(new OnItemClickListener() {
+            public static final String TAG = "buttonClick reviewlist";
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick");
 
-                ParseObject module = moduleAdapter.getItem(position);
-                ParseProxyObject module_ppo = new ParseProxyObject(module);
+                ParseObject review = reviewAdapter.getItem(position);
+                ParseProxyObject review_ppo = new ParseProxyObject(review);
 
-                Intent intent = new Intent(ModuleListActivity.this, ModuleSingleItem.class);
-                intent.putExtra("module", module_ppo);
-                intent.putExtra("moduleID", module.getObjectId());
-                intent.putExtra("moduleName", module.getString("Name"));
-                intent.putExtra("moduleDescription", module.getString("Description"));
-                intent.putExtra("moduleType", module.getString("Type"));
-                intent.putExtra("moduleCourseYear", module.getString("Course_Year"));
+                Intent intent = new Intent(ModuleReviewListActivity.this, ReviewSingleItem.class);
+                intent.putExtra("review", review_ppo);
+                intent.putExtra("reviewID", review.getObjectId());
+                intent.putExtra("reviewTitle", review.getString("Title"));
+                intent.putExtra("rating", review.getDouble("Rating"));
+                intent.putExtra("username", review.getParseObject("User_Id").getString("username"));
+                intent.putExtra("studentType", review.getString("Student_Type"));
+                intent.putExtra("contentPros", review.getString("Content_Pros"));
+                intent.putExtra("contentCons", review.getString("Content_Cons"));
+                intent.putExtra("contentAdvice", review.getString("Content_Advice"));
+                intent.putExtra("helpfulVoteCount", review.getInt("Helpful_Vote_Count"));
+                intent.putExtra("flaggedSpamCount", review.getInt("Flagged_Spam_Count"));
                 startActivity(intent);
 
             }
         });
     }
-
 
 }

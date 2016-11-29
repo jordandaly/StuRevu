@@ -121,6 +121,14 @@
         <item>4 years</item>
     </string-array>
 
+    <string-array name="module_course_year_array">
+        <item></item>
+        <item>Year 1</item>
+        <item>Year 2</item>
+        <item>Year 3</item>
+        <item>Year 4</item>
+    </string-array>
+
     <string-array name="navigation_drawer_menu_array">
         <item>Home</item>
         <item>College List</item>

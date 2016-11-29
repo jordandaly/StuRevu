@@ -41,6 +41,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     RatingBar tv_rating;
     TextView tv_courseDesc;
     TextView tv_clubsocName;
+    TextView tv_moduleName;
     TextView tv_collegeInitials;
     TextView tv_author;
     TextView tv_studentType;
@@ -149,6 +150,9 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         query_author.include("Course_Id.College_Id");
         query_author.include("Club_Soc_Id");
         query_author.include("Club_Soc_Id.College_Id");
+        query_author.include("Module_Id");
+        query_author.include("Module_Id.Course_Id");
+        query_author.include("Module_Id.Course_Id.College_Id");
         query_author.getInBackground(reviewID, new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
@@ -178,6 +182,16 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         tv_clubsocName = (TextView) findViewById(R.id.clubsoc_name);
                         // Load the text into the TextView
                         tv_clubsocName.setText(clubsocName + " at " + collegeInitials);
+
+                    } else if (object.getParseObject("Module_Id") != null) {
+                        String moduleName = object.getParseObject("Module_Id").getString("Name");
+                        String courseDesc = object.getParseObject("Module_Id").getParseObject("Course_Id").getString("Description");
+                        String collegeInitials = object.getParseObject("Module_Id").getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
+
+                        // Locate the TextView in singleitemview.xml
+                        tv_moduleName = (TextView) findViewById(R.id.module_name);
+                        // Load the text into the TextView
+                        tv_moduleName.setText(moduleName + " of " + courseDesc + " at " + collegeInitials);
 
                     }
 

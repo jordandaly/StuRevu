@@ -33,6 +33,7 @@ public class NewReviewFragment extends Fragment {
     String collegeId = NewReviewActivity.collegeId;
     String courseId = NewReviewActivity.courseId;
     String clubsocId = NewReviewActivity.clubsocId;
+    String moduleId = NewReviewActivity.moduleId;
     RatingBar ratingBar;
     TextView rateDisplay;
     private Button saveButton;
@@ -201,11 +202,38 @@ public class NewReviewFragment extends Fragment {
                             public void done(ParseObject object, ParseException e) {
                                 if (e == null) {
                                     // object will be your college
-                                    String clubsocDesc = object.getString("Name");
+                                    String clubsocName = object.getString("Name");
                                     String collegeName = object.getParseObject("College_Id").getString("Name");
                                     ParsePush push = new ParsePush();
                                     push.setChannel(clubsocId);
-                                    push.setMessage("A new review has been created for one of your favourite Clubs/Societies: " + clubsocDesc + " at " + collegeName);
+                                    push.setMessage("A new review has been created for one of your favourite Clubs/Societies: " + clubsocName + " at " + collegeName);
+                                    push.sendInBackground();
+                                } else {
+                                    // something went wrong
+                                }
+                            }
+                        });
+
+                    }
+
+                    // Associate the review with the current clubsoc
+                    if (moduleId != null) {
+                        review.put("Module_Id", ParseObject.createWithoutData("Module", moduleId));
+
+                        //send push notification and include course description and college name
+                        ParseQuery<ParseObject> query = new ParseQuery("Module");
+                        query.include("Course_Id");
+                        query.include("Course_Id.College_Id");
+                        query.getInBackground(moduleId, new GetCallback<ParseObject>() {
+                            public void done(ParseObject object, ParseException e) {
+                                if (e == null) {
+                                    // object will be your college
+                                    String moduleName = object.getString("Name");
+                                    String courseDesc = object.getParseObject("Course_Id").getString("Description");
+                                    String collegeName = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Name");
+                                    ParsePush push = new ParsePush();
+                                    push.setChannel(moduleId);
+                                    push.setMessage("A new review has been created for one of your favourite Modules: " + moduleName + " for " + courseDesc + " at " + collegeName);
                                     push.sendInBackground();
                                 } else {
                                     // something went wrong
