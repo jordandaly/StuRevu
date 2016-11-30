@@ -1,7 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".NewModuleFragment">
 
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/module_label"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/module_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/module_name_hint"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/module_description_label"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/module_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/module_description_hint"
+            android:inputType="textMultiLine" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Module Type"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/module_type_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/module_type_array" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Course Year"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/module_course_year_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/module_course_year_array" />
+
+
+        <com.dd.processbutton.FlatButton
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/save_icon_small_white"
+            android:text="@string/save_button_text"
+            android:textColor="@android:color/white"
+            custom:pb_colorNormal="@android:color/holo_green_light"
+            custom:pb_colorPressed="@android:color/holo_green_dark" />
+
+        <com.dd.processbutton.FlatButton
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/cancel_icon_small_white"
+            android:text="@string/cancel_button_text"
+            android:textColor="@android:color/white"
+            custom:pb_colorNormal="@android:color/holo_red_light"
+            custom:pb_colorPressed="@android:color/holo_red_dark" />
+
+
+    </LinearLayout>
+</ScrollView>

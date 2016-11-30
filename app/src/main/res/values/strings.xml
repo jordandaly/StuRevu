@@ -17,6 +17,8 @@
     <string name="review_label">New Review Title</string>
     <string name="college_label">New College Name</string>
     <string name="course_label">New Course Name</string>
+    <string name="module_label">New Module Name</string>
+    <string name="module_description_label">New Module Description</string>
     <string name="clubsoc_label">New Club/Society Name</string>
     <string name="course_description_label">New Course Description</string>
     <string name="clubsoc_description_label">New Club/Society Description</string>
@@ -52,6 +54,8 @@
     <string name="profile_login_button_label">Log in</string>
     <string name="course_name_hint">English</string>
     <string name="course_description_hint">BSc Hons English</string>
+    <string name="module_name_hint">Project</string>
+    <string name="module_description_hint">Final Year Software Project</string>
     <string name="clubsoc_name_hint">Chess Club</string>
     <string name="clubsoc_description_hint">University of Example Chess Club</string>
 
@@ -77,6 +81,7 @@
         <item>University</item>
         <item>Institute Of Technology</item>
         <item>Third Level Institute</item>
+        <item>Online</item>
     </string-array>
 
     <string-array name="student_type_array">
@@ -127,6 +132,12 @@
         <item>Year 2</item>
         <item>Year 3</item>
         <item>Year 4</item>
+    </string-array>
+
+    <string-array name="module_type_array">
+        <item></item>
+        <item>Core</item>
+        <item>Optional</item>
     </string-array>
 
     <string-array name="navigation_drawer_menu_array">
