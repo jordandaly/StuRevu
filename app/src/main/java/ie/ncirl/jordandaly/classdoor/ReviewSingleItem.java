@@ -188,10 +188,19 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         String courseDesc = object.getParseObject("Module_Id").getParseObject("Course_Id").getString("Description");
                         String collegeInitials = object.getParseObject("Module_Id").getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
 
+//                        JSONArray courseArray  = object.getParseObject("Module_Id").getJSONArray("Course_Id");
+//                        String courseStrings[] = new String[courseArray.length()];
+//                        for(int i=0;i<courseStrings.length;i++) {
+//                            courseStrings[i] = courseArray.getString(i);
+//                        }
+
+
+
                         // Locate the TextView in singleitemview.xml
                         tv_moduleName = (TextView) findViewById(R.id.module_name);
                         // Load the text into the TextView
                         tv_moduleName.setText(moduleName + " of " + courseDesc + " at " + collegeInitials);
+//                        tv_moduleName.setText(moduleName);
 
                     }
 

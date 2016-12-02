@@ -203,13 +203,29 @@
         android:layout_below="@id/avg_rating"
         android:layout_toRightOf="@+id/revcountlabel"
         android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/modulecountlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revcountlabel"
+                android:text="@string/modulecountlabel"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/mod_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rev_count"
+                android:layout_toRightOf="@+id/modulecountlabel"
+                android:textSize="20sp" />
         
 
         <com.dd.processbutton.FlatButton
         android:id="@+id/reviewsButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rev_count"
+            android:layout_below="@+id/mod_count"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"

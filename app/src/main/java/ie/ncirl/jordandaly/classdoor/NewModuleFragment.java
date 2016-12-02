@@ -21,8 +21,6 @@ import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
-import java.util.Arrays;
-
 /**
  * Created by jdaly on 29/11/2016.
  */
@@ -114,9 +112,11 @@ public class NewModuleFragment extends Fragment {
                     if (courseId != null) {
                         //ArrayList<ParseObject> course = new ArrayList<ParseObject>();
                         //course.add(courseId);
-                        module.addAllUnique("Course_Id", Arrays.asList(courseId));
-                        //module.put("Course_Id", course);
-                        module.saveInBackground();
+//                        module.addAllUnique("Course_Id", Arrays.asList(courseId));
+//                        module.saveInBackground();
+
+                        module.put("Course_Id", ParseObject.createWithoutData("Course", courseId));
+
 
                         //send push notification and include college name
                         ParseQuery<ParseObject> query = new ParseQuery("Course");

@@ -67,6 +67,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
     private String departmentFaculty;
     private Object averageRating;
     private int reviewCount = 0;
+    private int moduleCount = 0;
 
 
     private ListView mDrawerList;
@@ -159,6 +160,31 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                     tv_reviewCount = (TextView) findViewById(R.id.rev_count);
                     // Load the text into the TextView
                     tv_reviewCount.setText(Integer.toString(reviewCount));
+
+
+                }
+            }
+        });
+
+        ParseCloud.callFunctionInBackground("countCourseModules", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("Result_count:" + count);
+                    if (count != null) {
+
+
+                        moduleCount = count;
+                        System.out.println("count:" + moduleCount);
+
+                    } else {
+                        moduleCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_moduleCount = (TextView) findViewById(R.id.mod_count);
+                    // Load the text into the TextView
+                    tv_moduleCount.setText(Integer.toString(moduleCount));
 
 
                 }

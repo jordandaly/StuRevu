@@ -1,6 +1,7 @@
 package ie.ncirl.jordandaly.classdoor;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,25 +23,27 @@ public class ModuleAdapter extends ParseQueryAdapter<Module> {
             public ParseQuery<Module> create() {
                 // Here we can configure a ParseQuery to display
                 // only associated modules.
-//                ParseQuery innerQuery = new ParseQuery("Course");
-//                String objectId = ModuleListActivity.courseId;
-//
-//                Log.d("DEBUG", "courseId3 is " + objectId);
-//
-//                innerQuery.whereEqualTo("objectId", objectId);
-//
-//                ParseQuery query = new ParseQuery("Module");
-//                query.whereMatchesQuery("Course_Id", innerQuery);
-//                query.include("Course_Id");
-//
-//                query.orderByAscending("Name");
-//                return query;
-                ParseQuery query = new ParseQuery("Module");
+                ParseQuery innerQuery = new ParseQuery("Course");
                 String objectId = ModuleListActivity.courseId;
-                query.whereEqualTo("Course_Id", objectId);
+
+                Log.d("DEBUG", "courseId3 is " + objectId);
+
+                innerQuery.whereEqualTo("objectId", objectId);
+
+                ParseQuery query = new ParseQuery("Module");
+                query.whereMatchesQuery("Course_Id", innerQuery);
                 query.include("Course_Id");
+
                 query.orderByAscending("Name");
                 return query;
+
+
+//                ParseQuery query = new ParseQuery("Module");
+//                String objectId = ModuleListActivity.courseId;
+//                query.whereEqualTo("Course_Id", objectId);
+//                query.include("Course_Id");
+//                query.orderByAscending("Name");
+//                return query;
 
 
 //                // set up our query for the Book object
