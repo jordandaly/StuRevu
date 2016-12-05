@@ -6,14 +6,17 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_college_list">StuRevu</string>
     <string name="title_activity_new_review">NewReviewActivity</string>
+
     <string name="action_refresh">Return to List All and refresh</string>
     <string name="action_show_uni_list">Only Show Universities</string>
     <string name="action_new">Add a Review</string>
     <string name="action_college_add">Add a College</string>
     <string name="action_course_add">Add a Course</string>
     <string name="action_clubsoc_add">Add a Club or Society</string>
+
     <string name="menu_title">Menu</string>
     <string name="logout">Logout</string>
+
     <string name="review_label">New Review Title</string>
     <string name="college_label">New College Name</string>
     <string name="course_label">New Course Name</string>
@@ -28,8 +31,10 @@
     <string name="coursecountlabel">"Courses : "</string>
     <string name="clubsoccountlabel">"Clubs &#038; Societies : "</string>
     <string name="modulecountlabel">"Modules : "</string>
+
     <string name="save_button_text">Save</string>
     <string name="cancel_button_text">Cancel</string>
+
     <string name="college">College</string>
     <string name="action_collegeMap">Map of Third Level Institutions</string>
     <string name="college_out_of_range">Can\'t view college! Get closer.</string>
@@ -46,7 +51,7 @@
     <string name="action_follow">Add to Following</string>
     <string name="action_search_courses">Search all Courses</string>
     <string name="comment_label">New Comment Title</string>
-    <string name="commentcountlabel">Comments: </string>
+    <string name="commentcountlabel">Comments : </string>
     <string name="share">Share on Facebook</string>
     <string name="profile_title_logged_in">Your are logged in as</string>
     <string name="profile_logout_button_label">Log out</string>
@@ -58,6 +63,16 @@
     <string name="module_description_hint">Final Year Software Project</string>
     <string name="clubsoc_name_hint">Chess Club</string>
     <string name="clubsoc_description_hint">University of Example Chess Club</string>
+
+    <string name="fav_colleges_btn">Favourite Colleges</string>
+    <string name="fav_courses_btn">Favourite Courses</string>
+    <string name="fav_clubsocs_btn">Favourite Clubs &#038; Societies</string>
+    <string name="fav_modules_btn">Favourite Modules</string>
+
+    <string name="fav_college_rev_btn">Favourite College Reviews</string>
+    <string name="fav_course_rev_btn">Favourite Course Reviews</string>
+    <string name="fav_clubsoc_rev_btn">Favourite Club &#038; Society Reviews</string>
+    <string name="fav_module_rev_btn">Favourite Module Reviews</string>
 
     <string name="instruction">Enter the words above</string>
     <string name="verify">Verify</string>

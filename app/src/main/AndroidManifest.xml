@@ -177,5 +177,8 @@
         <activity android:name=".ModuleSingleItem" />
         <activity android:name=".ModuleReviewListActivity" />
         <activity android:name=".NewModuleActivity" />
+        <activity android:name=".FavouritesActivity" />
+
+
     </application>
 </manifest>
