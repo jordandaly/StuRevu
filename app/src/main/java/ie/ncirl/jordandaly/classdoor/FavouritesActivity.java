@@ -97,7 +97,7 @@ public class FavouritesActivity extends AppCompatActivity implements View.OnClic
 
 
     }
-    
+
 
     private void addDrawerItems() {
         String[] osArray = {"College List", "Search Courses", "Favourites", "My Reviews"};
