@@ -181,6 +181,7 @@
         <activity android:name=".FavouriteClubSocActivity" />
         <activity android:name=".FavouriteModuleActivity" />
         <activity android:name=".FavouriteClubSocReviewActivity" />
+        <activity android:name=".FavouriteModuleReviewActivity" />
 
 
     </application>
