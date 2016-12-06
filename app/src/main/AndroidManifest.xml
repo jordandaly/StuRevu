@@ -179,6 +179,8 @@
         <activity android:name=".NewModuleActivity" />
         <activity android:name=".FavouritesActivity" />
         <activity android:name=".FavouriteClubSocActivity" />
+        <activity android:name=".FavouriteModuleActivity" />
+        <activity android:name=".FavouriteClubSocReviewActivity" />
 
 
     </application>
