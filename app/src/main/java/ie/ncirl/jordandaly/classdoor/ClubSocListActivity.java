@@ -120,7 +120,7 @@ public class ClubSocListActivity extends ListActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews", "My College Reviews", "My Course Reviews"};
+        String[] osArray = {"College List", "Search Courses", "Favourites", "My Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -140,32 +140,13 @@ public class ClubSocListActivity extends ListActivity {
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(ClubSocListActivity.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(ClubSocListActivity.this, FavouritesActivity.class);
                         startActivity(intent);
                         break;
                     }
+
                     case 3: {
-                        Intent intent = new Intent(ClubSocListActivity.this, FavouriteCourseActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 4: {
-                        Intent intent = new Intent(ClubSocListActivity.this, FavouriteCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 5: {
-                        Intent intent = new Intent(ClubSocListActivity.this, FavouriteCourseReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 6: {
-                        Intent intent = new Intent(ClubSocListActivity.this, MyCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 7: {
-                        Intent intent = new Intent(ClubSocListActivity.this, MyCourseReviewActivity.class);
+                        Intent intent = new Intent(ClubSocListActivity.this, MyReviewsActivity.class);
                         startActivity(intent);
                         break;
                     }

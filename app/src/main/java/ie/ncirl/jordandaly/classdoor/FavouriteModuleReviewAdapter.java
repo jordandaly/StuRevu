@@ -50,8 +50,8 @@ public class FavouriteModuleReviewAdapter extends ParseQueryAdapter<Favourite> {
         titleTextView.setText(favourite.getParseObject("Review_Id").getString("Title"));
         TextView ratingTextView = (TextView) v.findViewById(R.id.rating);
         ratingTextView.setText(favourite.getParseObject("Review_Id").getNumber("Rating").toString());
-        TextView collegeInitialsTextView = (TextView) v.findViewById(R.id.module_name);
-        collegeInitialsTextView.setText(favourite.getParseObject("Review_Id").getParseObject("Module_Id").getString("Name"));
+        TextView moduleNameTextView = (TextView) v.findViewById(R.id.module_name);
+        moduleNameTextView.setText(favourite.getParseObject("Review_Id").getParseObject("Module_Id").getString("Name"));
         TextView createdAtTextView = (TextView) v.findViewById(R.id.created_at);
         createdAtTextView.setText((favourite.getParseObject("Review_Id").getCreatedAt().toString()));
 

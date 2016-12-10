@@ -60,38 +60,9 @@
                 android:text="Reviewed: "
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/course_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/author"
-                android:layout_centerHorizontal="true"
-                android:layout_toRightOf="@id/reviewTypeLabel"
-                android:textSize="20sp"
-                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/college_initials"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/author"
-                android:layout_centerHorizontal="true"
-                android:layout_toRightOf="@id/reviewTypeLabel"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/clubsoc_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/author"
-                android:layout_centerHorizontal="true"
-                android:layout_toRightOf="@id/reviewTypeLabel"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/module_name"
+                android:id="@+id/reviewed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/author"
@@ -105,7 +76,7 @@
             android:id="@+id/studentTypeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:layout_below="@id/course_description"
+                android:layout_below="@id/reviewed"
                 android:text="Student Type: "
             android:textSize="20sp" />
 
@@ -113,7 +84,7 @@
         android:id="@+id/student_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/course_description"
+        android:layout_below="@id/reviewed"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/studentTypeLabel"
         android:textSize="20sp"

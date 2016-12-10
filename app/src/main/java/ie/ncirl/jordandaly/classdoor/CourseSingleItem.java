@@ -331,7 +331,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews", "My College Reviews", "My Course Reviews"};
+        String[] osArray = {"College List", "Search Courses", "Favourites", "My Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -351,32 +351,13 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(CourseSingleItem.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(CourseSingleItem.this, FavouritesActivity.class);
                         startActivity(intent);
                         break;
                     }
+
                     case 3: {
-                        Intent intent = new Intent(CourseSingleItem.this, FavouriteCourseActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 4: {
-                        Intent intent = new Intent(CourseSingleItem.this, FavouriteCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 5: {
-                        Intent intent = new Intent(CourseSingleItem.this, FavouriteCourseReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 6: {
-                        Intent intent = new Intent(CourseSingleItem.this, MyCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 7: {
-                        Intent intent = new Intent(CourseSingleItem.this, MyCourseReviewActivity.class);
+                        Intent intent = new Intent(CourseSingleItem.this, MyReviewsActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -386,7 +367,6 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
             }
         });
     }
-
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {

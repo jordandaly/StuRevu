@@ -113,7 +113,7 @@ public class CollegeReviewListActivity extends ListActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews", "My College Reviews", "My Course Reviews"};
+        String[] osArray = {"College List", "Search Courses", "Favourites", "My Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -133,47 +133,22 @@ public class CollegeReviewListActivity extends ListActivity {
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouritesActivity.class);
                         startActivity(intent);
                         break;
                     }
 
                     case 3: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCourseActivity.class);
+                        Intent intent = new Intent(CollegeReviewListActivity.this, MyReviewsActivity.class);
                         startActivity(intent);
                         break;
                     }
-
-                    case 4: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-
-                    case 5: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, FavouriteCourseReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 6: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, MyCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 7: {
-                        Intent intent = new Intent(CollegeReviewListActivity.this, MyCourseReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-
-
                     default:
                         break;
                 }
             }
         });
     }
-
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {

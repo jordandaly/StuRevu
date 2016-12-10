@@ -162,7 +162,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         String collegeInitials = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
 
                         // Locate the TextView in singleitemview.xml
-                        tv_courseDesc = (TextView) findViewById(R.id.course_description);
+                        tv_courseDesc = (TextView) findViewById(R.id.reviewed);
                         // Load the text into the TextView
                         tv_courseDesc.setText(courseDesc + " at " + collegeInitials);
 
@@ -170,7 +170,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         String collegeInitials = object.getParseObject("College_Id").getString("Initials");
 
                         // Locate the TextView in singleitemview.xml
-                        tv_collegeInitials = (TextView) findViewById(R.id.college_initials);
+                        tv_collegeInitials = (TextView) findViewById(R.id.reviewed);
                         // Load the text into the TextView
                         tv_collegeInitials.setText(collegeInitials);
 
@@ -179,7 +179,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         String collegeInitials = object.getParseObject("Club_Soc_Id").getParseObject("College_Id").getString("Initials");
 
                         // Locate the TextView in singleitemview.xml
-                        tv_clubsocName = (TextView) findViewById(R.id.clubsoc_name);
+                        tv_clubsocName = (TextView) findViewById(R.id.reviewed);
                         // Load the text into the TextView
                         tv_clubsocName.setText(clubsocName + " at " + collegeInitials);
 
@@ -197,7 +197,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
 
                         // Locate the TextView in singleitemview.xml
-                        tv_moduleName = (TextView) findViewById(R.id.module_name);
+                        tv_moduleName = (TextView) findViewById(R.id.reviewed);
                         // Load the text into the TextView
                         tv_moduleName.setText(moduleName + " of " + courseDesc + " at " + collegeInitials);
 //                        tv_moduleName.setText(moduleName);
@@ -378,7 +378,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     }
 
     private void addDrawerItems() {
-        String[] osArray = {"College List", "Search Courses", "Favourite Colleges", "Favourite Courses", "Favourite College Reviews", "Favourite Course Reviews", "My College Reviews", "My Course Reviews"};
+        String[] osArray = {"College List", "Search Courses", "Favourites", "My Reviews"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -398,32 +398,13 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(ReviewSingleItem.this, FavouriteCollegeActivity.class);
+                        Intent intent = new Intent(ReviewSingleItem.this, FavouritesActivity.class);
                         startActivity(intent);
                         break;
                     }
+
                     case 3: {
-                        Intent intent = new Intent(ReviewSingleItem.this, FavouriteCourseActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 4: {
-                        Intent intent = new Intent(ReviewSingleItem.this, FavouriteCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 5: {
-                        Intent intent = new Intent(ReviewSingleItem.this, FavouriteCourseReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 6: {
-                        Intent intent = new Intent(ReviewSingleItem.this, MyCollegeReviewActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 7: {
-                        Intent intent = new Intent(ReviewSingleItem.this, MyCourseReviewActivity.class);
+                        Intent intent = new Intent(ReviewSingleItem.this, MyReviewsActivity.class);
                         startActivity(intent);
                         break;
                     }

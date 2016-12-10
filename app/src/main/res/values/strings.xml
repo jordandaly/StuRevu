@@ -74,6 +74,11 @@
     <string name="fav_clubsoc_rev_btn">Favourite Club &#038; Society Reviews</string>
     <string name="fav_module_rev_btn">Favourite Module Reviews</string>
 
+    <string name="my_college_rev_btn">My College Reviews</string>
+    <string name="my_course_rev_btn">My Course Reviews</string>
+    <string name="my_clubsoc_rev_btn">My Club &#038; Society Reviews</string>
+    <string name="my_module_rev_btn">My Module Reviews</string>
+
     <string name="instruction">Enter the words above</string>
     <string name="verify">Verify</string>
     <string name="reload">Reload</string>

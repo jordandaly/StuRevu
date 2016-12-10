@@ -50,8 +50,8 @@ public class FavouriteClubSocReviewAdapter extends ParseQueryAdapter<Favourite> 
         titleTextView.setText(favourite.getParseObject("Review_Id").getString("Title"));
         TextView ratingTextView = (TextView) v.findViewById(R.id.rating);
         ratingTextView.setText(favourite.getParseObject("Review_Id").getNumber("Rating").toString());
-        TextView collegeInitialsTextView = (TextView) v.findViewById(R.id.clubsoc_name);
-        collegeInitialsTextView.setText(favourite.getParseObject("Review_Id").getParseObject("Club_Soc_Id").getString("Name"));
+        TextView clubSocNameTextView = (TextView) v.findViewById(R.id.clubsoc_name);
+        clubSocNameTextView.setText(favourite.getParseObject("Review_Id").getParseObject("Club_Soc_Id").getString("Name"));
         TextView createdAtTextView = (TextView) v.findViewById(R.id.created_at);
         createdAtTextView.setText((favourite.getParseObject("Review_Id").getCreatedAt().toString()));
 
