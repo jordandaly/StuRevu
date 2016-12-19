@@ -185,6 +185,7 @@
         <activity android:name=".MyReviewsActivity" />
         <activity android:name=".MyClubSocReviewActivity" />
         <activity android:name=".MyModuleReviewActivity" />
+        <activity android:name=".NewReportActivity" />
 
 
     </application>

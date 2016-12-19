@@ -461,7 +461,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_favourite).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.findItem(R.id.action_helpful_vote).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_report_abuse).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_report).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -490,8 +490,10 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                 voteHelpful();
                 break;
             }
-            case R.id.action_report_abuse: {
-                reportAbuse();
+            case R.id.action_report: {
+                Intent intent = new Intent(ReviewSingleItem.this, NewReportActivity.class);
+                intent.putExtra("reviewId", reviewID);
+                startActivity(intent);
                 break;
             }
 

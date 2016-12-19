@@ -263,6 +263,7 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_report).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -283,7 +284,13 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
 
             case R.id.action_refresh: {
                 updateReplyList();
-                //break;
+                break;
+            }
+            case R.id.action_report: {
+                Intent intent = new Intent(CommentSingleItem.this, NewReportActivity.class);
+                intent.putExtra("commentId", commentID);
+                startActivity(intent);
+                break;
             }
 
 

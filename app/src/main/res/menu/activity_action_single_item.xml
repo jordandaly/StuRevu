@@ -9,9 +9,9 @@
         app:showAsAction="always"></item>
 
     <item
-        android:id="@+id/action_report_error"
+        android:id="@+id/action_report"
         android:icon="@drawable/error_icon_white"
-        android:title="Report Error"
+        android:title="@string/action_report"
         app:showAsAction="always"></item>
 
 

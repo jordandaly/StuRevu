@@ -335,6 +335,7 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_favourite).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_report).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -357,6 +358,12 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
 
             case R.id.action_favourite: {
                 saveFavourite();
+                break;
+            }
+            case R.id.action_report: {
+                Intent intent = new Intent(ModuleSingleItem.this, NewReportActivity.class);
+                intent.putExtra("moduleId", moduleID);
+                startActivity(intent);
                 break;
             }
 

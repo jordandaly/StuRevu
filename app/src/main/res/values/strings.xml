@@ -31,6 +31,7 @@
     <string name="coursecountlabel">"Courses : "</string>
     <string name="clubsoccountlabel">"Clubs &#038; Societies : "</string>
     <string name="modulecountlabel">"Modules : "</string>
+    <string name="report_label">Report Content</string>
 
     <string name="save_button_text">Save</string>
     <string name="cancel_button_text">Cancel</string>
@@ -48,7 +49,7 @@
     <string name="app_label">app label</string>
     <string name="search_hint">Search....</string>
     <string name="action_fav">Save to Favourites</string>
-    <string name="action_follow">Add to Following</string>
+    <string name="action_report">Report Content</string>
     <string name="action_search_courses">Search all Courses</string>
     <string name="comment_label">New Comment Title</string>
     <string name="commentcountlabel">Comments : </string>
@@ -170,6 +171,14 @@
         <item>Favourite Course Reviews</item>
         <item>My College Reviews</item>
         <item>My Course Reviews</item>
+    </string-array>
+
+    <string-array name="report_type_array">
+        <item></item>
+        <item>Spam</item>
+        <item>Abuse</item>
+        <item>Duplicate</item>
+        <item>Other</item>
     </string-array>
 
 </resources>

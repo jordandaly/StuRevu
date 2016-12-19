@@ -17,13 +17,13 @@
     <item
         android:id="@+id/action_helpful_vote"
         android:icon="@drawable/helpful_icon_white"
-        android:title="@string/action_fav"
+        android:title="Vote Review Helpful"
         app:showAsAction="always"></item>
 
     <item
-        android:id="@+id/action_report_abuse"
+        android:id="@+id/action_report"
         android:icon="@drawable/report_icon_white"
-        android:title="@string/action_fav"
+        android:title="@string/action_report"
         app:showAsAction="always"></item>
 
 

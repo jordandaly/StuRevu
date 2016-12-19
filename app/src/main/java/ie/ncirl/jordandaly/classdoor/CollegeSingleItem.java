@@ -404,6 +404,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_favourite).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_report).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -426,6 +427,12 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 
             case R.id.action_favourite: {
                 saveFavourite();
+                break;
+            }
+            case R.id.action_report: {
+                Intent intent = new Intent(CollegeSingleItem.this, NewReportActivity.class);
+                intent.putExtra("collegeId", collegeID);
+                startActivity(intent);
                 break;
             }
 
