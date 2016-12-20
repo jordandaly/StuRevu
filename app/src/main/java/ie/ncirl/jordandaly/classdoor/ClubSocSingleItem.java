@@ -43,6 +43,7 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
 
     private Button reviewsButton;
     private Button addNewReviewButton;
+    private Button commentsButton;
 
 
     private ParseProxyObject clubsocObject = null;
@@ -173,11 +174,14 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
 //        modulesButton = (Button) findViewById(R.id.modulesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
+        commentsButton = (Button) findViewById(R.id.commentListButtonId);
 
 
 //        modulesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         addNewReviewButton.setOnClickListener(this);
+        commentsButton.setOnClickListener(this);
+
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -212,6 +216,12 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
                 reviewListIntent.putExtra("clubsocId", clubsocID);
                 startActivity(reviewListIntent);
                 //startActivity(new Intent(CourseSingleItem.this, CollegeReviewListActivity.class));
+                break;
+            case R.id.commentListButtonId:
+                Intent commentListIntent = new Intent(this, CommentListActivity.class);
+                Log.d("DEBUG", "clubsocID2c is " + clubsocID);
+                commentListIntent.putExtra("clubsocId", clubsocID);
+                startActivity(commentListIntent);
                 break;
             case R.id.addNewReviewButtonId:
                 Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);

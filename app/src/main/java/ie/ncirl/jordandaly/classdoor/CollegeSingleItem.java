@@ -45,6 +45,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     private Button coursesButton;
     private Button reviewsButton;
     private Button clubsocsButton;
+    private Button commentsButton;
     private Button addNewReviewButton;
 
 
@@ -240,11 +241,13 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         coursesButton = (Button) findViewById(R.id.coursesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         clubsocsButton = (Button) findViewById(R.id.clubsocsButtonId);
+        commentsButton = (Button) findViewById(R.id.commentListButtonId);
         addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
         coursesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         clubsocsButton.setOnClickListener(this);
+        commentsButton.setOnClickListener(this);
         addNewReviewButton.setOnClickListener(this);
 
         // Find the toolbar view inside the activity layout
@@ -292,6 +295,12 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                 clubsocListIntent.putExtra("collegeId", collegeID);
                 startActivity(clubsocListIntent);
 //                startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));
+                break;
+            case R.id.commentListButtonId:
+                Intent commentListIntent = new Intent(this, CommentListActivity.class);
+                Log.d("DEBUG", "collegeID2c is " + collegeID);
+                commentListIntent.putExtra("collegeId", collegeID);
+                startActivity(commentListIntent);
                 break;
             case R.id.addNewReviewButtonId:
                 Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);

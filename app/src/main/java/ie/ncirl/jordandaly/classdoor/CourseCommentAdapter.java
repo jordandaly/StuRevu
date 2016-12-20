@@ -10,11 +10,11 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
 /**
- * Created by jdaly on 21/04/2016.
+ * Created by jdaly on 20/12/2016.
  */
-public class CommentAdapter extends ParseQueryAdapter<Comment> {
+public class CourseCommentAdapter extends ParseQueryAdapter<Comment> {
 
-    public CommentAdapter(Context context) {
+    public CourseCommentAdapter(Context context) {
 
 
         super(context, new ParseQueryAdapter.QueryFactory<Comment>() {
@@ -22,16 +22,16 @@ public class CommentAdapter extends ParseQueryAdapter<Comment> {
 
             public ParseQuery<Comment> create() {
 
-                String review_objectId = CommentListActivity.reviewId;
+                String course_objectId = CommentListActivity.courseId;
 
                 // Here we can configure a ParseQuery to display
                 // only comments associated to selected review.
-                ParseQuery innerQuery = new ParseQuery("Review");
-//                String review_objectId = CommentListActivity.reviewId;
+                ParseQuery innerQuery = new ParseQuery("Course");
 
-                Log.d("DEBUG", "reviewId2 is " + review_objectId);
 
-                innerQuery.whereEqualTo("objectId", review_objectId);
+                Log.d("DEBUG", "courseId2 is " + course_objectId);
+
+                innerQuery.whereEqualTo("objectId", course_objectId);
 
                 ParseQuery query = new ParseQuery("Comment");
                 query.whereMatchesQuery("Review_Id", innerQuery);

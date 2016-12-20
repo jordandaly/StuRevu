@@ -30,9 +30,19 @@ import com.parse.ParseQueryAdapter;
 public class CommentListActivity extends ListActivity {
 
     public static String reviewId;
+    public static String collegeId;
+    public static String courseId;
+    public static String moduleId;
+    public static String clubsocId;
     ListView commentListView;
     private ParseQueryAdapter<Comment> mainCommentAdapter;
     private CommentAdapter commentAdapter;
+    private CollegeCommentAdapter collegeCommentAdapter;
+    private CourseCommentAdapter courseCommentAdapter;
+    private ClubSocCommentAdapter clubsocCommentAdapter;
+    private ModuleCommentAdapter moduleCommentAdapter;
+
+
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -47,8 +57,21 @@ public class CommentListActivity extends ListActivity {
 
 
         Intent intent = getIntent();
+
         reviewId = intent.getStringExtra("reviewId");
         Log.d("DEBUG", "reviewId1 is " + reviewId);
+
+        collegeId = intent.getStringExtra("collegeId");
+        Log.d("DEBUG", "collegeId1 is " + collegeId);
+
+        courseId = intent.getStringExtra("courseId");
+        Log.d("DEBUG", "courseId1 is " + courseId);
+
+        moduleId = intent.getStringExtra("moduleId");
+        Log.d("DEBUG", "moduleId1 is " + moduleId);
+
+        clubsocId = intent.getStringExtra("clubsocId");
+        Log.d("DEBUG", "clubsocId1 is " + clubsocId);
 
         AppCompatCallback callback = new AppCompatCallback() {
 
@@ -97,15 +120,52 @@ public class CommentListActivity extends ListActivity {
 
         mainCommentAdapter.loadObjects();
 
+        if (reviewId != null) {
+            // Subclass of ParseQueryAdapter
+            commentAdapter = new CommentAdapter(this);
 
-        // Subclass of ParseQueryAdapter
-        commentAdapter = new CommentAdapter(this);
+            commentListView = (ListView) findViewById(android.R.id.list);
+            commentListView.setAdapter(commentAdapter);
 
-        commentListView = (ListView) findViewById(android.R.id.list);
-        commentListView.setAdapter(commentAdapter);
+            // Default view is commentAdapter (review comments)
+            setListAdapter(commentAdapter);
+        } else if (collegeId != null) {
+            // Subclass of ParseQueryAdapter
+            collegeCommentAdapter = new CollegeCommentAdapter(this);
 
-        // Default view is collegeAdapter (all college sorted asc)
-        setListAdapter(commentAdapter);
+            commentListView = (ListView) findViewById(android.R.id.list);
+            commentListView.setAdapter(collegeCommentAdapter);
+
+            // Default view is commentAdapter (review comments)
+            setListAdapter(collegeCommentAdapter);
+        } else if (courseId != null) {
+            // Subclass of ParseQueryAdapter
+            courseCommentAdapter = new CourseCommentAdapter(this);
+
+            commentListView = (ListView) findViewById(android.R.id.list);
+            commentListView.setAdapter(courseCommentAdapter);
+
+            // Default view is commentAdapter (review comments)
+            setListAdapter(courseCommentAdapter);
+        } else if (clubsocId != null) {
+            // Subclass of ParseQueryAdapter
+            clubsocCommentAdapter = new ClubSocCommentAdapter(this);
+
+            commentListView = (ListView) findViewById(android.R.id.list);
+            commentListView.setAdapter(clubsocCommentAdapter);
+
+            // Default view is commentAdapter (review comments)
+            setListAdapter(clubsocCommentAdapter);
+        } else if (moduleId != null) {
+            // Subclass of ParseQueryAdapter
+            moduleCommentAdapter = new ModuleCommentAdapter(this);
+
+            commentListView = (ListView) findViewById(android.R.id.list);
+            commentListView.setAdapter(moduleCommentAdapter);
+
+            // Default view is commentAdapter (review comments)
+            setListAdapter(moduleCommentAdapter);
+        }
 
         //getListView().setOnItemClickListener();
 
@@ -259,16 +319,64 @@ public class CommentListActivity extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick");
 
-                ParseObject comment = commentAdapter.getItem(position);
-                ParseProxyObject comment_ppo = new ParseProxyObject(comment);
+                if (commentAdapter != null) {
+                    ParseObject comment = commentAdapter.getItem(position);
+                    ParseProxyObject comment_ppo = new ParseProxyObject(comment);
 
-                Intent intent = new Intent(CommentListActivity.this, CommentSingleItem.class);
-                intent.putExtra("comment", comment_ppo);
-                intent.putExtra("commentID", comment.getObjectId());
-                intent.putExtra("commentTitle", comment.getString("Title"));
-                intent.putExtra("username", comment.getParseObject("User_Id").getString("username"));
-                intent.putExtra("commentContent", comment.getString("Content"));
-                startActivity(intent);
+                    Intent intent = new Intent(CommentListActivity.this, CommentSingleItem.class);
+                    intent.putExtra("comment", comment_ppo);
+                    intent.putExtra("commentID", comment.getObjectId());
+                    intent.putExtra("commentTitle", comment.getString("Title"));
+                    intent.putExtra("username", comment.getParseObject("User_Id").getString("username"));
+                    intent.putExtra("commentContent", comment.getString("Content"));
+                    startActivity(intent);
+                } else if (collegeCommentAdapter != null) {
+                    ParseObject comment = collegeCommentAdapter.getItem(position);
+                    ParseProxyObject comment_ppo = new ParseProxyObject(comment);
+
+                    Intent intent = new Intent(CommentListActivity.this, CommentSingleItem.class);
+                    intent.putExtra("comment", comment_ppo);
+                    intent.putExtra("commentID", comment.getObjectId());
+                    intent.putExtra("commentTitle", comment.getString("Title"));
+                    intent.putExtra("username", comment.getParseObject("User_Id").getString("username"));
+                    intent.putExtra("commentContent", comment.getString("Content"));
+                    startActivity(intent);
+                } else if (courseCommentAdapter != null) {
+                    ParseObject comment = courseCommentAdapter.getItem(position);
+                    ParseProxyObject comment_ppo = new ParseProxyObject(comment);
+
+                    Intent intent = new Intent(CommentListActivity.this, CommentSingleItem.class);
+                    intent.putExtra("comment", comment_ppo);
+                    intent.putExtra("commentID", comment.getObjectId());
+                    intent.putExtra("commentTitle", comment.getString("Title"));
+                    intent.putExtra("username", comment.getParseObject("User_Id").getString("username"));
+                    intent.putExtra("commentContent", comment.getString("Content"));
+                    startActivity(intent);
+                } else if (clubsocCommentAdapter != null) {
+                    ParseObject comment = clubsocCommentAdapter.getItem(position);
+                    ParseProxyObject comment_ppo = new ParseProxyObject(comment);
+
+                    Intent intent = new Intent(CommentListActivity.this, CommentSingleItem.class);
+                    intent.putExtra("comment", comment_ppo);
+                    intent.putExtra("commentID", comment.getObjectId());
+                    intent.putExtra("commentTitle", comment.getString("Title"));
+                    intent.putExtra("username", comment.getParseObject("User_Id").getString("username"));
+                    intent.putExtra("commentContent", comment.getString("Content"));
+                    startActivity(intent);
+                } else if (moduleCommentAdapter != null) {
+                    ParseObject comment = moduleCommentAdapter.getItem(position);
+                    ParseProxyObject comment_ppo = new ParseProxyObject(comment);
+
+                    Intent intent = new Intent(CommentListActivity.this, CommentSingleItem.class);
+                    intent.putExtra("comment", comment_ppo);
+                    intent.putExtra("commentID", comment.getObjectId());
+                    intent.putExtra("commentTitle", comment.getString("Title"));
+                    intent.putExtra("username", comment.getParseObject("User_Id").getString("username"));
+                    intent.putExtra("commentContent", comment.getString("Content"));
+                    startActivity(intent);
+                }
+
+
 
             }
         });

@@ -256,13 +256,13 @@ public class CommentSingleItem extends ListActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_action_review_list, menu);
+        getMenuInflater().inflate(R.menu.activity_action_single_item, menu);
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.findItem(R.id.action_report).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }

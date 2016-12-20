@@ -10,11 +10,11 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
 /**
- * Created by jdaly on 21/04/2016.
+ * Created by jdaly on 20/12/2016.
  */
-public class CommentAdapter extends ParseQueryAdapter<Comment> {
+public class ClubSocCommentAdapter extends ParseQueryAdapter<Comment> {
 
-    public CommentAdapter(Context context) {
+    public ClubSocCommentAdapter(Context context) {
 
 
         super(context, new ParseQueryAdapter.QueryFactory<Comment>() {
@@ -22,19 +22,19 @@ public class CommentAdapter extends ParseQueryAdapter<Comment> {
 
             public ParseQuery<Comment> create() {
 
-                String review_objectId = CommentListActivity.reviewId;
+                String clubsoc_objectId = CommentListActivity.clubsocId;
 
                 // Here we can configure a ParseQuery to display
                 // only comments associated to selected review.
-                ParseQuery innerQuery = new ParseQuery("Review");
-//                String review_objectId = CommentListActivity.reviewId;
+                ParseQuery innerQuery = new ParseQuery("Club_Soc");
 
-                Log.d("DEBUG", "reviewId2 is " + review_objectId);
 
-                innerQuery.whereEqualTo("objectId", review_objectId);
+                Log.d("DEBUG", "clubsocId2 is " + clubsoc_objectId);
+
+                innerQuery.whereEqualTo("objectId", clubsoc_objectId);
 
                 ParseQuery query = new ParseQuery("Comment");
-                query.whereMatchesQuery("Review_Id", innerQuery);
+                query.whereMatchesQuery("Club_Soc_Id", innerQuery);
                 query.include("User_Id");
                 query.orderByAscending("createdAt");
                 return query;

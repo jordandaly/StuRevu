@@ -52,6 +52,7 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
     private Button modulesButton;
     private Button reviewsButton;
     private Button addNewReviewButton;
+    private Button commentsButton;
 
 
     private ParseProxyObject courseObject = null;
@@ -255,11 +256,13 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
         modulesButton = (Button) findViewById(R.id.modulesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
+        commentsButton = (Button) findViewById(R.id.commentListButtonId);
 
 
         modulesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         addNewReviewButton.setOnClickListener(this);
+        commentsButton.setOnClickListener(this);
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -301,6 +304,12 @@ public class CourseSingleItem extends AppCompatActivity implements View.OnClickL
                 moduleListIntent.putExtra("courseId", courseID);
                 startActivity(moduleListIntent);
                 //startActivity(new Intent(CourseSingleItem.this, ModuleListActivity.class));
+                break;
+            case R.id.commentListButtonId:
+                Intent commentListIntent = new Intent(this, CommentListActivity.class);
+                Log.d("DEBUG", "courseIDc is " + courseID);
+                commentListIntent.putExtra("courseId", courseID);
+                startActivity(commentListIntent);
                 break;
             case R.id.addNewReviewButtonId:
                 Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
