@@ -52,10 +52,10 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     TextView tv_flaggedSpamCount;
     TextView tv_commentCount;
     int disableBtn = 1;
-    private Button helpfulVoteButton;
-    private Button flaggedSpamButton;
+//    private Button helpfulVoteButton;
+//    private Button flaggedSpamButton;
     private Button commentListButton;
-    private Button addNewCommentButton;
+//    private Button addNewCommentButton;
     private ParseProxyObject reviewObject = null;
     private String reviewID;
     private String reviewTitle;
@@ -66,7 +66,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
     private String contentCons;
     private String contentAdvice;
     private int helpfulVoteCount = 0;
-    private int flaggedSpamCount = 0;
+//    private int flaggedSpamCount = 0;
     private int commentCount = 0;
 
 
@@ -99,7 +99,7 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         contentCons = intent.getStringExtra("contentCons");
         contentAdvice = intent.getStringExtra("contentAdvice");
         helpfulVoteCount = (int) intent.getSerializableExtra("helpfulVoteCount");
-        flaggedSpamCount = (int) intent.getSerializableExtra("flaggedSpamCount");
+//        flaggedSpamCount = (int) intent.getSerializableExtra("flaggedSpamCount");
 
 
         //Log.v("Test", String.format("Proxy object name: %s", collegeObject.getString("college")));
@@ -255,21 +255,21 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
         tv_helpfulVoteCount.setText(Integer.toString(helpfulVoteCount));
 
         // Locate the TextView in singleitemview.xml
-        tv_flaggedSpamCount = (TextView) findViewById(R.id.flagged_spam);
+        //tv_flaggedSpamCount = (TextView) findViewById(R.id.flagged_spam);
         // Load the text into the TextView
-        tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
+        //tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
 
 
 //        helpfulVoteButton = (Button) findViewById(R.id.helpfulVoteButtonId);
 //        flaggedSpamButton = (Button) findViewById(R.id.flaggedSpamButtonId);
         commentListButton = (Button) findViewById(R.id.commentListButtonId);
-        addNewCommentButton = (Button) findViewById(R.id.addNewCommentButtonId);
+//        addNewCommentButton = (Button) findViewById(R.id.addNewCommentButtonId);
 
 
 //        helpfulVoteButton.setOnClickListener(this);
 //        flaggedSpamButton.setOnClickListener(this);
         commentListButton.setOnClickListener(this);
-        addNewCommentButton.setOnClickListener(this);
+//        addNewCommentButton.setOnClickListener(this);
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -348,11 +348,11 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
                 commentListIntent.putExtra("reviewId", reviewID);
                 startActivity(commentListIntent);
                 break;
-            case R.id.addNewCommentButtonId:
-                Intent addnewCommentIntent = new Intent(this, NewCommentActivity.class);
-                Log.d("DEBUG", "reviewId is " + reviewID);
-                addnewCommentIntent.putExtra("reviewId", reviewID);
-                startActivity(addnewCommentIntent);
+//            case R.id.addNewCommentButtonId:
+//                Intent addnewCommentIntent = new Intent(this, NewCommentActivity.class);
+//                Log.d("DEBUG", "reviewId is " + reviewID);
+//                addnewCommentIntent.putExtra("reviewId", reviewID);
+//                startActivity(addnewCommentIntent);
 
 
         }
@@ -570,23 +570,23 @@ public class ReviewSingleItem extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void reportAbuse() {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
-        query.getInBackground(reviewID, new GetCallback<ParseObject>() {
-            public void done(ParseObject review, ParseException e) {
-                if (e == null) {
-
-                    review.increment("Flagged_Spam_Count");
-                    review.saveInBackground();
-
-                    flaggedSpamCount++;
-                    tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
-                    Toast.makeText(getApplicationContext(), "Review flagged as Spam!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-    }
+//    private void reportAbuse() {
+//        ParseQuery<ParseObject> query = ParseQuery.getQuery("Review");
+//        query.getInBackground(reviewID, new GetCallback<ParseObject>() {
+//            public void done(ParseObject review, ParseException e) {
+//                if (e == null) {
+//
+//                    review.increment("Flagged_Spam_Count");
+//                    review.saveInBackground();
+//
+//                    flaggedSpamCount++;
+//                    tv_flaggedSpamCount.setText(Integer.toString(flaggedSpamCount));
+//                    Toast.makeText(getApplicationContext(), "Review flagged as Spam!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//
+//    }
 
 
 }

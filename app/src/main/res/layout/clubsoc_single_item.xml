@@ -114,6 +114,7 @@
                 android:layout_centerVertical="true"
                 android:drawableLeft="@drawable/list_white_small_icon"
                 android:text="Reviews"
+                android:layout_marginTop="9dp"
                 android:textColor="@android:color/white"
                 custom:pb_colorNormal="@android:color/holo_blue_light"
                 custom:pb_colorPressed="@android:color/holo_blue_dark" />

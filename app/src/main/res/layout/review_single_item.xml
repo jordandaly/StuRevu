@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/review_title"
         android:text="Author: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
         <TextView
             android:id="@+id/author"
@@ -49,7 +49,7 @@
             android:layout_below="@id/review_title"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/authorLabel"
-            android:textSize="20sp"
+            android:textSize="25sp"
         android:textStyle="italic" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/authorLabel"
                 android:text="Reviewed: "
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
 
             <TextView
@@ -68,7 +68,7 @@
                 android:layout_below="@id/author"
                 android:layout_centerHorizontal="true"
                 android:layout_toRightOf="@id/reviewTypeLabel"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
                 android:layout_below="@id/reviewed"
                 android:text="Student Type: "
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
     <TextView
         android:id="@+id/student_type"
@@ -87,7 +87,7 @@
         android:layout_below="@id/reviewed"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/studentTypeLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
 
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/student_type"
         android:text="Rating: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
         <!--<TextView-->
         <!--android:id="@+id/rating"-->
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rating"
         android:text="Pros: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/content_pros"
@@ -135,7 +135,7 @@
         android:layout_below="@id/rating"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentProsLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -144,7 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_pros"
         android:text="Cons: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/content_cons"
@@ -153,7 +153,7 @@
         android:layout_below="@id/content_pros"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentConsLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -162,7 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/content_cons"
         android:text="Advice: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/content_advice"
@@ -171,7 +171,7 @@
         android:layout_below="@id/content_cons"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/contentAdviceLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
             <TextView
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/content_advice"
                 android:text="@string/commentcountlabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/comment_count"
@@ -188,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/content_advice"
                 android:layout_toRightOf="@+id/commentCountlabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
 
     <TextView
@@ -197,7 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/commentCountlabel"
         android:text="Helpful Votes : "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/helpful_vote"
@@ -205,38 +205,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/comment_count"
         android:layout_toRightOf="@+id/helpfulVoteLabel"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/flaggedSpamLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/helpfulVoteLabel"
-        android:text="Spam Flags : "
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/flagged_spam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/helpfulVoteLabel"
-        android:layout_toRightOf="@+id/flaggedSpamLabel"
-        android:textSize="20sp" />
 
 
             <com.dd.processbutton.FlatButton
         android:id="@+id/commentListButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/flagged_spam"
+        android:layout_below="@+id/helpfulVoteLabel"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="9dp"
                 android:drawableLeft="@drawable/list_white_small_icon"
-        android:text="Comment List"
+        android:text="Comments"
         android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_orange_light"
-        custom:pb_colorPressed="@android:color/holo_orange_dark" />
+        custom:pb_colorNormal="@android:color/holo_blue_light"
+        custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
 
             <!--<com.dd.processbutton.FlatButton-->
@@ -263,18 +248,18 @@
             <!--custom:pb_colorNormal="@android:color/holo_red_light"-->
             <!--custom:pb_colorPressed="@android:color/holo_red_dark" />-->
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/addNewCommentButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/commentListButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/ic_action_new_white_small"
-        android:text="Add New Comment"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_green_light"
-        custom:pb_colorPressed="@android:color/holo_green_dark" />
+    <!--<com.dd.processbutton.FlatButton-->
+        <!--android:id="@+id/addNewCommentButtonId"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/commentListButtonId"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:drawableLeft="@drawable/ic_action_new_white_small"-->
+        <!--android:text="Add New Comment"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--custom:pb_colorNormal="@android:color/holo_green_light"-->
+        <!--custom:pb_colorPressed="@android:color/holo_green_dark" />-->
 
 
         </RelativeLayout>
