@@ -40,9 +40,10 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
     TextView tv_clubsocType;
     TextView tv_averageRating;
     TextView tv_reviewCount;
+    TextView tv_commentCount;
 
     private Button reviewsButton;
-    private Button addNewReviewButton;
+//    private Button addNewReviewButton;
     private Button commentsButton;
 
 
@@ -54,6 +55,7 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
 
     private Object averageRating;
     private int reviewCount = 0;
+    private int commentCount = 0;
 
 
     private ListView mDrawerList;
@@ -144,6 +146,31 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
             }
         });
 
+        ParseCloud.callFunctionInBackground("countClubSocComments", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("clubsoc_comment_count:" + count);
+                    if (count != null) {
+
+
+                        commentCount = count;
+                        System.out.println("clubsoc_comment_count:" + commentCount);
+
+                    } else {
+                        commentCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_commentCount = (TextView) findViewById(R.id.comment_count);
+                    // Load the text into the TextView
+                    tv_commentCount.setText(Integer.toString(commentCount));
+
+
+                }
+            }
+        });
+
         // Locate the TextView in singleitemview.xml
         tv_clubsocName = (TextView) findViewById(R.id.clubsoc_name);
         // Load the text into the TextView
@@ -173,13 +200,13 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
 
 //        modulesButton = (Button) findViewById(R.id.modulesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
-        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
+//        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
         commentsButton = (Button) findViewById(R.id.commentListButtonId);
 
 
 //        modulesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
-        addNewReviewButton.setOnClickListener(this);
+//        addNewReviewButton.setOnClickListener(this);
         commentsButton.setOnClickListener(this);
 
 
@@ -223,11 +250,11 @@ public class ClubSocSingleItem extends AppCompatActivity implements View.OnClick
                 commentListIntent.putExtra("clubsocId", clubsocID);
                 startActivity(commentListIntent);
                 break;
-            case R.id.addNewReviewButtonId:
-                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
-                Log.d("DEBUG", "clubsocID1ncr is " + clubsocID);
-                addNewReviewIntent.putExtra("clubsocId", clubsocID);
-                startActivity(addNewReviewIntent);
+//            case R.id.addNewReviewButtonId:
+//                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+//                Log.d("DEBUG", "clubsocID1ncr is " + clubsocID);
+//                addNewReviewIntent.putExtra("clubsocId", clubsocID);
+//                startActivity(addNewReviewIntent);
 
         }
     }

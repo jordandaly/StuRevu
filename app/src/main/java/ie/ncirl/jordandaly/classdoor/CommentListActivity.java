@@ -248,13 +248,14 @@ public class CommentListActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_action_review_list, menu);
+        getMenuInflater().inflate(R.menu.activity_action_comment_list, menu);
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_add_comment).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -275,9 +276,31 @@ public class CommentListActivity extends ListActivity {
 
             case R.id.action_refresh: {
                 updateCommentList();
-                //break;
+                break;
             }
+            case R.id.action_add_comment: {
+            Intent addNewCommentIntent = new Intent(this, NewCommentActivity.class);
 
+                if (collegeId != null) {
+                    Log.d("DEBUG", "collegeId2c is " + collegeId);
+                    addNewCommentIntent.putExtra("collegeId", collegeId);
+                }
+                else if (courseId != null){
+                    Log.d("DEBUG", "courseId2c is " + courseId);
+                    addNewCommentIntent.putExtra("courseId", courseId);
+                }
+                else if (clubsocId != null){
+                    Log.d("DEBUG", "clubsocId2c is " + clubsocId);
+                    addNewCommentIntent.putExtra("clubsocId", clubsocId);
+                }
+                else if (moduleId != null){
+                    Log.d("DEBUG", "moduleId2c is " + moduleId);
+                    addNewCommentIntent.putExtra("moduleId", moduleId);
+                }
+
+                startActivity(addNewCommentIntent);
+                break;
+            }
 
         }
         // Activate the navigation drawer toggle
@@ -297,8 +320,28 @@ public class CommentListActivity extends ListActivity {
 
 
     private void updateCommentList() {
-        commentAdapter.loadObjects();
-        setListAdapter(commentAdapter);
+        if (commentAdapter != null) {
+            commentAdapter.loadObjects();
+            setListAdapter(commentAdapter);
+
+        } else if (collegeCommentAdapter != null) {
+            collegeCommentAdapter.loadObjects();
+            setListAdapter(collegeCommentAdapter);
+
+        } else if (courseCommentAdapter != null) {
+            courseCommentAdapter.loadObjects();
+            setListAdapter(courseCommentAdapter);
+
+        } else if (clubsocCommentAdapter != null) {
+            clubsocCommentAdapter.loadObjects();
+            setListAdapter(clubsocCommentAdapter);
+
+        } else if (moduleCommentAdapter != null) {
+            moduleCommentAdapter.loadObjects();
+            setListAdapter(moduleCommentAdapter);
+
+        }
+
     }
 
 

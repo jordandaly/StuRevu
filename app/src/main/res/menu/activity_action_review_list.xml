@@ -12,6 +12,12 @@
         android:icon="@drawable/refresh_icon_white"
         android:title="@string/action_refresh"
         app:showAsAction="always"></item>
+
+    <item
+        android:id="@+id/action_add_review"
+        android:icon="@drawable/ic_action_new_white"
+        android:title="@string/action_review_add"
+        app:showAsAction="always"></item>
     <!--<item-->
     <!--android:id="@+id/action_show_uni"-->
     <!--android:icon="@drawable/uni_icon"-->

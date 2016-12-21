@@ -9,7 +9,8 @@
 
     <string name="action_refresh">Return to List All and refresh</string>
     <string name="action_show_uni_list">Only Show Universities</string>
-    <string name="action_new">Add a Review</string>
+    <string name="action_review_add">Add a Review</string>
+    <string name="action_comment_add">Add a Comment</string>
     <string name="action_college_add">Add a College</string>
     <string name="action_course_add">Add a Course</string>
     <string name="action_clubsoc_add">Add a Club or Society</string>

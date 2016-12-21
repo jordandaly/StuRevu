@@ -41,12 +41,14 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     TextView tv_reviewCount;
     TextView tv_courseCount;
     TextView tv_clubsocCount;
+    TextView tv_commentCount;
 
     private Button coursesButton;
     private Button reviewsButton;
     private Button clubsocsButton;
     private Button commentsButton;
-    private Button addNewReviewButton;
+//    private Button addNewReviewButton;
+//    private Button addNewCommentButton;
 
 
     private ParseProxyObject collegeObject = null;
@@ -57,10 +59,9 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     private Object averageRating;
 
     private int reviewCount = 0;
-
     private int courseCount = 0;
-
     private int clubsocCount = 0;
+    private int commentCount = 0;
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -202,6 +203,31 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
             }
         });
 
+        ParseCloud.callFunctionInBackground("countCollegeComments", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("college_comment_count:" + count);
+                    if (count != null) {
+
+
+                        commentCount = count;
+                        System.out.println("college_comment_count:" + commentCount);
+
+                    } else {
+                        commentCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_commentCount = (TextView) findViewById(R.id.comment_count);
+                    // Load the text into the TextView
+                    tv_commentCount.setText(Integer.toString(commentCount));
+
+
+                }
+            }
+        });
+
 
 
 
@@ -242,13 +268,15 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
         clubsocsButton = (Button) findViewById(R.id.clubsocsButtonId);
         commentsButton = (Button) findViewById(R.id.commentListButtonId);
-        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
+//        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
+//        addNewCommentButton = (Button) findViewById(R.id.addNewCommentButtonId);
 
         coursesButton.setOnClickListener(this);
         reviewsButton.setOnClickListener(this);
         clubsocsButton.setOnClickListener(this);
         commentsButton.setOnClickListener(this);
-        addNewReviewButton.setOnClickListener(this);
+//        addNewReviewButton.setOnClickListener(this);
+//        addNewCommentButton.setOnClickListener(this);
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -274,20 +302,19 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
         switch (v.getId()) {
+
+//            case R.id.addNewReviewButtonId:
+//                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+//                Log.d("DEBUG", "collegeID1ncr is " + collegeID);
+//                addNewReviewIntent.putExtra("collegeId", collegeID);
+//                startActivity(addNewReviewIntent);
+//                break;
             case R.id.coursesButtonId:
                 Intent courseListIntent = new Intent(this, CourseListActivity.class);
                 Log.d("DEBUG", "collegeID1c is " + collegeID);
                 courseListIntent.putExtra("collegeId", collegeID);
                 startActivity(courseListIntent);
                 //startActivity(new Intent(CollegeSingleItem.this, CourseListActivity.class));
-
-                break;
-            case R.id.reviewsButtonId:
-                Intent reviewListIntent = new Intent(this, CollegeReviewListActivity.class);
-                Log.d("DEBUG", "collegeID1r is " + collegeID);
-                reviewListIntent.putExtra("collegeId", collegeID);
-                startActivity(reviewListIntent);
-                //startActivity(new Intent(CollegeSingleItem.this, CollegeReviewListActivity.class));
                 break;
             case R.id.clubsocsButtonId:
                 Intent clubsocListIntent = new Intent(this, ClubSocListActivity.class);
@@ -296,17 +323,25 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
                 startActivity(clubsocListIntent);
 //                startActivity(new Intent(CollegeSingleItem.this, ClubSocListActivity.class));
                 break;
+            case R.id.reviewsButtonId:
+                Intent reviewListIntent = new Intent(this, CollegeReviewListActivity.class);
+                Log.d("DEBUG", "collegeID1r is " + collegeID);
+                reviewListIntent.putExtra("collegeId", collegeID);
+                startActivity(reviewListIntent);
+                //startActivity(new Intent(CollegeSingleItem.this, CollegeReviewListActivity.class));
+                break;
             case R.id.commentListButtonId:
                 Intent commentListIntent = new Intent(this, CommentListActivity.class);
                 Log.d("DEBUG", "collegeID2c is " + collegeID);
                 commentListIntent.putExtra("collegeId", collegeID);
                 startActivity(commentListIntent);
                 break;
-            case R.id.addNewReviewButtonId:
-                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
-                Log.d("DEBUG", "collegeID1ncr is " + collegeID);
-                addNewReviewIntent.putExtra("collegeId", collegeID);
-                startActivity(addNewReviewIntent);
+//            case R.id.addNewCommentButtonId:
+//                Intent addNewCommentIntent = new Intent(this, NewCommentActivity.class);
+//                Log.d("DEBUG", "collegeID2c is " + collegeID);
+//                addNewCommentIntent.putExtra("collegeId", collegeID);
+//                startActivity(addNewCommentIntent);
+
 
         }
     }

@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/mode_of_study"
         android:text="CAO Code: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/cao_code"
@@ -60,7 +60,7 @@
         android:layout_below="@id/mode_of_study"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/caocodeLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/caocodeLabel"
         android:text="Qualification: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/qualification"
@@ -78,7 +78,7 @@
         android:layout_below="@id/caocodeLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/qualificationLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/qualification"
         android:text="NFQ Level: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/nfq_level"
@@ -96,7 +96,7 @@
         android:layout_below="@id/qualification"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/nfqLevelLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/nfqLevelLabel"
         android:text="Duration: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/duration"
@@ -114,7 +114,7 @@
         android:layout_below="@id/nfqLevelLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/durationLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -123,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/durationLabel"
         android:text="Course Level: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/course_level"
@@ -132,7 +132,7 @@
         android:layout_below="@id/durationLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/courseLevelLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -141,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/courseLevelLabel"
         android:text="Fees: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/fees"
@@ -150,7 +150,7 @@
         android:layout_below="@id/courseLevelLabel"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/feesLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -159,7 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/feesLabel"
         android:text="Department/Faculty: "
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/department_faculty"
@@ -168,7 +168,7 @@
         android:layout_below="@id/fees"
         android:layout_centerHorizontal="true"
         android:layout_toRightOf="@id/departmentFacultyLabel"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
 
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/department_faculty"
         android:text="@string/avgratinglabel"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/avg_rating"
@@ -186,7 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/department_faculty"
         android:layout_toRightOf="@+id/avgratinglabel"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/revcountlabel"
@@ -194,7 +194,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/avgratinglabel"
         android:text="@string/revcountlabel"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/rev_count"
@@ -202,7 +202,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/avg_rating"
         android:layout_toRightOf="@+id/revcountlabel"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/modulecountlabel"
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/revcountlabel"
                 android:text="@string/modulecountlabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/mod_count"
@@ -218,32 +218,50 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rev_count"
                 android:layout_toRightOf="@+id/modulecountlabel"
-                android:textSize="20sp" />
-        
+                android:textSize="25sp" />
 
-        <com.dd.processbutton.FlatButton
-        android:id="@+id/reviewsButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-            android:layout_below="@+id/mod_count"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="9dp"
-            android:drawableLeft="@drawable/list_white_small_icon"
-        android:text="Course Reviews List"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_orange_light"
-        custom:pb_colorPressed="@android:color/holo_orange_dark" />
+
+                <TextView
+                android:id="@+id/commentcountlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/modulecountlabel"
+                android:text="@string/commentcountlabel"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/clubsoccountlabel"
+                android:layout_toRightOf="@+id/commentcountlabel"
+                android:textSize="25sp" />
+
+
+
 
             <com.dd.processbutton.FlatButton
                 android:id="@+id/modulesButtonId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/reviewsButtonId"
+                android:layout_below="@+id/commentcountlabel"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:drawableLeft="@drawable/list_white_small_icon"
-                android:text="Modules List"
+                android:text="Modules"
+                android:textColor="@android:color/white"
+                custom:pb_colorNormal="@android:color/holo_blue_light"
+                custom:pb_colorPressed="@android:color/holo_blue_dark" />
+
+            <com.dd.processbutton.FlatButton
+                android:id="@+id/reviewsButtonId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/modulesButtonId"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/list_white_small_icon"
+                android:text="Reviews"
                 android:textColor="@android:color/white"
                 custom:pb_colorNormal="@android:color/holo_blue_light"
                 custom:pb_colorPressed="@android:color/holo_blue_dark" />
@@ -252,28 +270,14 @@
                 android:id="@+id/commentListButtonId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/modulesButtonId"
+                android:layout_below="@+id/reviewsButtonId"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:drawableLeft="@drawable/list_white_small_icon"
-                android:text="Course Comment List"
+                android:text="Comments"
                 android:textColor="@android:color/white"
                 custom:pb_colorNormal="@android:color/holo_blue_light"
                 custom:pb_colorPressed="@android:color/holo_blue_dark" />
-
-
-            <com.dd.processbutton.FlatButton
-                android:id="@+id/addNewReviewButtonId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/commentListButtonId"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:drawableLeft="@drawable/ic_action_new_white_small"
-                android:text="Add New Course Review"
-                android:textColor="@android:color/white"
-                custom:pb_colorNormal="@android:color/holo_green_light"
-                custom:pb_colorPressed="@android:color/holo_green_dark" />
 
 
 </RelativeLayout>

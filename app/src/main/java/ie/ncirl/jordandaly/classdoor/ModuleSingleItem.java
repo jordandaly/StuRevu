@@ -41,10 +41,12 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
     TextView tv_moduleCourseYear;
     TextView tv_averageRating;
     TextView tv_reviewCount;
+    TextView tv_commentCount;
 
 
     private Button reviewsButton;
-    private Button addNewReviewButton;
+//    private Button addNewReviewButton;
+    private Button commentsButton;
 
 
     private ParseProxyObject moduleObject = null;
@@ -55,6 +57,7 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
     private String moduleCourseYear;
     private Object averageRating;
     private int reviewCount = 0;
+    private int commentCount = 0;
 
 
     private ListView mDrawerList;
@@ -147,6 +150,32 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
             }
         });
 
+        ParseCloud.callFunctionInBackground("countModuleComments", params, new FunctionCallback<Integer>() {
+            public void done(Integer count, ParseException e) {
+                if (e == null) {
+                    System.out.println("module_comment_count:" + count);
+                    if (count != null) {
+
+
+                        commentCount = count;
+                        System.out.println("module_comment_count:" + commentCount);
+
+                    } else {
+                        commentCount = 0;
+
+
+                    }
+                    // Locate the TextView in singleitemview.xml
+                    tv_commentCount = (TextView) findViewById(R.id.comment_count);
+                    // Load the text into the TextView
+                    tv_commentCount.setText(Integer.toString(commentCount));
+
+
+                }
+            }
+        });
+
+
         // Locate the TextView in singleitemview.xml
         tv_moduleName = (TextView) findViewById(R.id.module_name);
         // Load the text into the TextView
@@ -185,11 +214,11 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
 
 
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
-        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
+//        addNewReviewButton = (Button) findViewById(R.id.addNewReviewButtonId);
 
 
         reviewsButton.setOnClickListener(this);
-        addNewReviewButton.setOnClickListener(this);
+//        addNewReviewButton.setOnClickListener(this);
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -225,11 +254,11 @@ public class ModuleSingleItem extends AppCompatActivity implements View.OnClickL
                 startActivity(reviewListIntent);
                 //startActivity(new Intent(CourseSingleItem.this, CollegeReviewListActivity.class));
                 break;
-            case R.id.addNewReviewButtonId:
-                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
-                Log.d("DEBUG", "moduleID1ncr is " + moduleID);
-                addNewReviewIntent.putExtra("moduleId", moduleID);
-                startActivity(addNewReviewIntent);
+//            case R.id.addNewReviewButtonId:
+//                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+//                Log.d("DEBUG", "moduleID1ncr is " + moduleID);
+//                addNewReviewIntent.putExtra("moduleId", moduleID);
+//                startActivity(addNewReviewIntent);
 
         }
     }

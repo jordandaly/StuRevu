@@ -28,6 +28,12 @@ import com.parse.SaveCallback;
 public class NewCommentFragment extends Fragment {
 
     String reviewId = NewCommentActivity.reviewId;
+    String collegeId = NewCommentActivity.collegeId;
+    String courseId = NewCommentActivity.courseId;
+    String clubsocId = NewCommentActivity.clubsocId;
+    String moduleId = NewCommentActivity.moduleId;
+
+
 
 
     private Button saveButton;
@@ -89,9 +95,22 @@ public class NewCommentFragment extends Fragment {
                     installation.saveInBackground();
 
 
-                    // Associate the comment with the current review
-
-                    comment.put("Review_Id", ParseObject.createWithoutData("Review", reviewId));
+                    // Associate the comment with the current review, college, course, clubsoc, module
+                    if (reviewId != null) {
+                        comment.put("Review_Id", ParseObject.createWithoutData("Review", reviewId));
+                    }
+                    else if (collegeId != null) {
+                        comment.put("College_Id", ParseObject.createWithoutData("College", collegeId));
+                    }
+                    else if (courseId != null) {
+                        comment.put("CourseId", ParseObject.createWithoutData("Course", courseId));
+                    }
+                    else if (clubsocId != null) {
+                        comment.put("Club_Soc_Id", ParseObject.createWithoutData("Club_Soc", clubsocId));
+                    }
+                    else if (moduleId != null) {
+                        comment.put("Module_Id", ParseObject.createWithoutData("Module", moduleId));
+                    }
 //                ParsePush push_fav = new ParsePush();
 //                push_fav.setChannel(reviewId);
 //                push_fav.setMessage("A new comment has been created for one your favourite Reviews");

@@ -199,6 +199,13 @@ public class ModuleReviewListActivity extends ListActivity {
         return true;
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_add_review).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        return true;
+    }
+
     /*
      * "Show Unis" and refreshing the "show all" list will be controlled from the Action
      * Bar.
@@ -209,7 +216,15 @@ public class ModuleReviewListActivity extends ListActivity {
 
             case R.id.action_refresh: {
                 updateReviewList();
-                //break;
+                break;
+            }
+
+            case R.id.action_add_review: {
+                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+                Log.d("DEBUG", "moduleId1ncr is " + moduleId);
+                addNewReviewIntent.putExtra("moduleId", moduleId);
+                startActivity(addNewReviewIntent);
+                break;
             }
 
 

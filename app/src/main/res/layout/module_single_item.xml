@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/module_description"
                 android:text="Type: "
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/module_type"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/module_description"
                 android:layout_toRightOf="@id/moduleTypeLabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/moduleCourseYearLabel"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/moduleTypeLabel"
                 android:text="Course Year: "
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/module_course_year"
@@ -76,7 +76,7 @@
                 android:layout_below="@id/moduleTypeLabel"
                 android:layout_centerHorizontal="true"
                 android:layout_toRightOf="@id/moduleCourseYearLabel"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
 
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/module_course_year"
                 android:text="@string/avgratinglabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/avg_rating"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/module_course_year"
                 android:layout_toRightOf="@+id/avgratinglabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/revcountlabel"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/avgratinglabel"
                 android:text="@string/revcountlabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/rev_count"
@@ -110,22 +110,38 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/avg_rating"
                 android:layout_toRightOf="@+id/revcountlabel"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
+
+
+            <TextView
+                android:id="@+id/commentcountlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revcountlabel"
+                android:text="@string/commentcountlabel"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revcountlabel"
+                android:layout_toRightOf="@+id/commentcountlabel"
+                android:textSize="25sp" />
 
 
             <com.dd.processbutton.FlatButton
                 android:id="@+id/reviewsButtonId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rev_count"
+                android:layout_below="@+id/commentcountlabel"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="9dp"
                 android:drawableLeft="@drawable/list_white_small_icon"
-                android:text="Module Reviews List"
+                android:text="Reviews"
                 android:textColor="@android:color/white"
-                custom:pb_colorNormal="@android:color/holo_orange_light"
-                custom:pb_colorPressed="@android:color/holo_orange_dark" />
+                custom:pb_colorNormal="@android:color/holo_blue_light"
+                custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
             <com.dd.processbutton.FlatButton
                 android:id="@+id/commentListButtonId"
@@ -135,24 +151,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:drawableLeft="@drawable/list_white_small_icon"
-                android:text="Module Comments List"
+                android:text="Comments"
                 android:textColor="@android:color/white"
                 custom:pb_colorNormal="@android:color/holo_blue_light"
                 custom:pb_colorPressed="@android:color/holo_blue_dark" />
-
-
-            <com.dd.processbutton.FlatButton
-                android:id="@+id/addNewReviewButtonId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/commentListButtonId"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:drawableLeft="@drawable/ic_action_new_white_small"
-                android:text="Add New Module Review"
-                android:textColor="@android:color/white"
-                custom:pb_colorNormal="@android:color/holo_green_light"
-                custom:pb_colorPressed="@android:color/holo_green_dark" />
 
 
         </RelativeLayout>

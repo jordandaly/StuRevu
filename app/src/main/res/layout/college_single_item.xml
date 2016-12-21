@@ -111,29 +111,46 @@
         android:layout_toRightOf="@+id/clubsoccountlabel"
         android:textSize="25sp" />
 
-    <com.dd.processbutton.FlatButton
-        android:id="@+id/reviewsButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/clubsoc_count"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="9dp"
-        android:drawableLeft="@drawable/list_white_small_icon"
-        android:text="College Reviews List"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_orange_light"
-        custom:pb_colorPressed="@android:color/holo_orange_dark" />
+            <TextView
+                android:id="@+id/commentcountlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/clubsoccountlabel"
+                android:text="@string/commentcountlabel"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/clubsoccountlabel"
+                android:layout_toRightOf="@+id/clubsoccountlabel"
+                android:textSize="25sp" />
+
+
+            <!--<com.dd.processbutton.FlatButton-->
+                <!--android:id="@+id/addNewReviewButtonId"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/reviewsButtonId"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:drawableLeft="@drawable/ic_action_new_white_small"-->
+                <!--android:text="Add New College Review"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--custom:pb_colorNormal="@android:color/holo_green_light"-->
+                <!--custom:pb_colorPressed="@android:color/holo_green_dark" />-->
 
     <com.dd.processbutton.FlatButton
         android:id="@+id/coursesButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reviewsButtonId"
+        android:layout_below="@+id/commentcountlabel"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginTop="9dp"
         android:drawableLeft="@drawable/list_white_small_icon"
-        android:text="Courses List"
+        android:text="Courses"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_blue_light"
         custom:pb_colorPressed="@android:color/holo_blue_dark" />
@@ -146,36 +163,49 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:drawableLeft="@drawable/list_white_small_icon"
-        android:text="Clubs &#038; Societies List"
+        android:text="Clubs &#038; Societies"
         android:textColor="@android:color/white"
         custom:pb_colorNormal="@android:color/holo_blue_light"
         custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
             <com.dd.processbutton.FlatButton
-                android:id="@+id/commentListButtonId"
+                android:id="@+id/reviewsButtonId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/clubsocsButtonId"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:drawableLeft="@drawable/list_white_small_icon"
-                android:text="College Comment List"
+                android:text="Reviews"
                 android:textColor="@android:color/white"
                 custom:pb_colorNormal="@android:color/holo_blue_light"
                 custom:pb_colorPressed="@android:color/holo_blue_dark" />
 
             <com.dd.processbutton.FlatButton
-        android:id="@+id/addNewReviewButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-                android:layout_below="@+id/commentListButtonId"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/ic_action_new_white_small"
-        android:text="Add New College Review"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@android:color/holo_green_light"
-        custom:pb_colorPressed="@android:color/holo_green_dark" />
+                android:id="@+id/commentListButtonId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reviewsButtonId"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/list_white_small_icon"
+                android:text="Comments"
+                android:textColor="@android:color/white"
+                custom:pb_colorNormal="@android:color/holo_blue_light"
+                custom:pb_colorPressed="@android:color/holo_blue_dark" />
+
+            <!--<com.dd.processbutton.FlatButton-->
+        <!--android:id="@+id/addNewCommentButtonId"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/commentListButtonId"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:drawableLeft="@drawable/ic_action_new_white_small"-->
+        <!--android:text="Add New College Review"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--custom:pb_colorNormal="@android:color/holo_green_light"-->
+        <!--custom:pb_colorPressed="@android:color/holo_green_dark" />-->
 
 </RelativeLayout>
     </ScrollView>

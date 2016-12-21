@@ -201,6 +201,13 @@ public class CourseReviewListActivity extends ListActivity {
         return true;
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_add_review).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        return true;
+    }
+
     /*
      * "Show Unis" and refreshing the "show all" list will be controlled from the Action
      * Bar.
@@ -211,13 +218,16 @@ public class CourseReviewListActivity extends ListActivity {
 
             case R.id.action_refresh: {
                 updateReviewList();
-                //break;
+                break;
             }
 
-//            case R.id.action_show_uni: {
-//                showUnis();
-//                break;
-//            }
+            case R.id.action_add_review: {
+                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+                Log.d("DEBUG", "courseId1ncr is " + courseId);
+                addNewReviewIntent.putExtra("courseId", courseId);
+                startActivity(addNewReviewIntent);
+                break;
+            }
 
         }
         // Activate the navigation drawer toggle

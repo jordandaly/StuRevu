@@ -183,6 +183,13 @@ public class CollegeReviewListActivity extends ListActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.findItem(R.id.action_add_review).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        return true;
+    }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -208,7 +215,14 @@ public class CollegeReviewListActivity extends ListActivity {
 
             case R.id.action_refresh: {
                 updateReviewList();
-                //break;
+                break;
+            }
+            case R.id.action_add_review: {
+                Intent addNewReviewIntent = new Intent(this, NewReviewActivity.class);
+                Log.d("DEBUG", "collegeID1ncr is " + collegeId);
+                addNewReviewIntent.putExtra("collegeId", collegeId);
+                startActivity(addNewReviewIntent);
+                break;
             }
 
 
