@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ie.ncirl.jordandaly.classdoor">
+    package="com.sturevu.classdoor">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
-        android:name="ie.ncirl.jordandaly.classdoor.MAPS_RECEIVE"
+        android:name="com.sturevu.classdoor.MAPS_RECEIVE"
         android:protectionLevel="signature"></permission>
 
     <uses-permission android:name="ie.ncirl.jordandaly.classdoor.MAPS_RECEIVE" />
@@ -24,7 +24,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <permission
-        android:name="ie.ncirl.jordandaly.classdoor.permission.C2D_MESSAGE"
+        android:name="com.sturevu.classdoor.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
     <uses-permission android:name="ie.ncirl.jordandaly.classdoor.permission.C2D_MESSAGE" />
     <!--
@@ -34,14 +34,14 @@
 
 
     <application
-        android:name="ie.ncirl.jordandaly.classdoor.ParseApplication"
+        android:name="com.sturevu.classdoor.ParseApplication"
         android:allowBackup="true"
         android:icon="@drawable/gradcap_color_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.sturevu.classdoor.MainActivity"
             android:label="@string/app_name"
 
 
@@ -75,14 +75,14 @@
             android:value="id:680909257525" />;
 
         <provider
-            android:name=".MySuggestionProvider"
-            android:authorities="ie.ncirl.jordandaly.classdoor.MySuggestionProvider" />
+            android:name="com.sturevu.classdoor.MySuggestionProvider"
+            android:authorities="com.sturevu.classdoor.MySuggestionProvider" />
 
         <meta-data
             android:name="android.app.searchable"
             android:resource="@xml/searchable" />
 
-        <activity android:name=".SearchCourseListActivity">
+        <activity android:name="com.sturevu.classdoor.SearchCourseListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -107,7 +107,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="ie.ncirl.jordandaly.classdoor.Receiver"
+            android:name="com.sturevu.classdoor.Receiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
@@ -142,50 +142,52 @@
                 android:value="true" />
         </activity>
 
-        <activity android:name=".Login" />
-        <activity android:name=".CreateAccount" />
-        <activity android:name=".CollegeListActivity" />
-        <activity android:name=".CollegeSingleItem" />
-        <activity android:name=".CourseListActivity" />
-        <activity android:name=".CourseSingleItem" />
-        <activity android:name=".CollegeReviewListActivity" />
-        <activity android:name=".CourseReviewListActivity" />
-        <activity android:name=".ReviewSingleItem" />
-        <activity android:name=".NewReviewActivity" />
-        <activity android:name=".FavouriteCollegeActivity" />
-        <activity android:name=".FavouriteCourseActivity" />
-        <activity android:name=".CommentListActivity" />
-        <activity android:name=".CommentSingleItem" />
-        <activity android:name=".NewCommentActivity" />
-        <activity android:name=".NewReplyActivity" />
-        <activity android:name=".FavouriteCollegeReviewActivity" />
-        <activity android:name=".FavouriteCourseReviewActivity" />
-        <activity android:name=".MyCollegeReviewActivity" />
-        <activity android:name=".MyCourseReviewActivity" />
-        <activity android:name=".NewCollegeActivity" />
-        <activity android:name=".NewCourseActivity" />
+        <activity android:name="com.sturevu.classdoor.Login" />
+        <activity android:name="com.sturevu.classdoor.CreateAccount" />
+        <activity android:name="com.sturevu.classdoor.CollegeListActivity" />
+        <activity android:name="com.sturevu.classdoor.CollegeSingleItem" />
+        <activity android:name="com.sturevu.classdoor.CourseListActivity" />
+        <activity android:name="com.sturevu.classdoor.CourseSingleItem" />
+        <activity android:name="com.sturevu.classdoor.CollegeReviewListActivity" />
+        <activity android:name="com.sturevu.classdoor.CourseReviewListActivity" />
+        <activity android:name="com.sturevu.classdoor.ReviewSingleItem" />
+        <activity android:name="com.sturevu.classdoor.NewReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteCollegeActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteCourseActivity" />
+        <activity android:name="com.sturevu.classdoor.CommentListActivity" />
+        <activity android:name="com.sturevu.classdoor.CommentSingleItem" />
+        <activity android:name="com.sturevu.classdoor.NewCommentActivity" />
+        <activity android:name="com.sturevu.classdoor.NewReplyActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteCollegeReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteCourseReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.MyCollegeReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.MyCourseReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.NewCollegeActivity" />
+        <activity android:name="com.sturevu.classdoor.NewCourseActivity" />
+        <activity android:name="com.sturevu.classdoor.AdvancedSearchListActivity" />
+
 
 
         <!--<activity android:name=".SearchCourseListActivity" />-->
 
 
-        <activity android:name=".ClubSocListActivity" />
-        <activity android:name=".ClubSocSingleItem" />
-        <activity android:name=".ClubSocReviewListActivity" />
-        <activity android:name=".NewClubSocActivity" />
-        <activity android:name=".ModuleListActivity" />
-        <activity android:name=".ModuleSingleItem" />
-        <activity android:name=".ModuleReviewListActivity" />
-        <activity android:name=".NewModuleActivity" />
-        <activity android:name=".FavouritesActivity" />
-        <activity android:name=".FavouriteClubSocActivity" />
-        <activity android:name=".FavouriteModuleActivity" />
-        <activity android:name=".FavouriteClubSocReviewActivity" />
-        <activity android:name=".FavouriteModuleReviewActivity" />
-        <activity android:name=".MyReviewsActivity" />
-        <activity android:name=".MyClubSocReviewActivity" />
-        <activity android:name=".MyModuleReviewActivity" />
-        <activity android:name=".NewReportActivity" />
+        <activity android:name="com.sturevu.classdoor.ClubSocListActivity" />
+        <activity android:name="com.sturevu.classdoor.ClubSocSingleItem" />
+        <activity android:name="com.sturevu.classdoor.ClubSocReviewListActivity" />
+        <activity android:name="com.sturevu.classdoor.NewClubSocActivity" />
+        <activity android:name="com.sturevu.classdoor.ModuleListActivity" />
+        <activity android:name="com.sturevu.classdoor.ModuleSingleItem" />
+        <activity android:name="com.sturevu.classdoor.ModuleReviewListActivity" />
+        <activity android:name="com.sturevu.classdoor.NewModuleActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouritesActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteClubSocActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteModuleActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteClubSocReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.FavouriteModuleReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.MyReviewsActivity" />
+        <activity android:name="com.sturevu.classdoor.MyClubSocReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.MyModuleReviewActivity" />
+        <activity android:name="com.sturevu.classdoor.NewReportActivity" />
 
 
     </application>

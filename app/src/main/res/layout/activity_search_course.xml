@@ -29,6 +29,16 @@
         <requestFocus />
     </EditText>
 
+        <TextView
+            android:id="@+id/advancedSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advanced Search"
+            android:layout_toRightOf="@+id/searchCourse"
+            android:textSize="15sp"
+            android:onClick="onClick"
+            android:clickable="true"/>
+
     <com.dd.processbutton.FlatButton
         android:id="@+id/searchButton"
         android:layout_width="match_parent"

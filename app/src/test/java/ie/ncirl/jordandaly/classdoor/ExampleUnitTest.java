@@ -1,4 +1,4 @@
-package ie.ncirl.jordandaly.classdoor;
+package com.sturevu.classdoor;
 
 import org.junit.Test;
 

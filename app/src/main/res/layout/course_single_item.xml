@@ -18,7 +18,7 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context="ie.ncirl.jordandaly.classdoor.CourseSingleItem">
+            tools:context="com.sturevu.classdoor.CourseSingleItem">
 
         <include
             android:id="@+id/toolbar_main"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/mode_of_study"
-        android:text="CAO Code: "
+        android:text="Code: "
         android:textSize="25sp" />
 
     <TextView
@@ -153,30 +153,12 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/departmentFacultyLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/feesLabel"
-        android:text="Department/Faculty: "
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/department_faculty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fees"
-        android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@id/departmentFacultyLabel"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
 
     <TextView
         android:id="@+id/avgratinglabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/department_faculty"
+        android:layout_below="@id/feesLabel"
         android:text="@string/avgratinglabel"
         android:textSize="25sp" />
 
@@ -184,7 +166,7 @@
         android:id="@+id/avg_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/department_faculty"
+        android:layout_below="@id/feesLabel"
         android:layout_toRightOf="@+id/avgratinglabel"
         android:textSize="25sp" />
 
