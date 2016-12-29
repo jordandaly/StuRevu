@@ -30,7 +30,7 @@ public class FavouriteClubSocReviewAdapter extends ParseQueryAdapter<Favourite> 
                 query.whereMatchesQuery("Review_Id", innerQuery);
                 query.include("Review_Id.Club_Soc_Id");
                 query.include("Review_Id.User_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

@@ -26,7 +26,7 @@ public class MyClubSocReviewAdapter extends ParseQueryAdapter<Review> {
                 query.whereExists("Club_Soc_Id");
                 query.include("Club_Soc_Id");
                 query.include("User_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

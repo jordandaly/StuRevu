@@ -25,7 +25,7 @@ public class FavouriteCollegeAdapter extends ParseQueryAdapter<Favourite> {
                 query.whereEqualTo("User_Id", user_id);
                 query.whereExists("College_Id");
                 query.include("College_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

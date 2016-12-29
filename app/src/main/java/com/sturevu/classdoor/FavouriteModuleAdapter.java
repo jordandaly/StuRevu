@@ -27,7 +27,7 @@ public class FavouriteModuleAdapter extends ParseQueryAdapter<Favourite> {
                 query.include("Module_Id");
                 query.include("Module_Id.Course_Id");
                 query.include("Module_Id.Course_Id.College_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

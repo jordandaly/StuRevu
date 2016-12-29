@@ -26,7 +26,7 @@ public class MyModuleReviewAdapter extends ParseQueryAdapter<Review> {
                 query.whereExists("Module_Id");
                 query.include("Module_Id");
                 query.include("User_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

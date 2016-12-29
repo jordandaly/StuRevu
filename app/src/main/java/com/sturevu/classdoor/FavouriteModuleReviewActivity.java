@@ -191,7 +191,7 @@ public class FavouriteModuleReviewActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_action_review_list, menu);
+        getMenuInflater().inflate(R.menu.activity_action_list, menu);
         return true;
     }
 

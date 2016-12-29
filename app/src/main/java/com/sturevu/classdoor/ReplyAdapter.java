@@ -33,7 +33,7 @@ public class ReplyAdapter extends ParseQueryAdapter<Reply> {
                 ParseQuery query = new ParseQuery("Reply");
                 query.whereMatchesQuery("Comment_Id", innerQuery);
                 query.include("User_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

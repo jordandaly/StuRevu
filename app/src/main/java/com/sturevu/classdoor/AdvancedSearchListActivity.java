@@ -296,7 +296,7 @@ public class AdvancedSearchListActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_action_course_list, menu);
+        getMenuInflater().inflate(R.menu.activity_action_list, menu);
         return true;
     }
 

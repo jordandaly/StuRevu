@@ -26,7 +26,7 @@ public class FavouriteClubSocAdapter extends ParseQueryAdapter<Favourite> {
                 query.whereExists("Club_Soc_Id");
                 query.include("Club_Soc_Id");
                 query.include("Club_Soc_Id.College_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

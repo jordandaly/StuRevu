@@ -281,7 +281,11 @@ public class CommentListActivity extends ListActivity {
             case R.id.action_add_comment: {
             Intent addNewCommentIntent = new Intent(this, NewCommentActivity.class);
 
-                if (collegeId != null) {
+                if (reviewId != null) {
+                    Log.d("DEBUG", "reviewId2c is " + reviewId);
+                    addNewCommentIntent.putExtra("reviewId", reviewId);
+                }
+                else if (collegeId != null) {
                     Log.d("DEBUG", "collegeId2c is " + collegeId);
                     addNewCommentIntent.putExtra("collegeId", collegeId);
                 }

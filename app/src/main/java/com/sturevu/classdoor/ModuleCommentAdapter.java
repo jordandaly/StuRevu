@@ -36,7 +36,7 @@ public class ModuleCommentAdapter extends ParseQueryAdapter<Comment> {
                 ParseQuery query = new ParseQuery("Comment");
                 query.whereMatchesQuery("Module_Id", innerQuery);
                 query.include("User_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
 
 

@@ -33,7 +33,7 @@ public class ModuleReviewAdapter extends ParseQueryAdapter<Review> {
                 ParseQuery query = new ParseQuery("Review");
                 query.whereMatchesQuery("Module_Id", innerQuery);
                 query.include("User_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

@@ -26,7 +26,7 @@ public class FavouriteCourseAdapter extends ParseQueryAdapter<Favourite> {
                 query.whereExists("Course_Id");
                 query.include("Course_Id");
                 query.include("Course_Id.College_Id");
-                query.orderByAscending("createdAt");
+                query.orderByDescending("createdAt");
                 return query;
             }
         });

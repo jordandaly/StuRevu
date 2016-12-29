@@ -154,11 +154,11 @@ public class MyReviewsActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_action_review_list, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.activity_action_list, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {

@@ -7,7 +7,7 @@
     <string name="title_activity_college_list">StuRevu</string>
     <string name="title_activity_new_review">NewReviewActivity</string>
 
-    <string name="action_refresh">Return to List All and refresh</string>
+    <string name="action_refresh">Refresh List</string>
     <string name="action_show_uni_list">Only Show Universities</string>
     <string name="action_review_add">Add a Review</string>
     <string name="action_comment_add">Add a Comment</string>
