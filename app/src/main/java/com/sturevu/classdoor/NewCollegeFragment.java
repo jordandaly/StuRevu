@@ -29,6 +29,7 @@ public class NewCollegeFragment extends Fragment {
     private TextView collegeName;
     private Spinner collegeType;
     private TextView collegeInitials;
+    private Spinner collegeCountry;
     private TextView collegeLatitude;
     private TextView collegeLongitude;
     private ParseImageView collegePreview;
@@ -56,6 +57,12 @@ public class NewCollegeFragment extends Fragment {
 
         collegeInitials = ((EditText) v.findViewById(R.id.college_initials));
 
+        collegeCountry = ((Spinner) v.findViewById(R.id.college_country_spinner));
+        ArrayAdapter<CharSequence> collegeCountrySpinnerAdapter = ArrayAdapter
+                .createFromResource(getActivity(), R.array.college_country_array,
+                        android.R.layout.simple_spinner_dropdown_item);
+        collegeCountry.setAdapter(collegeCountrySpinnerAdapter);
+
 //        collegeLatitude = ((EditText) v.findViewById(R.id.college_latitude));
 //        collegeLongitude = ((EditText) v.findViewById(R.id.college_longitude));
 
@@ -75,12 +82,15 @@ public class NewCollegeFragment extends Fragment {
 
 
                 // Add the college type
-                college.setCollege_Type(collegeType.getSelectedItem().toString());
+                college.setCollegeType(collegeType.getSelectedItem().toString());
                 String collegeTypeInput = collegeType.getSelectedItem().toString();
 
                 //add initials, latitude, longitude
                 college.setInitials(collegeInitials.getText().toString());
                 String collegeInitialsInput = collegeInitials.getText().toString();
+
+                college.setCountry(collegeCountry.getSelectedItem().toString());
+                String collegeCountryInput = collegeCountry.getSelectedItem().toString();
 //                latitudeString = collegeLatitude.getText().toString();
 //                longitudeString = collegeLongitude.getText().toString();
 //
@@ -97,7 +107,7 @@ public class NewCollegeFragment extends Fragment {
 
                 //Check if fields not empty
 //                if (collegeNameInput.equals("") || collegeTypeInput.equals("") || collegeInitialsInput.equals("") || collegeLatitudeInput.equals("") || collegeLongitudeInput.equals(""))
-                if (collegeNameInput.equals("") || collegeTypeInput.equals("") || collegeInitialsInput.equals("")) {
+                if (collegeNameInput.equals("") || collegeTypeInput.equals("") || collegeInitialsInput.equals("") || collegeCountryInput.equals("")) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setMessage(R.string.inputValidation)

@@ -9,6 +9,10 @@
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical">
 
         <include
@@ -34,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="Course Level"
-            android:textSize="10sp" />
+            android:textSize="15sp" />
 
         <Spinner
             android:id="@+id/course_level_spinner"
@@ -47,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="Qualification Type"
-            android:textSize="10sp" />
+            android:textSize="15sp" />
 
         <Spinner
             android:id="@+id/qualification_type_spinner"
@@ -60,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="Mode of Study"
-            android:textSize="10sp" />
+            android:textSize="15sp" />
 
         <Spinner
             android:id="@+id/mode_of_study_spinner"

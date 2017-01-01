@@ -250,7 +250,7 @@ public class SearchCollegeFilterOptionActivity extends ListActivity {
 
 
                 //Check if fields not empty
-                if (collegeType.equals("") || collegeCountry.equals("")) {
+                if (collegeTypeInput.equals("") || collegeCountryInput.equals("")) {
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(SearchCollegeFilterOptionActivity.this);

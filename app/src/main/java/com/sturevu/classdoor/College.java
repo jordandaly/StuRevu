@@ -36,7 +36,7 @@ public class College extends ParseObject {
         return getString("College_Type");
     }
 
-    public void setCollege_Type(String value) {
+    public void setCollegeType(String value) {
         put("College_Type", value);
     }
 
@@ -46,6 +46,14 @@ public class College extends ParseObject {
 
     public void setInitials(String value) {
         put("Initials", value);
+    }
+
+    public String getCountry() {
+        return getString("Country");
+    }
+
+    public void setCountry(String value) {
+        put("Country", value);
     }
 
     public ParseFile getImageFile() {

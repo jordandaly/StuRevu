@@ -47,12 +47,12 @@
     <string name="search_college_hint">Search Colleges</string>
     <string name="search_button">Search</string>
     <string name="error">Error</string>
-    <string name="inputValidation">Input value can\'t be null, please enter text</string>
+    <string name="inputValidation">Input value can\'t be null, please enter or select a value.</string>
     <string name="app_label">app label</string>
     <string name="search_hint">Search....</string>
     <string name="action_fav">Save to Favourites</string>
     <string name="action_report">Report Content</string>
-    <string name="action_search_courses">Search all Courses</string>
+    <string name="action_search">Search</string>
     <string name="comment_label">New Comment Title</string>
     <string name="commentcountlabel">Comments : </string>
     <string name="share">Share on Facebook</string>
@@ -102,7 +102,7 @@
     <string-array name="college_type_array">
         <item></item>
         <item>University</item>
-        <item>Institute Of Technology</item>
+        <item>Institute of Technology</item>
         <item>Third Level Institute</item>
         <item>Online</item>
     </string-array>

@@ -257,7 +257,7 @@ public class AdvancedSearchListActivity extends ListActivity {
 
 
                 //Check if fields not empty
-                if (qualificationType.equals("") || courseLevel.equals("") || modeOfStudy.equals("")) {
+                if (qualificationTypeInput.equals("") || courseLevelInput.equals("") || modeOfStudyInput.equals("")) {
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdvancedSearchListActivity.this);
