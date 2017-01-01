@@ -48,10 +48,19 @@
         android:textSize="40sp" />
 
     <TextView
-        android:id="@+id/avgratinglabel"
+        android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/avgratinglabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/type"
         android:text="@string/avgratinglabel"
         android:textSize="25sp" />
 
@@ -59,7 +68,7 @@
         android:id="@+id/avg_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
+        android:layout_below="@id/type"
         android:layout_toRightOf="@+id/avgratinglabel"
         android:textSize="25sp" />
 

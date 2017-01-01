@@ -44,6 +44,7 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="search_course_hint">Search Courses</string>
+    <string name="search_college_hint">Search Colleges</string>
     <string name="search_button">Search</string>
     <string name="error">Error</string>
     <string name="inputValidation">Input value can\'t be null, please enter text</string>
@@ -180,6 +181,15 @@
         <item>Abuse</item>
         <item>Duplicate</item>
         <item>Other</item>
+    </string-array>
+
+    <string-array name="college_country_array">
+        <item></item>
+        <item>England</item>
+        <item>Northern Ireland</item>
+        <item>Republic Of Ireland</item>
+        <item>Scotland</item>
+        <item>Wales</item>
     </string-array>
 
 </resources>

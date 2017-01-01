@@ -1,7 +1,7 @@
 package com.sturevu.classdoor;
 
-
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -20,7 +20,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogOutCallback;
@@ -29,15 +32,20 @@ import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
+/**
+ * Created by jdaly on 31/12/2016.
+ */
+public class SearchCollegeActivity extends ListActivity  {
 
-public class CollegeListActivity extends ListActivity {
-
-
+    public static String collegename;
+    protected EditText sCollege;
+    protected Button mSearchButton;
+    protected TextView advancedSearch;
 
     ListView collegeListView;
     private ParseQueryAdapter<College> mainCollegeAdapter;
-    private CollegeAdapter collegeAdapter;
-    private CustomAdapter customAdapter;
+    private SearchCollegeAdapter searchCollegeAdapter;
+
 
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -48,10 +56,10 @@ public class CollegeListActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_college_list);
+        setContentView(R.layout.activity_search_college);
         getListView().setClickable(false);
 
-        getIntent().setAction("New College Added");
+
 
 
         AppCompatCallback callback = new AppCompatCallback() {
@@ -74,7 +82,7 @@ public class CollegeListActivity extends ListActivity {
         AppCompatDelegate delegate = AppCompatDelegate.create(this, callback);
 
         delegate.onCreate(savedInstanceState);
-        delegate.setContentView(R.layout.activity_college_list);
+        delegate.setContentView(R.layout.activity_search_college);
 
         mDrawerList = (ListView) findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -92,31 +100,29 @@ public class CollegeListActivity extends ListActivity {
 
         delegate.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         delegate.getSupportActionBar().setHomeButtonEnabled(true);
-        delegate.getSupportActionBar().setTitle("College List");
+        delegate.getSupportActionBar().setTitle("Search Colleges");
 
 
         //mainCollegeAdapter = new ParseQueryAdapter<College>(this, College.class);
         mainCollegeAdapter = new ParseQueryAdapter<College>(this, "College");
 
         mainCollegeAdapter.setTextKey("Name");
-//        mainCollegeAdapter.setImageKey("ImageFile");
+
         mainCollegeAdapter.loadObjects();
 
-        // Subclass of ParseQueryAdapter
-        customAdapter = new CustomAdapter(this);
 
         // Subclass of ParseQueryAdapter
-        collegeAdapter = new CollegeAdapter(this);
+        searchCollegeAdapter = new SearchCollegeAdapter(this);
 
         collegeListView = (ListView) findViewById(android.R.id.list);
-        collegeListView.setAdapter(collegeAdapter);
+        collegeListView.setVisibility(View.INVISIBLE);
 
         // Default view is collegeAdapter (all college sorted asc)
 //        setListAdapter(collegeAdapter);
 
         //getListView().setOnItemClickListener();
 
-        setUpCollegeItems();
+//        setUpCollegeItems();
 
 
 
@@ -136,23 +142,23 @@ public class CollegeListActivity extends ListActivity {
 //                Toast.makeText(CollegeListActivity.this, "Navigation drawer!", Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0: {
-                        Intent intent = new Intent(CollegeListActivity.this, CollegeListActivity.class);
+                        Intent intent = new Intent(SearchCollegeActivity.this, CollegeListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(CollegeListActivity.this, SearchCourseListActivity.class);
+                        Intent intent = new Intent(SearchCollegeActivity.this, SearchCourseListActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(CollegeListActivity.this, FavouritesActivity.class);
+                        Intent intent = new Intent(SearchCollegeActivity.this, FavouritesActivity.class);
                         startActivity(intent);
                         break;
                     }
 
                     case 3: {
-                        Intent intent = new Intent(CollegeListActivity.this, MyReviewsActivity.class);
+                        Intent intent = new Intent(SearchCollegeActivity.this, MyReviewsActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -190,22 +196,69 @@ public class CollegeListActivity extends ListActivity {
     }
 
     @Override
-    protected void onResume() {
-        Log.v("Example", "onResume");
+    protected void onResume() {super.onResume();
 
-        String action = getIntent().getAction();
-        // Prevent endless loop by adding a unique action, don't restart if action is present
-        if (action == null || !action.equals("New College Added")) {
-            Log.v("Example", "Force restart");
-            Intent intent = getIntent();
-            startActivity(intent);
-            finish();
-        }
-        // Remove the unique action so the next time onResume is called it will restart
-        else
-            getIntent().setAction(null);
 
-        super.onResume();
+        sCollege = (EditText) findViewById(R.id.searchCollege);
+        mSearchButton = (Button) findViewById(R.id.searchButton);
+        advancedSearch = (TextView) findViewById(R.id.advancedSearch);
+
+        advancedSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent advancedSearchIntent = new Intent(SearchCollegeActivity.this, SearchCollegeFilterOptionActivity.class);
+                startActivity(advancedSearchIntent);
+
+            }
+
+        });
+
+
+
+        mSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Get text from each field in register
+                collegename = sCollege.getText().toString();
+                //String password = mPassword.getText().toString();
+
+
+                //Check if fields not empty
+                if (collegename.isEmpty()) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SearchCollegeActivity.this);
+                    builder.setMessage(R.string.inputValidation)
+                            .setTitle(R.string.error)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                } else {
+
+                    ///Remove white spaces from any field
+                    /// and make sure they are not empty
+                    collegename = collegename.trim();
+                    //password = password.trim();
+
+                    String s1 = collegename.substring(0, 1).toUpperCase();
+                    collegename = s1 + collegename.substring(1);
+
+//                    courseListView = (ListView) findViewById(android.R.id.list);
+                    collegeListView.setAdapter(searchCollegeAdapter);
+
+                    // Default view is collegeAdapter (all college sorted asc)
+                    setListAdapter(searchCollegeAdapter);
+
+                    //getListView().setOnItemClickListener();
+
+                    setUpCollegeItems();
+
+
+                }
+
+            }
+        });
+
     }
 
 
@@ -220,21 +273,11 @@ public class CollegeListActivity extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.activity_action_college_list, menu);
+        getMenuInflater().inflate(R.menu.activity_action_list, menu);
         return true;
 
     }
 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_refresh).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-//        menu.findItem(R.id.action_show_uni).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-//        menu.findItem(R.id.action_show_map).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.action_add_college).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.findItem(R.id.logout).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
-        return true;
-    }
 
 
     @Override
@@ -253,42 +296,9 @@ public class CollegeListActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.logout: {
-                ParseUser.logOutInBackground(new LogOutCallback() {
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Toast.makeText(getApplicationContext(), "Logout Successful!"
-                                    , Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(CollegeListActivity.this, Login.class);
-                            startActivity(intent);
 
-                        } else {
-//                    somethingWentWrong();
-                        }
-                    }
-                });
-                break;
-            }
-
-//            case R.id.action_refresh: {
-//                updateCollegeList();
-//                break;
-//            }
-
-//            case R.id.action_show_uni: {
-//                showUnis();
-//                break;
-//            }
-
-//            case R.id.action_show_map: {
-//                Intent map_intent = new Intent(CollegeListActivity.this, MapActivity.class);
-//                startActivity(map_intent);
-//                break;
-//            }
-
-            case R.id.action_add_college: {
-                Intent new_college_intent = new Intent(CollegeListActivity.this, NewCollegeActivity.class);
-                startActivity(new_college_intent);
+            case R.id.action_refresh: {
+                updateCollegeList();
                 break;
             }
 
@@ -304,14 +314,10 @@ public class CollegeListActivity extends ListActivity {
 
 
     private void updateCollegeList() {
-        collegeAdapter.loadObjects();
+        searchCollegeAdapter.loadObjects();
 //        setListAdapter(collegeAdapter);
     }
 
-//    private void showUnis() {
-//        customAdapter.loadObjects();
-//        setListAdapter(customAdapter);
-//    }
 
 
     @Override
@@ -331,10 +337,10 @@ public class CollegeListActivity extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick");
 
-                ParseObject college = collegeAdapter.getItem(position);
+                ParseObject college = searchCollegeAdapter.getItem(position);
                 ParseProxyObject college_ppo = new ParseProxyObject(college);
 
-                Intent intent = new Intent(CollegeListActivity.this, CollegeSingleItem.class);
+                Intent intent = new Intent(SearchCollegeActivity.this, CollegeSingleItem.class);
                 intent.putExtra("college", college_ppo);
                 intent.putExtra("collegeID", college.getObjectId());
                 intent.putExtra("collegeName", college.getString("Name"));
@@ -345,6 +351,4 @@ public class CollegeListActivity extends ListActivity {
             }
         });
     }
-
-
 }

@@ -185,6 +185,9 @@
         <activity android:name="com.sturevu.classdoor.MyClubSocReviewActivity" />
         <activity android:name="com.sturevu.classdoor.MyModuleReviewActivity" />
         <activity android:name="com.sturevu.classdoor.NewReportActivity" />
+        <activity android:name="com.sturevu.classdoor.SearchCollegeActivity" />
+        <activity android:name="com.sturevu.classdoor.SearchCollegeFilterOptionActivity" />
+
 
 
     </application>

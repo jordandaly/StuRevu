@@ -37,6 +37,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
 
     TextView tv_collegeName;
     TextView tv_initials;
+    TextView tv_collegeType;
     TextView tv_averageRating;
     TextView tv_reviewCount;
     TextView tv_courseCount;
@@ -55,6 +56,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
     private String collegeID;
     private String collegeName;
     private String initials;
+    private String collegeType;
     //private String averageRating;
     private Object averageRating;
 
@@ -87,6 +89,7 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         collegeID = intent.getStringExtra("collegeID");
         collegeName = intent.getStringExtra("collegeName");
         initials = intent.getStringExtra("initials");
+        collegeType = intent.getStringExtra("collegeType");
         //averageRating = (int) intent.getSerializableExtra("averageRating");
         //reviewCount = (int) intent.getSerializableExtra("reviewCount");
         //courseCount = (int) intent.getSerializableExtra("courseCount");
@@ -244,25 +247,11 @@ public class CollegeSingleItem extends AppCompatActivity implements View.OnClick
         // Load the text into the TextView
         tv_collegeName.setText(collegeName);
 
-//        // Locate the TextView in singleitemview.xml
-//        tv_averageRating = (TextView) findViewById(R.id.avg_rating);
-//        // Load the text into the TextView
-//        tv_averageRating.setText(Double.toString(averageRating));
+        // Locate the TextView in singleitemview.xml
+        tv_collegeType = (TextView) findViewById(R.id.type);
+        // Load the text into the TextView
+        tv_collegeType.setText(collegeType);
 
-//        // Locate the TextView in singleitemview.xml
-//        tv_reviewCount = (TextView) findViewById(R.id.rev_count);
-//        // Load the text into the TextView
-//        tv_reviewCount.setText(Integer.toString(reviewCount));
-
-//        // Locate the TextView in singleitemview.xml
-//        tv_courseCount = (TextView) findViewById(R.id.course_count);
-//        // Load the text into the TextView
-//        tv_courseCount.setText(Integer.toString(courseCount));
-
-//        // Locate the TextView in singleitemview.xml
-//        tv_clubsocCount = (TextView) findViewById(R.id.clubsoc_count);
-//        // Load the text into the TextView
-//        tv_clubsocCount.setText(Integer.toString(clubsocCount));
 
         coursesButton = (Button) findViewById(R.id.coursesButtonId);
         reviewsButton = (Button) findViewById(R.id.reviewsButtonId);
