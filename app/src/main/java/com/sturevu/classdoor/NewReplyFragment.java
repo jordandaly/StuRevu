@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FunctionCallback;
 import com.parse.GetCallback;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
@@ -21,6 +23,8 @@ import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.HashMap;
 
 /**
  * Created by jdaly on 22/04/2016.
@@ -94,17 +98,31 @@ public class NewReplyFragment extends Fragment {
                             if (e == null) {
                                 String author = object.getParseObject("User_Id").getObjectId();
                                 Log.d("DEBUG", "reply UserId is " + author);
+                                String commentTitle = object.getString("Title");
+                                Log.d("DEBUG", "comment title is " + commentTitle);
 
                                 // Create our Installation query
-                                ParseQuery pushQuery = ParseInstallation.getQuery();
+//                                ParseQuery pushQuery = ParseInstallation.getQuery();
                                 ParseObject user_id = ParseObject.createWithoutData("_User", author);
-                                pushQuery.whereEqualTo("user", user_id);
+//                                pushQuery.whereEqualTo("user", user_id);
+                                String message = "A new reply has been added to a comment that you created, Title:" + commentTitle;
 
                                 // Send push notification to query
-                                ParsePush push_author = new ParsePush();
-                                push_author.setQuery(pushQuery); // Set our Installation query
-                                push_author.setMessage("A new reply has been added to a comment that you created");
-                                push_author.sendInBackground();
+//                                ParsePush push_author = new ParsePush();
+//                                push_author.setQuery(pushQuery); // Set our Installation query
+//                                push_author.setMessage("A new reply has been added to a comment that you created");
+//                                push_author.sendInBackground();
+                                HashMap<String, Object> params = new HashMap<String, Object>();
+                                params.put("recipientId", user_id.getObjectId());
+                                params.put("message", message);
+                                params.put("useMasterKey", true);
+                                ParseCloud.callFunctionInBackground("sendPushToUser", params, new FunctionCallback<String>() {
+                                    public void done(String success, ParseException e) {
+                                        if (e == null) {
+                                            // Push sent successfully
+                                        }
+                                    }
+                                });
 
                             } else {
                                 // something went wrong

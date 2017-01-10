@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FunctionCallback;
 import com.parse.GetCallback;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
@@ -21,6 +23,8 @@ import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.HashMap;
 
 /**
  * Created by jdaly on 11/12/2015.
@@ -130,19 +134,45 @@ public class NewCommentFragment extends Fragment {
                                 if (object.getParseObject("Course_Id") != null) {
                                     String courseDesc = object.getParseObject("Course_Id").getString("Description");
                                     String collegeInitials = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
+                                    String message = "A new comment has been created for one your favourite Course Reviews, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials;
 
-                                    ParsePush push_fav_course = new ParsePush();
-                                    push_fav_course.setChannel(reviewId);
-                                    push_fav_course.setMessage("A new comment has been created for one your favourite Course Reviews, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
-                                    push_fav_course.sendInBackground();
+//                                    ParsePush push_fav_course = new ParsePush();
+//                                    push_fav_course.setChannel(reviewId);
+//                                    push_fav_course.setMessage("A new comment has been created for one your favourite Course Reviews, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
+//                                    push_fav_course.sendInBackground();
+
+                                    HashMap<String, Object> params = new HashMap<String, Object>();
+                                    params.put("channelId", reviewId);
+                                    params.put("message", message);
+                                    params.put("useMasterKey", true);
+                                    ParseCloud.callFunctionInBackground("sendPushToChannel", params, new FunctionCallback<String>() {
+                                        public void done(String success, ParseException e) {
+                                            if (e == null) {
+                                                // Push sent successfully
+                                            }
+                                        }
+                                    });
                                 } else if (object.getParseObject("College_Id") != null) {
                                     String collegeInitials = object.getParseObject("College_Id").getString("Initials");
+                                    String message = "A new comment has been created for one your favourite College Reviews, Title: " + reviewTitle + " at " + collegeInitials;
 
 
-                                    ParsePush push_fav_college = new ParsePush();
-                                    push_fav_college.setChannel(reviewId);
-                                    push_fav_college.setMessage("A new comment has been created for one your favourite College Reviews, Title: " + reviewTitle + " at " + collegeInitials);
-                                    push_fav_college.sendInBackground();
+//                                    ParsePush push_fav_college = new ParsePush();
+//                                    push_fav_college.setChannel(reviewId);
+//                                    push_fav_college.setMessage("A new comment has been created for one your favourite College Reviews, Title: " + reviewTitle + " at " + collegeInitials);
+//                                    push_fav_college.sendInBackground();
+
+                                    HashMap<String, Object> params = new HashMap<String, Object>();
+                                    params.put("channelId", reviewId);
+                                    params.put("message", message);
+                                    params.put("useMasterKey", true);
+                                    ParseCloud.callFunctionInBackground("sendPushToChannel", params, new FunctionCallback<String>() {
+                                        public void done(String success, ParseException e) {
+                                            if (e == null) {
+                                                // Push sent successfully
+                                            }
+                                        }
+                                    });
                                 } else {
                                     // something went wrong
                                 }
@@ -172,29 +202,57 @@ public class NewCommentFragment extends Fragment {
                                     String collegeInitials = object.getParseObject("Course_Id").getParseObject("College_Id").getString("Initials");
 
                                     // Create our Installation query
-                                    ParseQuery pushQuery = ParseInstallation.getQuery();
+//                                    ParseQuery pushQuery = ParseInstallation.getQuery();
                                     ParseObject user_id = ParseObject.createWithoutData("_User", author);
-                                    pushQuery.whereEqualTo("user", user_id);
+//                                    pushQuery.whereEqualTo("user", user_id);
+                                    String message = "A new comment has been added to a Course Review that you created, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials ;
 
-                                    // Send push notification to query
-                                    ParsePush push_author_course = new ParsePush();
-                                    push_author_course.setQuery(pushQuery); // Set our Installation query
-                                    push_author_course.setMessage("A new comment has been added to a Course Review that you created, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
-                                    push_author_course.sendInBackground();
+
+//                                    // Send push notification to query
+//                                    ParsePush push_author_course = new ParsePush();
+//                                    push_author_course.setQuery(pushQuery); // Set our Installation query
+//                                    push_author_course.setMessage("A new comment has been added to a Course Review that you created, Title: " + reviewTitle + " for " + courseDesc + " at " + collegeInitials);
+//                                    push_author_course.sendInBackground();
+
+
+                                    HashMap<String, Object> params = new HashMap<String, Object>();
+                                    params.put("recipientId", user_id.getObjectId());
+                                    params.put("message", message);
+                                    params.put("useMasterKey", true);
+                                    ParseCloud.callFunctionInBackground("sendPushToUser", params, new FunctionCallback<String>() {
+                                        public void done(String success, ParseException e) {
+                                            if (e == null) {
+                                                // Push sent successfully
+                                            }
+                                        }
+                                    });
 
                                 } else if (object.getParseObject("College_Id") != null) {
                                     String collegeInitials = object.getParseObject("College_Id").getString("Initials");
 
                                     // Create our Installation query
-                                    ParseQuery pushQuery = ParseInstallation.getQuery();
+//                                    ParseQuery pushQuery = ParseInstallation.getQuery();
                                     ParseObject user_id = ParseObject.createWithoutData("_User", author);
-                                    pushQuery.whereEqualTo("user", user_id);
+//                                    pushQuery.whereEqualTo("user", user_id);
+                                    String message = "A new comment has been added to a College Review that you created, Title: " + reviewTitle + " at " + collegeInitials;
 
                                     // Send push notification to query
-                                    ParsePush push_author_college = new ParsePush();
-                                    push_author_college.setQuery(pushQuery); // Set our Installation query
-                                    push_author_college.setMessage("A new comment has been added to a College Review that you created, Title: " + reviewTitle + " at " + collegeInitials);
-                                    push_author_college.sendInBackground();
+//                                    ParsePush push_author_college = new ParsePush();
+//                                    push_author_college.setQuery(pushQuery); // Set our Installation query
+//                                    push_author_college.setMessage("A new comment has been added to a College Review that you created, Title: " + reviewTitle + " at " + collegeInitials);
+//                                    push_author_college.sendInBackground();
+
+                                    HashMap<String, Object> params = new HashMap<String, Object>();
+                                    params.put("recipientId", user_id.getObjectId());
+                                    params.put("message", message);
+                                    params.put("useMasterKey", true);
+                                    ParseCloud.callFunctionInBackground("sendPushToUser", params, new FunctionCallback<String>() {
+                                        public void done(String success, ParseException e) {
+                                            if (e == null) {
+                                                // Push sent successfully
+                                            }
+                                        }
+                                    });
 
                                 }
 

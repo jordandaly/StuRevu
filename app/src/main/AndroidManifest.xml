@@ -67,9 +67,13 @@
             android:name="com.parse.push.notification_icon"
             android:resource="@drawable/gradcap_color_icon" />
 
+        <!--<meta-data-->
+            <!--android:name="com.parse.push.gcm_sender_id"-->
+            <!--android:value="id:680909257525" />;-->
+
         <meta-data
             android:name="com.parse.push.gcm_sender_id"
-            android:value="id:680909257525" />;
+            android:value="id:581510963308" />;
 
         <provider
             android:name="com.sturevu.classdoor.MySuggestionProvider"
@@ -93,7 +97,7 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="ie.ncirl.jordandaly.classdoor" />
+                <category android:name="com.sturevu.classdoor" />
             </intent-filter>
         </receiver>
 

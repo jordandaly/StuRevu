@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "581510963308",
+    "firebase_url": "https://sturevu-31c83.firebaseio.com",
+    "project_id": "sturevu-31c83",
+    "storage_bucket": "sturevu-31c83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581510963308:android:4daf220f25c5b756",
+        "android_client_info": {
+          "package_name": "com.sturevu.classdoor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581510963308-mmo4ief9uktfdr9mhhm3q1rcj2ku219j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB17qNTR33igUWzbSKdnlHxDq7PwZ_DvOk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
