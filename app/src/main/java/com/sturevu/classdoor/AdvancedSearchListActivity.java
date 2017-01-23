@@ -38,7 +38,7 @@ public class AdvancedSearchListActivity extends ListActivity {
 
     public static Spinner modeOfStudy;
     public static Spinner courseLevel;
-    public static Spinner qualificationType;
+//    public static Spinner qualificationType;
 
 //    protected EditText sCourse;
     protected Button mSearchButton;
@@ -213,11 +213,11 @@ public class AdvancedSearchListActivity extends ListActivity {
                         android.R.layout.simple_spinner_dropdown_item);
         courseLevel.setAdapter(courseLevelSpinnerAdapter);
 
-        qualificationType = ((Spinner) findViewById(R.id.qualification_type_spinner));
-        ArrayAdapter<CharSequence> qualificationTypeSpinnerAdapter = ArrayAdapter
-                .createFromResource(AdvancedSearchListActivity.this, R.array.qualification_type_array,
-                        android.R.layout.simple_spinner_dropdown_item);
-        qualificationType.setAdapter(qualificationTypeSpinnerAdapter);
+//        qualificationType = ((Spinner) findViewById(R.id.qualification_type_spinner));
+//        ArrayAdapter<CharSequence> qualificationTypeSpinnerAdapter = ArrayAdapter
+//                .createFromResource(AdvancedSearchListActivity.this, R.array.qualification_type_array,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//        qualificationType.setAdapter(qualificationTypeSpinnerAdapter);
 
         modeOfStudy = ((Spinner) findViewById(R.id.mode_of_study_spinner));
         ArrayAdapter<CharSequence> modeOfStudySpinnerAdapter = ArrayAdapter
@@ -252,12 +252,12 @@ public class AdvancedSearchListActivity extends ListActivity {
 
                 String modeOfStudyInput = modeOfStudy.getSelectedItem().toString();
 
-                String qualificationTypeInput = qualificationType.getSelectedItem().toString();
-                //String password = mPassword.getText().toString();
+//                String qualificationTypeInput = qualificationType.getSelectedItem().toString();
+
 
 
                 //Check if fields not empty
-                if (qualificationTypeInput.equals("") || courseLevelInput.equals("") || modeOfStudyInput.equals("")) {
+                if (courseLevelInput.equals("") || modeOfStudyInput.equals("")) {
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdvancedSearchListActivity.this);

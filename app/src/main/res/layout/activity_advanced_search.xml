@@ -46,18 +46,18 @@
             android:layout_height="wrap_content"
             android:entries="@array/course_level_array" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="Qualification Type"
-            android:textSize="15sp" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:text="Qualification Type"-->
+            <!--android:textSize="15sp" />-->
 
-        <Spinner
-            android:id="@+id/qualification_type_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/qualification_type_array" />
+        <!--<Spinner-->
+            <!--android:id="@+id/qualification_type_spinner"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:entries="@array/qualification_type_array" />-->
 
         <TextView
             android:layout_width="match_parent"

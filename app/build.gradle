@@ -46,6 +46,8 @@ dependencies {
     compile 'com.parse:parseui-widget-android:0.0.1'
 //    compile 'com.google.android.gms:play-services-maps:8.4.0'
     compile 'com.google.android.gms:play-services-gcm:9.0.0'
+    compile 'com.google.android.gms:play-services-auth:9.0.0'
+
 //    compile 'com.google.android.gms:play-services-location:8.4.0'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.parse:parsefacebookutils-v4-android:1.10.3@aar'
@@ -53,7 +55,7 @@ dependencies {
 
 
 }
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
 
 
 

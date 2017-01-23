@@ -89,6 +89,13 @@
     <string name="verification_success">Your answer is verified successfully</string>
     <string name="verification_failed">You did not enter the CAPTCHA phrase correctly</string>
 
+    <!-- Google Sign-in status messages -->
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="signed_in">Signed in</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="signed_out">Signed out</string>
+    <string name="signed_in_err">"Error: please check logs."</string>
+
 
     <string-array name="ratings_array">
         <item></item>
@@ -187,7 +194,7 @@
         <item></item>
         <item>England</item>
         <item>Northern Ireland</item>
-        <item>Republic Of Ireland</item>
+        <item>Republic of Ireland</item>
         <item>Scotland</item>
         <item>Wales</item>
     </string-array>

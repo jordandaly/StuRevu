@@ -6,7 +6,7 @@
         android:id="@+id/action_refresh"
         android:icon="@drawable/refresh_icon_white"
         android:title="@string/action_refresh"
-        app:showAsAction="always"></item>
+        app:showAsAction="never"></item>
 
     <item
         android:id="@+id/action_add_college"

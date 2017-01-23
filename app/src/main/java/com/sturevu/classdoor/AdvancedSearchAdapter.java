@@ -33,9 +33,9 @@ public class AdvancedSearchAdapter extends ParseQueryAdapter<Course> {
                 Log.d("DEBUG", "course_level is " + course_level);
                 query.whereEqualTo("Course_Level", course_level);
 
-                String qualification_type = AdvancedSearchListActivity.qualificationType.getSelectedItem().toString();
-                Log.d("DEBUG", "qualification_type is " + qualification_type);
-                query.whereEqualTo("Qualification_Type", qualification_type);
+//                String qualification_type = AdvancedSearchListActivity.qualificationType.getSelectedItem().toString();
+//                Log.d("DEBUG", "qualification_type is " + qualification_type);
+//                query.whereEqualTo("Qualification_Type", qualification_type);
 
 
                 query.orderByAscending("Name");

@@ -54,7 +54,7 @@
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:textStyle="italic"
-        android:textSize="40sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/avgratinglabel"

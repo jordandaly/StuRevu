@@ -218,7 +218,7 @@ public class ModuleListActivity extends ListActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_search_modules).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        menu.findItem(R.id.action_search_modules).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.findItem(R.id.action_add_module).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
 
@@ -241,11 +241,11 @@ public class ModuleListActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_search_modules: {
-                Intent intent = new Intent(ModuleListActivity.this, SearchModuleListActivity.class);
-                startActivity(intent);
-                break;
-            }
+//            case R.id.action_search_modules: {
+//                Intent intent = new Intent(ModuleListActivity.this, SearchModuleListActivity.class);
+//                startActivity(intent);
+//                break;
+//            }
 
             case R.id.action_add_module: {
                 Intent intent = new Intent(ModuleListActivity.this, NewModuleActivity.class);
