@@ -107,7 +107,7 @@ public class NewCommentFragment extends Fragment {
                         comment.put("College_Id", ParseObject.createWithoutData("College", collegeId));
                     }
                     else if (courseId != null) {
-                        comment.put("CourseId", ParseObject.createWithoutData("Course", courseId));
+                        comment.put("Course_Id", ParseObject.createWithoutData("Course", courseId));
                     }
                     else if (clubsocId != null) {
                         comment.put("Club_Soc_Id", ParseObject.createWithoutData("Club_Soc", clubsocId));
