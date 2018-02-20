@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'MyAndroidKey'
-            keyPassword 'Samluccazeu8'
+            keyAlias 'YOUR_KEYALIAS_GOES_HERE'
+            keyPassword 'YOUR_KEYPASSWORD_GOES_HERE'
             storeFile file('C:/Users/jdaly/.android/debug.keystore')
-            storePassword 'Samluccazeu8'
+            storePassword 'YOUR_STOREPASSWORD_GOES_HERE'
         }
     }
     compileSdkVersion 23
