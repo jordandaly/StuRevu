@@ -13,7 +13,7 @@ import com.parse.ParseObject;
  * Created by jdaly on 06/10/2015.
  */
 public class ParseApplication extends Application {
-    public static final String YOUR_APPLICATION_ID = "XrA24jVj95M56K3IhahBvZpEOm2uTYH7gAWc3dEE";
+    public static final String YOUR_APPLICATION_ID = "YOUR_APP_ID_GOES_HERE";
 
 
     // Debugging switch
