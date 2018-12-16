@@ -1,4 +1,14 @@
-# StuRevu
+# Sturevu is a Data Driven Android App that collects and displays reviews of Third Level Institutions and Courses.
+Prospective Students can gain access to the collective
+knowledge and experience of thousands of current students
+and graduates. They can use the App as a comparison tool
+when deciding on where and what to study.
+
+This will hopefully result in higher progression and graduate
+employment rates from informed decision making in choosing
+courses and improvements in education quality from
+transparent feedback.
+
 Third Level Education is a big investment of time and money. StuRevu aims to help in mitigating this risk.
 We believe that with peer recommendations and reviews prospective students can gain insight and make better decisions when choosing their Education.
 
@@ -15,25 +25,11 @@ Quickly and easily return to your favourites and receive updates of new reviews 
 
 Browse reviews and add comments for more info.
 Add any type of College, Course, Module, Club or Society
-
-Sturevu is a Data Driven Android App that collects and displays
-reviews of Third Level Institutions and Courses.
-
-Prospective Students can gain access to the collective
-knowledge and experience of thousands of current students
-and graduates. They can use the App as a comparison tool
-when deciding on where and what to study.
-
-This will hopefully result in higher progression and graduate
-employment rates from informed decision making in choosing
-courses and improvements in education quality from
-transparent feedback.
  
 ## UX
 
 Documentation is at https://docs.google.com/document/d/1e_U8IDiVizSMGoyNU4m-kIz7kd1eryyNOp4xmEV1hPY/edit?usp=sharing
  
-
 ## Features
 
 ### Existing Features
@@ -58,11 +54,11 @@ Review Comments
 
 ## Testing
 
-Manual Testing only.
+- Manual Testing only.
 
 ## Deployment
 
-Deployed the Android App to Google Play Store, Parse Open Server to Heroku and MongoDB to MongoLab.
+- Deployed the Android App to Google Play Store, Parse Open Server to Heroku and MongoDB to MongoLab.
 
 ## Credits
 - Developed by Jordan Daly as part of Honours Bachelor Degree in Computing at National College of Ireland 2016.
