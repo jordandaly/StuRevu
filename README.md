@@ -38,17 +38,17 @@ Documentation is at https://docs.google.com/document/d/1e_U8IDiVizSMGoyNU4m-kIz7
 
 ### Existing Features
 Nested data model of Colleges => Courses => Modules
-● College, Course, Module and Club/Society Reviews
-● Calculations of Average Review Rating
-● Counts of Reviews,
+- College, Course, Module and Club/Society Reviews
+- Calculations of Average Review Rating
+- Counts of Reviews,
 Review Comments
-● Report Abuse & Vote Review Helpful
-● Add Comment to Review & Add Reply to Comment
-● Save Favourites
-● Push Notifications
-● Search Courses
-● Sliding Drawer Navigation Menu & Toolbar Action Menu
-● Login with Facebook
+- Report Abuse & Vote Review Helpful
+- Add Comment to Review & Add Reply to Comment
+- Save Favourites
+- Push Notifications
+- Search Courses
+- Sliding Drawer Navigation Menu & Toolbar Action Menu
+- Login with Facebook
 
 ### Features Left to Implement
 - Use Web Crawler or API or some form of automation to populate database with college, course, module and club/soc information.
